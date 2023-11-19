@@ -1,0 +1,85 @@
+body {
+   height: 100vh;
+   color: white;
+   background: #212121;
+   font-family: Raleway;
+   font-weight: 500;
+}
+input[type='text'] {
+   color: white;
+   background: black;
+   text-align: center;
+   width: 120px;
+   height: 30px;
+   margin: 20px 0px 15px 20px;
+   border-radius: 12px;
+}
+button {
+   position: absolute;
+   right: 8%;
+   width: 60px;
+   height: 30px;
+   margin: 20px 0 0;
+}
+header {
+   margin: 20px auto;
+   /* border: 1px solid; */
+}
+header p {
+   text-decoration: underline;
+}
+main {
+   height: 500px;
+   height: auto;
+   border: 1px solid;
+/*    overflow: scroll; */
+}
+#option {
+   display: flex;
+   margin: 20px 0;
+   justify-content: space-around;
+}
+#fill {
+   
+}
+#data {
+   margin: 40px;
+   line-height: 2;
+}
+#fill label {
+   margin: 0 0 0px 5%;
+}
+#realtime {
+   border: 1px solid
+}
+#livesc, #flinfo {
+   display: none;
+}
+p {
+   margin: 8px 0;
+   text-align: center;
+}
+a {
+   color: white;
+   text-decoration: underline;
+}
+footer {
+   border: 1px solid;
+}
+header, main, footer {
+   width: 100%;
+   max-width: 1500px;
+}
+
+
+
+iframe {
+   width: 99%;
+   margin: 30px auto 0;
+   max-width: 1000px;
+}
+ 
+ 
+ 
+ 
+ 
