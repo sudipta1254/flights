@@ -4,6 +4,8 @@ body {
    background: #212121;
    font-family: Raleway;
    font-weight: 500;
+   display: flex;
+   flex-direction: column;
 }
 input[type='text'] {
    color: white;
@@ -15,11 +17,9 @@ input[type='text'] {
    border-radius: 12px;
 }
 button {
-   position: absolute;
-   right: 8%;
    width: 60px;
    height: 30px;
-   margin: 20px 0 0;
+   margin: 20px 10px 0;
 }
 header {
    margin: 20px auto;
@@ -29,10 +29,11 @@ header p {
    text-decoration: underline;
 }
 main {
-   height: 500px;
-   height: auto;
+   /* height: auto; */
+   /* height: 500px; */
+   flex: 1;
    border: 1px solid;
-/*    overflow: scroll; */
+   overflow: auto;
 }
 #option {
    display: flex;
@@ -43,17 +44,21 @@ main {
    
 }
 #data {
-   margin: 40px;
+   margin: 10px 40px;
    line-height: 2;
+   overflow-y: auto;
 }
 #fill label {
    margin: 0 0 0px 5%;
 }
 #realtime {
-   border: 1px solid
+   /* border: 1px solid */
 }
 #livesc, #flinfo {
    display: none;
+}
+#timeout {
+   
 }
 p {
    margin: 8px 0;
@@ -64,7 +69,7 @@ a {
    text-decoration: underline;
 }
 footer {
-   border: 1px solid;
+   /* border: 1px solid; */
 }
 header, main, footer {
    width: 100%;
@@ -78,8 +83,4 @@ iframe {
    margin: 30px auto 0;
    max-width: 1000px;
 }
- 
- 
- 
- 
- 
+

@@ -1,5 +1,6 @@
 let check = $('input[type="radio"]'), txt = $('input[type="text"]'), xt = 0;
 
+//Runs query while button is clicked
 $('button').click(function() {
     if(!txt.val()) {
         alert('Enter query to continue');
@@ -101,7 +102,7 @@ function realtime(url) {
     .then(d => {
         if(!d.response.length)
             alert('No data found!');
-        // console.log(d)
+        console.log(d)
         let dt = d.response[0],
         text = `Registration: <b>${dt.reg_number}</b><br>
                 Flag: <b>${dt.flag}</b><br>
@@ -160,7 +161,7 @@ function information(url) {
 }
 
 
-
+//Switching between realtime, schedule & information tabs
 $('input[type="radio"]').change(function(){
     if($('#op1 input').is(':checked')) {
         $('#realtime').css('display', 'block');
@@ -176,12 +177,19 @@ $('input[type="radio"]').change(function(){
         xt = 3;
     }
 })
+
+//Get IST from unix time
 function time(t) {
     return new Date(t*1000).toLocaleString().replace(':00', '');
 }
-function ck(a, b) {
-    return a.eq(b).prop('checked');
+
+//Returns true if radio button is checked, false otherwise
+function ck(element, index) {
+    return element.eq(index).prop('checked');
 }
 
-
+//Timeout function for auto update
+$('#timeout').change(function() {
+    
+})
 
