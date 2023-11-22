@@ -33,7 +33,6 @@ main {
    /* height: 500px; */
    flex: 1;
    border: 1px solid;
-   overflow: auto;
 }
 #option {
    display: flex;
@@ -44,9 +43,10 @@ main {
    
 }
 #data {
+   height: 100%;
    margin: 10px 40px;
    line-height: 2;
-   overflow-y: auto;
+   overflow: auto;
 }
 #fill label {
    margin: 0 0 0px 5%;
