@@ -103,40 +103,40 @@ function main() {
    }
 }
 function realtime(url) {
-    fetch(url)
-    .then(response => {
-        if(!response.ok)
-            alert(response.status+' '+response.type);
-        return response.json();
-    })
-    .then(d => {
-        if(!d.response.length) {
-            alert('No data found!');
-            return;
-        }
-        let dt = d.response[0],
-        text = `Registration: <b>${dt.reg_number}</b><br>
-                Flag: <b>${dt.flag} ${flag(dt.flag.toLowerCase())}</b><br>
-                Position: <b>${dt.lat.toFixed(2)}, ${dt.lng.toFixed(2)}</b><br>
-                Altitude: <b>${(dt.alt*3.28).toFixed(0)} ft</b><br>
-                Direction: <b>${dt.dir}°</b><br>
-                Speed: <b>${dt.speed} Kmph</b><br>
-                V speed: <b>${dt.v_speed}</b><br>
-                Squawk: <b>${dt.squawk}</b><br>
-                Flight number: <b>${dt.flight_number}</b><br>
-                Flight ICAO/IATA: <b>${dt.flight_icao}/${dt.flight_iata}</b><br>
-                Departure ICAO/IATA: <b>${dt.dep_icao}/${dt.dep_iata}</b><br>
-                Arrival ICAO/IATA: <b>${dt.arr_icao}/${dt.arr_iata}</b><br>
-                Airline ICAO/IATA: <b>${dt.airline_icao}/${dt.airline_iata} ${logo(dt.airline_iata)}</b><br>
-                Aircraft ICAO: <b>${dt.aircraft_icao}</b><br>
-                Updated: <b>${time(dt.updated)}</b><br>
-                Status: <b>${dt.status}</b><br>
-                Type: <b>${dt.type}</b><hr>`;
-        $('#data').html(text);
-    })
-    .catch(e => {
-        alert(`Realtime error: ${e.message}`);
-    })
+   fetch(url)
+   .then(response => {
+      if(!response.ok)
+         alert(response.status+' '+response.type);
+      return response.json();
+   })
+   .then(d => {
+      if(!d.response.length) {
+         alert('No data found!');
+         return;
+      }
+      let dt = d.response[0],
+      text = `Registration: <b>${dt.reg_number}</b><br>
+               Flag: <b>${dt.flag} ${flag(dt.flag.toLowerCase())}</b><br>
+               Position: <b>${dt.lat.toFixed(2)}, ${dt.lng.toFixed(2)}</b><br>
+               Altitude: <b>${(dt.alt*3.28).toFixed(0)} ft</b><br>
+               Direction: <b>${dt.dir}°</b><br>
+               Speed: <b>${dt.speed} Kmph</b><br>
+               V speed: <b>${dt.v_speed}</b><br>
+               Squawk: <b>${dt.squawk}</b><br>
+               Flight number: <b>${dt.flight_number}</b><br>
+               Flight ICAO/IATA: <b>${dt.flight_icao}/${dt.flight_iata}</b><br>
+               Departure ICAO/IATA: <b>${dt.dep_icao}/${dt.dep_iata}</b><br>
+               Arrival ICAO/IATA: <b>${dt.arr_icao}/${dt.arr_iata}</b><br>
+               Airline ICAO/IATA: <b>${dt.airline_icao}/${dt.airline_iata} ${logo(dt.airline_iata)}</b><br>
+               Aircraft ICAO: <b>${dt.aircraft_icao}</b><br>
+               Updated: <b>${time(dt.updated)}</b><br>
+               Status: <b>${dt.status}</b><br>
+               Type: <b>${dt.type}</b><hr>`;
+      $('#data').html(text);
+   })
+   .catch(e => {
+      alert(`Realtime error: ${e.message}`);
+   })
 }
 function schedule(url) {
    fetch(url)
