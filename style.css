@@ -13,27 +13,22 @@ input[type='text'] {
    text-align: center;
    width: 120px;
    height: 30px;
-   margin: 20px 0px 15px 20px;
    border-radius: 12px;
 }
 button {
    width: 60px;
    height: 30px;
-   margin: 20px 10px 0;
 }
 header {
-   margin: 20px auto;
-   /* border: 1px solid; */
+   margin: 10px auto;
+   //border: 1px solid;
 }
 header p {
    text-decoration: underline;
 }
 main {
-   /* height: auto; */
-   /* height: 500px; */
    flex: 1;
-   border: 1px solid;
-   overflow: auto;
+   //border: 1px solid;
 }
 #option {
    display: flex;
@@ -43,22 +38,32 @@ main {
 #fill {
    
 }
+#submit {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   margin: 20px auto 0;
+   max-width: 376px;
+}
+span {
+   display: flex;
+   align-item: center
+}
 #data {
    margin: 10px 40px;
+/*    height: 100%; */
+   overflow: auto;
    line-height: 2;
-   overflow-y: auto;
+   //border: 1px solid;
 }
 #fill label {
    margin: 0 0 0px 5%;
 }
-#realtime {
-   /* border: 1px solid */
+#realtime { //
+   border: 1px solid
 }
 #livesc, #flinfo {
    display: none;
-}
-#timeout {
-   
 }
 p {
    margin: 8px 0;
@@ -69,14 +74,17 @@ a {
    text-decoration: underline;
 }
 footer {
-   /* border: 1px solid; */
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background: #212121;
 }
+
 header, main, footer {
    width: 100%;
    max-width: 1500px;
 }
-
-
 
 iframe {
    width: 99%;

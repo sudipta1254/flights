@@ -12,65 +12,67 @@
 </head>
 <body>
     <header id='header'>
-        <p>AirLabs Flight Tracker</p>
+        <p>Flight Tracker</p>
     </header>
     <main>
-        <div id='option'>
-            <div id='op1'>
-                <label for='rt'>Realtime
-                <input type='radio' id='rt' name='op' checked>
-            </div>
-            <div id='op2'>
-                <label for='sched'>Schedule
-                <input type='radio' id='sched' name='op'>
-            </div>
-            <div id='op3'>
-                <label for='info'>Information
-                <input type='radio' id='info' name='op'>
-            </div>
+    <div id='option'>
+        <div id='op1'>
+            <label for='rt'>Realtime
+            <input type='radio' id='rt' name='op' checked>
         </div>
-        <div id='fill'>
-            <div id='realtime'>
-                <label for='rt1'>Registration
-                <input type='radio' id='rt1' name='fl'>
-
-                <label for='rt2'>Flight ICAO/IATA
-                <input type='radio' id='rt2' name='fl' checked>
-
-                <label for='rt3'>Airline ICAO/IATA
-                <input type='radio' id='rt3' name='fl'>
-
-                <label for='rt4'>Arrival ICAO/IATA
-                <input type='radio' id='rt4' name='fl'>
-
-                <label for='rt5'>Departure ICAO/IATA
-                <input type='radio' id='rt5' name='fl'>
-            </div>
-            <div id='livesc'>
-                <label for='li1'>Flight ICAO/IATA
-                <input type='radio' id='li1' name='li' checked>
-
-                <label for='li2'>Airline ICAO/IATA
-                <input type='radio' id='li2' name='li'>
-
-                <label for='li3'>Arrival ICAO/IATA
-                <input type='radio' id='li3' name='li'>
-
-                <label for='li4'>Departure ICAO/IATA
-                <input type='radio' id='li4' name='li'>
-            </div>
-            <div id='flinfo'>
-                <label for='fi1'>Flight ICAO/IATA
-                <input type='radio' id='fi1' checked>
-            </div>
+        <div id='op2'>
+            <label for='sched'>Schedule
+            <input type='radio' id='sched' name='op'>
         </div>
-        <div id="submit">
+        <div id='op3'>
+            <label for='info'>Information
+            <input type='radio' id='info' name='op'>
+        </div>
+    </div>
+    <div id='fill'>
+        <div id='realtime'>
+            <label for='rt1'>Registration
+            <input type='radio' id='rt1' name='fl'>
+                
+            <label for='rt2'>Flight ICAO/IATA
+            <input type='radio' id='rt2' name='fl' checked>
+                
+            <label for='rt3'>Airline ICAO/IATA
+            <input type='radio' id='rt3' name='fl'>
+                
+            <label for='rt4'>Arrival ICAO/IATA
+            <input type='radio' id='rt4' name='fl'>
+                
+            <label for='rt5'>Departure ICAO/IATA
+            <input type='radio' id='rt5' name='fl'>
+        </div>
+        <div id='livesc'>
+            <label for='li1'>Flight ICAO/IATA
+            <input type='radio' id='li1' name='li' checked>
+                
+            <label for='li2'>Airline ICAO/IATA
+            <input type='radio' id='li2' name='li'>
+                
+            <label for='li3'>Arrival ICAO/IATA
+            <input type='radio' id='li3' name='li'>
+                
+            <label for='li4'>Departure ICAO/IATA
+            <input type='radio' id='li4' name='li'>
+        </div>
+        <div id='flinfo'>
+            <label for='fi1'>Flight ICAO/IATA
+            <input type='radio' id='fi1' checked>
+        </div>
+    </div>
+    <div id="submit">
+        <span>
             <label for="timeout">Auto update</label>
             <input type="checkbox" id="timeout">
-            <input type='text' placeholder='Enter query'>
-            <button>Go</button>
-        </div>
-        <div id='data'></div>
+        </span>
+        <input type='text' placeholder='Enter query'>
+        <button>Go</button>
+    </div>
+    <div id='data'></div>
     </main>
     <footer>
         <p>Page designed by
