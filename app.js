@@ -116,7 +116,7 @@ function realtime(url) {
         }
         let dt = d.response[0],
         text = `Registration: <b>${dt.reg_number}</b><br>
-                Flag: <b>${dt.flag} <img src="https://flagcdn.com/24x18/${dt.flag.toLowerCase()}.png"></b><br>
+                Flag: <b>${dt.flag} ${flag(dt.flag.toLowerCase())}</b><br>
                 Position: <b>${dt.lat.toFixed(2)}, ${dt.lng.toFixed(2)}</b><br>
                 Altitude: <b>${(dt.alt*3.28).toFixed(0)} ft</b><br>
                 Direction: <b>${dt.dir}°</b><br>
@@ -127,7 +127,7 @@ function realtime(url) {
                 Flight ICAO/IATA: <b>${dt.flight_icao}/${dt.flight_iata}</b><br>
                 Departure ICAO/IATA: <b>${dt.dep_icao}/${dt.dep_iata}</b><br>
                 Arrival ICAO/IATA: <b>${dt.arr_icao}/${dt.arr_iata}</b><br>
-                Airline ICAO/IATA: <b>${dt.airline_icao}/${dt.airline_iata}</b><br>
+                Airline ICAO/IATA: <b>${dt.airline_icao}/${dt.airline_iata} ${logo(dt.airline_iata)}</b><br>
                 Aircraft ICAO: <b>${dt.aircraft_icao}</b><br>
                 Updated: <b>${time(dt.updated)}</b><br>
                 Status: <b>${dt.status}</b><br>
@@ -189,9 +189,14 @@ $('input[type="radio"]').change(function(){
 function time(t) {
    return new Date(t*1000).toLocaleString().replace(':00', '');
 }
-
 function ck(a, b) {
    return a.eq(b).prop('checked');
+}
+function flag(flag) {
+   return `<img src="https://flagcdn.com/24x18/${flag.toLowerCase()}.png">`;
+}
+function logo(logo) {
+   return `<img src=https://airlabs.co/img/airline/m/${logo}.png id='logo'>`;
 }
 
 $('input[type="checkbox"]').change(function() {
@@ -210,6 +215,7 @@ $('input[type="checkbox"]').change(function() {
 txt.on("keypress", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();
+    $(this).blur();
     main();
   }
 });
