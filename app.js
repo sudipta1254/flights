@@ -302,4 +302,4 @@ btn.click(() => {
    main();
 });
 
-information(info);
+// information(info);
