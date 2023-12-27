@@ -156,95 +156,95 @@ function schedule(url) {
 }
 function information(url) {
    var d = {
-   "aircraft_icao":"A20N",
-   "age":2,
-   "built":2019,
-   "engine":"jet",
-   "engine_count":"2",
-   "model":"Airbus A320-200 Neo",
-   "manufacturer":"AIRBUS",
-   "msn":"8099",
-   "type":"adsb",
-   "reg_number":"VT-TNI",
-   "airline_iata":"UK",
-   "airline_icao":"VTI",
-   "flight_iata":"UK782",
-   "flight_icao":"VTI782",
-   "flight_number":"782",
-   "dep_iata":"BBI",
-   "dep_icao":"VEBS",
-   "dep_terminal":"1",
-   "dep_gate":null,
-   "dep_time":"2023-12-26 20:30",
-   "dep_estimated":"2023-12-26 20:53",
-   "dep_actual":"2023-12-26 20:53",
-   "dep_time_utc":"2023-12-26 15:00",
-   "dep_estimated_utc":"2023-12-26 15:23",
-   "dep_actual_utc":"2023-12-26 15:23",
-   "dep_time_ts":1703602800,
-   "dep_estimated_ts":1703604180,
-   "dep_actual_ts":1703604180,
-   "arr_iata":"DEL",
-   "arr_icao":"VIDP",
-   "arr_terminal":"T3",
-   "arr_gate":null,
-   "arr_baggage":"8",
-   "arr_time":"2023-12-26 22:55",
-   "arr_estimated":"2023-12-26 23:17",
-   "arr_actual":null,
-   "arr_time_utc":"2023-12-26 17:25",
-   "arr_estimated_utc":"2023-12-26 17:47",
-   "arr_actual_utc":null,
-   "arr_time_ts":1703611500,
-   "arr_estimated_ts":1703612820,
-   "cs_airline_iata":null,
-   "cs_flight_number":null,
-   "cs_flight_iata":null,
-   "status":"en-route",
-   "duration":145,
-   "delayed":22,
-   "dep_delayed":23,
-   "arr_delayed":22,
-   "updated":1703611660,
-   "hex":"800C8F",
-   "flag":"IN",
-   "lat":28.458755,
-   "lng":77.476959,
-   "alt":1630,
-   "dir":284.4,
-   "speed":393,
-   "v_speed":-3.3,
-   "squawk":"2664",
-   "dep_name":"Biju Patnaik International Airport",
-   "dep_city":"Bhubaneswar",
-   "dep_country":"IN",
-   "arr_name":"Indira Gandhi International Airport",
-   "arr_city":"Delhi",
-   "arr_country":"IN",
-   "airline_name":"Vistara",
-   "percent":88,
-   "utc":"2023-12-26 17:28",
-   "eta":18
-}
+      "aircraft_icao":"A20N",
+      "age":2,
+      "built":2019,
+      "engine":"jet",
+      "engine_count":"2",
+      "model":"Airbus A320-200 Neo",
+      "manufacturer":"AIRBUS",
+      "msn":"8099",
+      "type":"adsb",
+      "reg_number":"VT-TNI",//1
+      "airline_iata":"UK",//11
+      "airline_icao":"VTI",//11
+      "flight_iata":"UK782",//7
+      "flight_icao":"VTI782",//7
+      "flight_number":"782",//6
+      "dep_iata":"BBI",
+      "dep_icao":"VEBS",
+      "dep_terminal":"1",
+      "dep_gate":null,
+      "dep_time":"2023-12-26 20:30",
+      "dep_estimated":"2023-12-26 20:53",
+      "dep_actual":"2023-12-26 20:53",
+      "dep_time_utc":"2023-12-26 15:00",
+      "dep_estimated_utc":"2023-12-26 15:23",
+      "dep_actual_utc":"2023-12-26 15:23",
+      "dep_time_ts":1703602800,
+      "dep_estimated_ts":1703604180,
+      "dep_actual_ts":1703604180,
+      "arr_iata":"DEL",
+      "arr_icao":"VIDP",
+      "arr_terminal":"T3",
+      "arr_gate":null,
+      "arr_baggage":"8",
+      "arr_time":"2023-12-26 22:55",
+      "arr_estimated":"2023-12-26 23:17",
+      "arr_actual":null,
+      "arr_time_utc":"2023-12-26 17:25",
+      "arr_estimated_utc":"2023-12-26 17:47",
+      "arr_actual_utc":null,
+      "arr_time_ts":1703611500,
+      "arr_estimated_ts":1703612820,
+      "cs_airline_iata":null,
+      "cs_flight_number":null,
+      "cs_flight_iata":null,
+      "status":"en-route",
+      "duration":145,
+      "delayed":22,
+      "dep_delayed":23,
+      "arr_delayed":22,
+      "updated":1703611660,
+      "hex":"800C8F",
+      "flag":"IN",
+      "lat":28.458755,//2
+      "lng":77.476959,//2
+      "alt":1630,//3
+      "dir":284.4,//4
+      "speed":393,//5
+      "v_speed":-3.3,
+      "squawk":"2664",
+      "dep_name":"Biju Patnaik International Airport",//9
+      "dep_city":"Bhubaneswar",//9
+      "dep_country":"IN",//9
+      "arr_name":"Indira Gandhi International Airport",//10
+      "arr_city":"Delhi",//10
+      "arr_country":"IN",//10
+      "airline_name":"Vistara",//11
+      "percent":88,
+      "utc":"2023-12-26 17:28",
+      "eta":18
+   };
    
    let txt = `Registration: ${d.reg_number}<br>
               Aircraft ICAO: ${d.aircraft_icao}<br>`;
    fill.html(txt);
    
    
-    /*fetch(url)
-    .then(response => {
-        if(!response.ok)
-            alert(response.status+' '+response.type);
-        return response.json();
-    })
-    .then(d => {
-        if(!d.response.length)
-            alert('No data found!');
-    })
-    .catch(e => {
-        alert(`Information error: ${e.message}`);
-    })*/
+   /*fetch(url)
+   .then(response => {
+      if(!response.ok)
+         alert(response.status+' '+response.type);
+      return response.json();
+   })
+   .then(d => {
+      if(!d.response.length)
+         alert('No data found!');
+   })
+   .catch(e => {
+      alert(`Information error: ${e.message}`);
+   }) */
 }
 
 
@@ -265,7 +265,7 @@ $('input[type="radio"]').change(function(){
 })
 
 function time(t) {
-   return new Date(t*1000).toLocaleString().replace(':00', '');
+   return new Date(t*1000).toLocaleString();
 }
 function ck(a, b) {
    return a.eq(b).prop('checked');
@@ -291,11 +291,11 @@ $('input[type="checkbox"]').change(function() {
 })
 
 txt.on("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    $(this).blur();
-    main();
-  }
+   if (event.key === "Enter") {
+      event.preventDefault();
+      $(this).blur();
+      main();
+   }
 });
 
 btn.click(() => {
