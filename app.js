@@ -131,7 +131,7 @@ function realtime(url) {
                 Aircraft ICAO: <b>${dt.aircraft_icao}</b><br>
                 Updated: <b>${time(dt.updated)}</b><br>
                 Status: <b>${dt.status}</b><br>
-                Type: <b>${dt.type}</b>`;
+                Type: <b>${dt.type}</b><hr>`;
         $('#data').html(text);
     })
     .catch(e => {
