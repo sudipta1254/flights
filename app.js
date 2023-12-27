@@ -163,8 +163,6 @@ function information(url) {
     .then(d => {
         if(!d.response.length)
             alert('No data found!');
-        // console.log(d)
-        alert(d.response.length);
     })
     .catch(e => {
         alert(`Information error: ${e.message}`);
