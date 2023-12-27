@@ -70,7 +70,16 @@ body {
     color: white;
     text-decoration: underline;
  }
- footer {
+#logo {
+   position: absolute;
+   margin: 0px 5px 0;
+   width: 25px;
+   background: white
+}
+hr {
+   width: 80%;
+}
+footer {
     //border: 1px solid;
     position: fixed;
     left: 0;
@@ -84,11 +93,4 @@ body {
     max-width: 1500px;
  }
  
- 
- 
- iframe {
-    width: 99%;
-    margin: 30px auto 0;
-    max-width: 1000px;
- }
   
