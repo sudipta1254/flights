@@ -90,7 +90,7 @@ function main() {
       }
       schedule(rt);
    } else {
-      var rt = `https://airlabs.co/api/v9/flights?api_key=`+key2;
+      var rt = `https://airlabs.co/api/v9/flight?api_key=`+key2;
       if(txt.val().length == 5)
          rt += '&flight_iata='+txt.val();
       else if(txt.val().length == 6)
@@ -103,6 +103,159 @@ function main() {
    }
 }
 function realtime(url) {
+   let dts = {
+      "request": {
+          "lang": "en",
+          "currency": "USD",
+          "time": 2,
+          "id": "obd0uvqamn4",
+          "server": "l",
+          "host": "airlabs.co",
+          "pid": 2624334,
+          "key": {
+              "id": 29163,
+              "api_key": "7e5231c8-8efc-402c-a160-6c769fe8e934",
+              "type": "free",
+              "expired": "2024-01-27T00:00:00.000Z",
+              "registered": "2023-12-28T02:54:14.000Z",
+              "upgraded": null,
+              "limits_by_hour": 2500,
+              "limits_by_minute": 250,
+              "limits_by_month": 1000,
+              "limits_total": 985
+          },
+          "params": {
+              "airline_iata": "ai",
+              "lang": "en"
+          },
+          "version": 9,
+          "method": "flights",
+          "client": {
+              "ip": "2401:4900:7164:68a:bd3a:f12f:f795:80c4",
+              "geo": {
+                  "country_code": "IN",
+                  "country": "India",
+                  "continent": "Asia",
+                  "city": "Bhubaneswar",
+                  "lat": 20.2706,
+                  "lng": 85.8334,
+                  "timezone": "Asia/Kolkata"
+              },
+              "connection": {},
+              "device": {},
+              "agent": {},
+              "karma": {
+                  "is_blocked": false,
+                  "is_crawler": false,
+                  "is_bot": false,
+                  "is_friend": false,
+                  "is_regular": true
+              }
+          }
+      },
+      "response": [
+          {
+              "hex": "800584",
+              "reg_number": "VT-ALU",
+              "flag": "IN",
+              "lat": 65.521344,
+              "lng": 56.554751,
+              "alt": 9753,
+              "dir": 328,
+              "speed": 874,
+              "v_speed": 0,
+              "squawk": "0562",
+              "flight_number": "187",
+              "flight_icao": "AIC187",
+              "flight_iata": "AI187",
+              "dep_icao": "VIDP",
+              "dep_iata": "DEL",
+              "arr_icao": "CYYZ",
+              "arr_iata": "YYZ",
+              "airline_icao": "AIC",
+              "airline_iata": "AI",
+              "aircraft_icao": "B77W",
+              "updated": 1703735743,
+              "status": "en-route",
+              "type": "adsb"
+          },
+          {
+              "hex": "801591",
+              "reg_number": "VT-RTC",
+              "flag": "IN",
+              "lat": 28.528381,
+              "lng": 77.153338,
+              "alt": 510,
+              "dir": 283,
+              "speed": 259,
+              "v_speed": -4.2,
+              "squawk": "6311",
+              "flight_number": "818",
+              "flight_icao": "AIC818",
+              "flight_iata": "AI818",
+              "dep_icao": "VAAH",
+              "dep_iata": "AMD",
+              "arr_icao": "VIDP",
+              "arr_iata": "DEL",
+              "airline_icao": "AIC",
+              "airline_iata": "AI",
+              "aircraft_icao": "A21N",
+              "updated": 1703735743,
+              "status": "en-route",
+              "type": "adsb"
+          },
+          {
+              "hex": "801595",
+              "reg_number": "VT-RTD",
+              "flag": "IN",
+              "lat": 25.12657,
+              "lng": 77.252595,
+              "alt": 9745,
+              "dir": 358,
+              "speed": 787,
+              "v_speed": -0.3,
+              "squawk": "2671",
+              "flight_number": "436",
+              "flight_icao": "AIC436",
+              "flight_iata": "AI436",
+              "dep_icao": "VABP",
+              "dep_iata": "BHO",
+              "arr_icao": "VIDP",
+              "arr_iata": "DEL",
+              "airline_icao": "AIC",
+              "airline_iata": "AI",
+              "aircraft_icao": "A21N",
+              "updated": 1703735743,
+              "status": "en-route",
+              "type": "adsb"
+          },
+          {
+              "hex": "801613",
+              "reg_number": "VT-RTQ",
+              "flag": "IN",
+              "lat": 12.079188,
+              "lng": 76.430391,
+              "alt": 8907,
+              "dir": 325,
+              "speed": 809,
+              "v_speed": 5.5,
+              "squawk": "2760",
+              "flight_number": "608",
+              "flight_icao": "AIC608",
+              "flight_iata": "AI608",
+              "dep_icao": "VOCB",
+              "dep_iata": "CJB",
+              "arr_icao": "VABB",
+              "arr_iata": "BOM",
+              "airline_icao": "AIC",
+              "airline_iata": "AI",
+              "aircraft_icao": "A20N",
+              "updated": 1703735743,
+              "status": "en-route",
+              "type": "adsb"
+          }],
+          "terms": "Unauthorized access is prohibited and punishable by law. \nReselling data 'As Is' without AirLabs.Co permission is strictly prohibited. \nFull terms on https://airlabs.co/. \nContact us info@airlabs.co"
+      };
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -110,6 +263,7 @@ function realtime(url) {
       return response.json();
    })
    .then(d => {
+      console.log(d, '1');
       if(!d.response.length) {
          alert('No data found!');
          return;
@@ -151,6 +305,7 @@ function schedule(url) {
       return response.json();
    })
    .then(d => {
+      console.log(d, '2');
       if(!d.response.length)
          alert('No data found!');
       fill.empty();
@@ -240,6 +395,7 @@ function information(url) {
       return response.json();
    })
    .then(d => {
+      console.log(d, '3');
       if(d.error) {
          fill.text(d.error.message+'. '+d.error.code);
          return;
@@ -288,7 +444,7 @@ function flag(flag) {
    return `<img src="https://flagcdn.com/24x18/${flag.toLowerCase()}.png">`;
 }
 function logo(logo) {
-   return `<img src=https://airlabs.co/img/airline/m/${logo}.png id='logo'>`;
+   return `<div id="logo-div"><img src=https://airlabs.co/img/airline/m/${logo}.png id='logo'></div>`;
 }
 
 $('input[type="checkbox"]').change(function() {
