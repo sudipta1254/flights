@@ -32,17 +32,17 @@ main {
    width: 100%;
    max-width: 50rem;
    margin: 0px auto;
-   border: 1px solid teal
+   //border: 1px solid teal
 }
 #select-label {
    margin: 0 10px;
-   border: 1px solid;
+   //border: 1px solid;
 }
 #selects {
    display: flex;
    margin: 0px auto;
    justify-content: space-around;
-   border: 1px solid;
+   //border: 1px solid;
 }
 select {
    width: 100px;
