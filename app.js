@@ -8,7 +8,7 @@ function main() {
       return;
    }
    if(xt == 1) {
-      var rt = `https://airlabs.co/api/v9/flights?api_key=a1af1621-da48-4592-a132-52415d0cabd3`;
+      var rt = `https://airlabs.co/api/v9/flights?api_key=`+key2;
       if(ck(check, 3)) {//registration
          rt += '&reg_number='+txt.val();
       } else if(ck(check, 4)) {//flight icao/iata
@@ -50,7 +50,7 @@ function main() {
       }
       realtime(rt);
    } else if(xt == 2) {
-      var rt = `https://airlabs.co/api/v9/schedules?api_key=a1af1621-da48-4592-a132-52415d0cabd3`;
+      var rt = `https://airlabs.co/api/v9/schedules?api_key=`+key2;
       if(ck(check, 8)) {//flight icao/iata
          if(txt.val().length == 5)
             rt += '&flight_iata='+txt.val();
@@ -90,7 +90,7 @@ function main() {
       }
       schedule(rt);
    } else {
-      var rt = `https://airlabs.co/api/v9/flights?api_key=a1af1621-da48-4592-a132-52415d0cabd3`;
+      var rt = `https://airlabs.co/api/v9/flights?api_key=`+key2;
       if(txt.val().length == 5)
          rt += '&flight_iata='+txt.val();
       else if(txt.val().length == 6)
@@ -113,9 +113,13 @@ function realtime(url) {
       if(!d.response.length) {
          alert('No data found!');
          return;
+      }if(!d.response.length) {
+         alert('No data found!');
+         return;
       }
-      let dt = d.response[0],
-      text = `Registration: <b>${dt.reg_number}</b><br>
+      fill.empty();
+      d.response.forEach(dt => {
+         text = `Registration: <b>${dt.reg_number}</b><br>
                Flag: <b>${dt.flag} ${flag(dt.flag.toLowerCase())}</b><br>
                Position: <b>${dt.lat.toFixed(2)}, ${dt.lng.toFixed(2)}</b><br>
                Altitude: <b>${(dt.alt*3.28).toFixed(0)} ft</b><br>
@@ -132,7 +136,8 @@ function realtime(url) {
                Updated: <b>${time(dt.updated)}</b><br>
                Status: <b>${dt.status}</b><br>
                Type: <b>${dt.type}</b><hr>`;
-      $('#data').html(text);
+         $('#data').append(text);
+      });
    })
    .catch(e => {
       alert(`Realtime error: ${e.message}`);
@@ -148,7 +153,8 @@ function schedule(url) {
    .then(d => {
       if(!d.response.length)
          alert('No data found!');
-      // console.log(d);
+      fill.empty();
+      fill.html(2);
    })
    .catch(e => {
       alert(`Schedule error: ${e.message}`);
@@ -227,24 +233,32 @@ function information(url) {
       "eta":18
    };
    
-   let txt = `Registration: ${d.reg_number}<br>
-              Aircraft ICAO: ${d.aircraft_icao}<br>`;
-   fill.html(txt);
-   
-   
-   /*fetch(url)
+   fetch(url)
    .then(response => {
       if(!response.ok)
          alert(response.status+' '+response.type);
       return response.json();
    })
    .then(d => {
-      if(!d.response.length)
+      if(d.error) {
+         fill.text(d.error.message+'. '+d.error.code);
+         return;
+      }
+      if(!Object.keys(d.response)) {
          alert('No data found!');
+         return;
+      }
+      fill.empty();
+      /*let txt = `Registration: ${d.reg_number}<br>
+                Aircraft ICAO: ${d.aircraft_icao}<br>`;
+      fill.html(txt);*/
+      $.each(d.response, (k, v) => {
+         fill.append(k+': '+v+'<br>');
+      })
    })
    .catch(e => {
       alert(`Information error: ${e.message}`);
-   }) */
+   })
 }
 
 
@@ -303,3 +317,25 @@ btn.click(() => {
 });
 
 // information(info);
+
+function air(){
+   fetch('https://airlabs.co/api/v9/flights?api_key=a1af1621-da48-4592-a132-52415d0cabd3')
+   .then(r => r.json())
+   .then(d => {
+      let g=0;
+      d.response.forEach((f) => {
+         let li = $('<li>');
+         g = Object.keys(f).length
+         li.text(d.callsign);
+         fill.append(li);
+      })
+      alert(g)
+   })
+}
+//air()
+
+
+
+
+const key = 'a1af1621-da48-4592-a132-52415d0cabd3',
+key2 = '7e5231c8-8efc-402c-a160-6c769fe8e934';
