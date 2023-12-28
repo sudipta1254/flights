@@ -1,6 +1,7 @@
 let check = $('input[type="radio"]'),
-txt = $('input[type="text"]'), btn = $('button'),
-fill = $('#data'), xt = 0, timeId;
+ifrm = $('iframe'), txt = $('input[type="text"]'),
+btn = $('button'), fill = $('#data'),
+xt = 0, timeId;
 
 function main() {
    if(!txt.val()) {
@@ -446,8 +447,11 @@ function flag(flag) {
 function logo(logo) {
    return `<div id="logo-div"><img src=https://airlabs.co/img/airline/m/${logo}.png id='logo'></div>`;
 }
+function updateMap(lat, long) {
+   ifrm.attr('src', `https://maps.google.com/maps?hl=en&q=${lat},${long}&t=&z=13&ie=UTF8&iwloc=B&output=embed`);
+}
 
-$('input[type="checkbox"]').change(function() {
+$('#update').change(function() {
    if($(this).is(':checked')) {
       timeId = setInterval(function() {
          if(!txt.val())
@@ -458,7 +462,15 @@ $('input[type="checkbox"]').change(function() {
    } else {
       clearInterval(timeId);
    }
-})
+});
+
+$('#mapt').change(function() {
+   if($(this).is(':checked')) {
+      ifrm.css('display', 'block');
+   } else {
+      ifrm.css('display', 'none');
+   }
+});
 
 txt.on("keypress", function(event) {
    if (event.key === "Enter") {
