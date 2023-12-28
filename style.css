@@ -50,8 +50,9 @@ span {
    align-items: center;
 }
 #data {
+   width: 100%;
+   max-width: 40rem;
    margin: 10px 40px 60px;
-   /* height: 28rem; */
    overflow: auto;
    line-height: 2;
    white-space: nowrap;
@@ -78,7 +79,7 @@ a {
    position: absolute;
    margin: 0px 5px 0;
    width: 25px;
-   background: white
+   background: white;
 }
 hr {
    width: 80%;
@@ -92,9 +93,10 @@ footer {
    background: #212121;
 }
 
-header, main, footer {
+header, main {
    width: 100%;
-   max-width: 1500px;
+   margin: auto;
+   max-width: 1000px;
 }
 
 
