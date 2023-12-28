@@ -9,7 +9,7 @@ function main() {
       alert('Enter query to continue!');
       return;
    }
-   let url = 'https://airxlabs.co/api/v9',
+   let url = 'https://airlabs.co/api/v9',
    inp = txt.val().trim(),
    s2 = select2.val(), s3 = select3.val(),
    s4 = select4.val(), s5 = select5.val();
