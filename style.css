@@ -88,6 +88,17 @@ a {
 hr {
    width: 80%;
 }
+#map {
+   display: none;
+   margin: 20px 10px 0;
+}
+iframe {
+   display: none; /*flex*/
+   width: 97%;
+   max-width: 1000px;
+   justify-content: center;
+   margin: 10px auto 0;
+}
 footer {
    //border: 1px solid;
    position: fixed;
