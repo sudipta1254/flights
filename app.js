@@ -53,30 +53,30 @@ function realtime(url) {
       console.log(d)
       fill.empty();
       d.response.forEach(dt => {
-         let txt = `Registration: <b>${dt.reg_number}</b><br>
+         let text = `Registration: <b>${dt.reg_number}</b><br>
                Flag: <b>${dt.flag} ${flag(dt.flag.toLowerCase())}</b><br>
                Position: <b>${dt.lat.toFixed(2)}, ${dt.lng.toFixed(2)}</b><br>
                Altitude: <b>${(dt.alt*3.28).toFixed(0)} ft</b><br>
                Direction: <b>${dt.dir}°</b><br>
                Speed: <b>${dt.speed} Kmph</b><br>`;
          if(dt.v_speed)
-            txt+= `V speed: <b>${dt.v_speed}</b><br>`;
+            text+= `V speed: <b>${dt.v_speed}</b><br>`;
          if(dt.squawk)
-            txt += `Squawk: <b>${dt.squawk}</b><br>`;
+            text += `Squawk: <b>${dt.squawk}</b><br>`;
          if(dt.flight_number)
-            txt += `Flight number: <b>${dt.flight_number}</b><br>`;
+            text += `Flight number: <b>${dt.flight_number}</b><br>`;
          if(dt.flight_icao)
-            txt += `Flight ICAO/IATA: <b>${dt.flight_icao}/${dt.flight_iata}</b><br>`;
+            text += `Flight ICAO/IATA: <b>${dt.flight_icao}/${dt.flight_iata}</b><br>`;
          if(dt.dep_icao)
-            txt += `Departure ICAO/IATA: <b>${dt.dep_icao}/${dt.dep_iata}</b><br>`;
+            text += `Departure ICAO/IATA: <b>${dt.dep_icao}/${dt.dep_iata}</b><br>`;
          if(dt.arr_icao)
-            txt +=` Arrival ICAO/IATA: <b>${dt.arr_icao}/${dt.arr_iata}</b><br>`;
-         txt += `Airline ICAO/IATA: <b>${dt.airline_icao}/${dt.airline_iata} ${logo(dt.airline_iata)}</b><br>
+            text +=` Arrival ICAO/IATA: <b>${dt.arr_icao}/${dt.arr_iata}</b><br>`;
+         text += `Airline ICAO/IATA: <b>${dt.airline_icao}/${dt.airline_iata} ${logo(dt.airline_iata)}</b><br>
                Aircraft ICAO: <b>${dt.aircraft_icao}</b><br>
                Updated: <b>${time(dt.updated)}</b><br>
                Status: <b>${dt.status}</b><br>
                Type: <b>${dt.type}</b><hr>`;
-         $('#data').append(txt);
+         $('#data').append(text);
       });
    })
    .catch(e => {
