@@ -15,59 +15,50 @@
         <p>Flight Tracker</p>
     </header>
     <main>
-        <div id='option'>
-            <div id='op1'>
-                <label for='rt'>Realtime</label>
-                <input type='radio' id='rt' name='op' checked>
-            </div>
-            <div id='op2'>
-                <label for='sched'>Schedule</label>
-                <input type='radio' id='sched' name='op'>
-            </div>
-            <div id='op3'>
-                <label for='info'>Information</label>
-                <input type='radio' id='info' name='op'>
-            </div>
-        </div>
-        <div id='fill'>
-            <div id='realtime'>
-                <label for='rt1'>Registration</label>
-                <input type='radio' id='rt1' name='fl'>
-                    
-                <label for='rt2'>Flight ICAO/IATA</label>
-                <input type='radio' id='rt2' name='fl' checked>
-                    
-                <label for='rt3'>Airline ICAO/IATA</label>
-                <input type='radio' id='rt3' name='fl'>
-                    
-                <label for='rt4'>Arrival ICAO/IATA</label>
-                <input type='radio' id='rt4' name='fl'>
-                    
-                <label for='rt5'>Departure ICAO/IATA</label>
-                <input type='radio' id='rt5' name='fl'>
-            </div>
-            <div id='livesc'>
-                <label for='li1'>Flight ICAO/IATA</label>
-                <input type='radio' id='li1' name='li' checked>
-                    
-                <label for='li2'>Airline ICAO/IATA</label>
-                <input type='radio' id='li2' name='li'>
-                    
-                <label for='li3'>Arrival ICAO/IATA</label>
-                <input type='radio' id='li3' name='li'>
-                    
-                <label for='li4'>Departure ICAO/IATA</label>
-                <input type='radio' id='li4' name='li'>
-            </div>
-            <div id='flinfo'>
-                <label for='fi1'>Flight ICAO/IATA</label>
-                <input type='radio' id='fi1' checked>
+        <div id='outer-select'>
+            <label id='select-label'>Select from:</label>
+            <div id='selects'>
+                <span>
+                    <select id='select1'>
+                        <option value='realtime'>Realtime</option>
+                        <option value='schedule'>Schedule</option>
+                        <option value='information'>Information</option>
+                    </select>
+                </span>
+                <span>
+                    <select id='select2'>
+                        <option value='reg_number'>Registration</option>
+                        <option value='flight'>Flight</option>
+                        <option value='airline'>Airline</option>
+                        <option value='arr'>Arrival</option>
+                        <option value='dept'>Departure</option>
+                    </select>
+                </span>
+                <span>
+                    <select id='select3'>
+                        <option value='flight'>Flight</option>
+                        <option value='airline'>Airline</option>
+                        <option value='arr'>Arrival</option>
+                        <option value='dept'>Departure</option>
+                    </select>
+                </span>
+                <span>
+                    <select id='select4'>
+                        <option value='flight'>Flight</option>
+                    </select>
+                </span>
+                <span>
+                    <select id='select5'>
+                        <option value='_iata'>IATA</option>
+                        <option value='_icao'>ICAO</option>
+                    </select>
+                </span>
             </div>
         </div>
         <div id="submit">
             <span>
-                <label for="update">Auto update</label>
-                <input type="checkbox" id="update">
+               <label for="update">Auto update</label>
+               <input type="checkbox" id="update">
             </span>
             <input type='text' placeholder='Enter query'>
             <button>Go</button>
