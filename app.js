@@ -1,6 +1,6 @@
 let select2 = $('#select2'), select3 = $('#select3'),
 select4 = $('#select4'), select5 = $('#select5'),
-fill = $('#data'), txt = $('input[type="text"]'),
+fill = $('#data'), txt = $('input[type="search"]'),
 ifrm = $('iframe'), btn = $('button'), timeId,
 xt = 1;
 
