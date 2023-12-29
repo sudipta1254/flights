@@ -3,7 +3,7 @@ select4 = $('#select4'), select5 = $('#select5'),
 fill = $('#data'), txt = $('input[type="search"]'),
 ifrm = $('iframe'), btn = $('button'), timeId,
 xt = 1;
-window.scrollTo(0, 0)
+
 function main() {
    if(!txt.val()) {
       alert('Enter query to continue!');
