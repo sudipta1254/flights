@@ -72,6 +72,7 @@ span {
 }
 #data {
    width: 80%;
+   height: 65vh;
    max-width: 40rem;
    margin: 10px auto 60px;
    overflow: auto;
