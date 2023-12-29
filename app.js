@@ -95,10 +95,53 @@ function schedule(url) {
          fill.text(d.error.message+'. '+d.error.code);
          return;
       }
-      if(!d.response.length)
+      if(!d.response.length) {
          alert('No data found!');
+         return;
+      }
       fill.empty();
-      fill.html(2);
+      d.response.forEach((dts) => {
+         var text = `Airline ICAO/IATA: <b>${dts.airline_icao}/${dts.airline_iata} ${logo(dts.airline_iata)}</b><br>
+             Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b><br>
+             Flight Number: <b>${dts.flight_number}</b><br>`;
+         if(dts.dep_icao)
+             text += `Departure ICAO/IATA: <b>${dts.dep_icao}/${dts.dep_iata}</b>`;
+         if(dts.dep_terminal)
+             text += `<br>Terminal: <b>${dts.dep_terminal}</b>`
+         if(dts.dep_gate)
+             text += `<br>Gate: <b>${dts.dep_gate}</b>`;
+         if(dts.dep_time_utc)
+             `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
+         if(dts.dep_estimated_utc)
+            text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
+         if(dts.dep_actual_utc)
+            text += `<br>Actual: <b>${time(dts.dep_actual_utc)}</b>`;
+         if(dts.arr_icao)
+             text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
+         if(dts.arr_baggage)
+            text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
+         if(dts.arr_terminal)
+             text += `<br>Terminal: <b>${dts.arr_terminal}</b>`
+         if(dts.arr_gate)
+             text += `<br>Gate: <b>${dts.arr_gate}</b>`;
+         if(dts.arr_time_utc)
+             `<br>Departure time: <b>${time(dts.arr_time_utc)}</b>`;
+         if(dts.arr_estimated_utc)
+            text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
+         if(dts.arr_actual_utc)
+            text += `<br>Actual: <b>${time(dts.arr_actual_utc)}</b>`;
+         if(dts.status)
+            text += `<br>Status: <b>${dts.status}</b>`;
+         if(dts.duration)
+            text += `<br>Duration: <b>${dts.duration} min(s)</b>`;
+         if(dts.delay)
+            text += `<br>Delay: <b>${dts.dlay} min(s)</b>`;
+         if(dts.dep_delayed)
+            text += `<br>Departure delay: <b>${dts.dep_delayed} min(s)</b>`;
+         if(dts.arr_delayed)
+            text += `<br>Baggage: <b>${dts.arr_delayed}</b>`;
+         fill.append(text, '<hr>');
+      });
    })
    .catch(e => {
       alert(`Schedule error: ${e.message}`);
