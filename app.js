@@ -35,6 +35,7 @@ function main() {
 }
 
 function realtime(url) {
+   fill.text('Loading...');
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -84,6 +85,7 @@ function realtime(url) {
    })
 }
 function schedule(url) {
+   fill.text('Loading...');
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -221,6 +223,7 @@ function information(url) {
 }
    
    
+   fill.text('Loading...');
    fetch(url)
    .then(response => {
       if(!response.ok)
