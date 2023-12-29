@@ -276,16 +276,7 @@ $('button').click(() => {
 
 
 
-window.addEventListener('load', function() {
-    window.scrollTo(0, 1);
-    window.location.hash = 'preventScroll';
-});
-// Listen for changes in the hash and prevent address bar hiding
-window.addEventListener('hashchange', function() {
-    if (window.location.hash !== '#preventScroll') {
-        window.location.hash = 'preventScroll';
-    }
-});
+
 
 
 
