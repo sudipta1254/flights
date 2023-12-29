@@ -44,10 +44,11 @@ function realtime(url) {
    })
    .then(d => {
       if(d.error) {
-         fill.text(d.error.message+'. '+d.error.code);
+         fill.text(`<b>${d.error.message}. ${d.error.code}<b>`);
          return;
       }
       if(!d.response.length) {
+         fill.text('No data found!');
          alert('No data found!');
          return;
       }
@@ -94,10 +95,11 @@ function schedule(url) {
    })
    .then(d => {
       if(d.error) {
-         fill.text(d.error.message+'. '+d.error.code);
+         fill.text(`<b>${d.error.message}. ${d.error.code}<b>`);
          return;
       }
       if(!d.response.length) {
+         fill.text('No data found!');
          alert('No data found!');
          return;
       }
@@ -233,10 +235,11 @@ function information(url) {
    .then(d => {
       console.log(d)
       if(d.error) {
-         fill.text(d.error.message+'. '+d.error.code);
+         fill.text(`<b>${d.error.message}. ${d.error.code}<b>`);
          return;
       }
       if(!Object.keys(d.response)) {
+         fill.text('No data found!');
          alert('No data found!');
          return;
       }
@@ -271,6 +274,8 @@ $('#select1').change(function(){
 })
 
 function time(t) {
+   if(typeof t == 'string')
+      return new Date(t.replace(' ', 'T')).toLocaleString();
    return new Date(t*1000).toLocaleString();
 }
 function ck(a, b) {
