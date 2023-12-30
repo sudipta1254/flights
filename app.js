@@ -44,7 +44,7 @@ function realtime(url) {
    })
    .then(d => {
       if(d.error) {
-         fill.text(`<b>${d.error.message}. ${d.error.code}<b>`);
+         fill.html(`<b>${d.error.message}. ${d.error.code}<b>`);
          return;
       }
       if(!d.response.length) {
@@ -95,7 +95,7 @@ function schedule(url) {
    })
    .then(d => {
       if(d.error) {
-         fill.text(`<b>${d.error.message}. ${d.error.code}<b>`);
+         fill.html(`<b>${d.error.message}. ${d.error.code}<b>`);
          return;
       }
       if(!d.response.length) {
@@ -235,7 +235,7 @@ function information(url) {
    .then(d => {
       console.log(d)
       if(d.error) {
-         fill.text(`<b>${d.error.message}. ${d.error.code}<b>`);
+         fill.html(`<b>${d.error.message}. ${d.error.code}<b>`);
          return;
       }
       if(!Object.keys(d.response)) {
@@ -249,7 +249,9 @@ function information(url) {
       fill.html(txt);*/
       $.each(d.response, (k, v) => {
          fill.append(k+': '+v+'<br>');
-      })
+      });
+      if(d.dep_iata && d.arr_iata & d.percent)
+         distance(d.dep_iata, d.arr_iata, d.percent);
    })
    .catch(e => {
       alert(`Information error: ${e.message}`);
@@ -289,6 +291,16 @@ function logo(logo) {
 }
 function updateMap(lat, long) {
    ifrm.attr('src', `https://maps.google.com/maps?hl=en&q=${lat},${long}&t=&z=13&ie=UTF8&iwloc=B&output=embed`);
+}
+function distance(d, a, x) {
+   fill.append(`<span id='distance'>
+         <span id='dep'>${d}</span>
+         <span id='line-p'>
+            <span id='line'></span>
+         </span>
+         <span id='arr'>${a}</span>
+      </span>`);
+   $('#line').css('width', x+'%');
 }
 
 $('#update').change(function() {
