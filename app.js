@@ -193,6 +193,8 @@ function information(url) {
             text += `<br>Airline: <b>${dts.airline_name} ${logo(dts.airline_iata)}</b>`;
          if(dts.airline_icao)
             text += `<br>Airline ICAO/IATA: <b>${dts.airline_icao}/${dts.airline_iata}</b>`;
+         if(!dts.airline_name)
+            text += ` ${logo(dts.airline_iata)}</b>`;
          if(dts.flight_icao)
              text += `<br>Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b>`;
          if(dts.flight_number)
@@ -212,8 +214,6 @@ function information(url) {
             text += `<br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${dts.arr_country} ${flag(dts.arr_country)}</b>`;
          if(dts.arr_icao)
              text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
-         if(!dts.airline_name)
-            text += ` ${logo(dts.airline_iata)}</b>`;
          if(dts.arr_baggage)
              text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
          if(dts.arr_terminal)
@@ -233,7 +233,9 @@ function information(url) {
          if(dts.dep_delayed)
             text += `<br>Departure delay: <b>${dts.dep_delayed} min(s)</b>`;
          if(dts.arr_delayed)
-            text += `<br>Baggage: <b>${dts.arr_delayed}</b>`;
+            text += `<br>Arrival delay: <b>${help1(dts.arr_delayed)}</b>`;
+         if(dts.baggage)
+            text += `<br>Baggage: <b>${dts.baggage}</b>`;
          /*Airliner*/
          if(dts.model)
             text += `<br>Airliner: <b>${dts.model} - ${dts.manufacturer}</b>`;
@@ -303,6 +305,19 @@ function distance(d, a, x) {
       </span>`);
    $('#line').css('width', x+'%');
    }
+}
+function help1(t) {
+   let day =  Math.floor(t/24/60),
+   hour = Math.floor(t/60%24),
+   min = Math.floor(t%60),
+   str = '';
+   if(day)
+      str = day+' day(s), ';
+   if(hour)
+      str += hour+' hour(s), ';
+   if(min)
+      str += min+' min(s)';
+   return str;
 }
 
 $('#update').change(function() {
