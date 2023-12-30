@@ -243,7 +243,7 @@ function information(url) {
             text += `<br>Engine: <b>${dts.engine_count} ${dts.engine}</b>`;
          if(dts.built)
             text += `<br>Built: <b>${dts.built} - ${dts.age}y</b>`;
-         if(dts.eta)
+         if(dts.eta && dts.eta > -1)
             text += `<br>Arriving in <b>${dts.eta} min(s)</b>`;
          if(dts.status)
             text += `<br>Status: <b>${dts.status}</b>`;
