@@ -173,7 +173,7 @@ function information(url) {
       let dts = d.response;
       fill.empty();
       /*Departure*/
-      let text;
+      let text = '';
          if(dts.dep_name)
             text = `Departure: <b>${dts.dep_name}, ${dts.dep_city}, ${dts.dep_country} ${flag(dts.dep_country)}</b><br>`;
       if(dts.dep_icao)
