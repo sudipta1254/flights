@@ -106,30 +106,30 @@ function schedule(url) {
       fill.empty();
       d.response.forEach((dts) => {
          var text = `Airline ICAO/IATA: <b>${dts.airline_icao}/${dts.airline_iata} ${logo(dts.airline_iata)}</b><br>
-             Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b><br>
-             Flight Number: <b>${dts.flight_number}</b><br>`;
+            Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b><br>
+            Flight Number: <b>${dts.flight_number}</b><br>`;
          if(dts.dep_icao)
-             text += `Departure ICAO/IATA: <b>${dts.dep_icao}/${dts.dep_iata}</b>`;
+            text += `Departure ICAO/IATA: <b>${dts.dep_icao}/${dts.dep_iata}</b>`;
          if(dts.dep_terminal)
-             text += `<br>Terminal: <b>${dts.dep_terminal}</b>`
+            text += `<br>Terminal: <b>${dts.dep_terminal}</b>`
          if(dts.dep_gate)
-             text += `<br>Gate: <b>${dts.dep_gate}</b>`;
+            text += `<br>Gate: <b>${dts.dep_gate}</b>`;
          if(dts.dep_time_utc)
-             `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
+            `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
          if(dts.dep_estimated_utc)
-            text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
+         text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
          if(dts.dep_actual_utc)
-            text += `<br>Actual: <b>${time(dts.dep_actual_utc)}</b>`;
+         text += `<br>Actual: <b>${time(dts.dep_actual_utc)}</b>`;
          if(dts.arr_icao)
-             text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
+            text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
          if(dts.arr_baggage)
             text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
          if(dts.arr_terminal)
-             text += `<br>Terminal: <b>${dts.arr_terminal}</b>`
+            text += `<br>Terminal: <b>${dts.arr_terminal}</b>`
          if(dts.arr_gate)
-             text += `<br>Gate: <b>${dts.arr_gate}</b>`;
+            text += `<br>Gate: <b>${dts.arr_gate}</b>`;
          if(dts.arr_time_utc)
-             `<br>Departure time: <b>${time(dts.arr_time_utc)}</b>`;
+            text += `<br>Departure time: <b>${time(dts.arr_time_utc)}</b>`;
          if(dts.arr_estimated_utc)
             text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
          if(dts.arr_actual_utc)
