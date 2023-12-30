@@ -78,8 +78,21 @@ span {
    overflow: auto;
    line-height: 2;
    white-space: nowrap;
+   scrollbar-width: thin; /* Firefox */
+   scrollbar-color: transparent transparent;
    //border: 1px solid;
 }
+#data::-webkit-scrollbar {
+   width: 3.5px;
+}
+#data::-webkit-scrollbar-thumb {
+   background-color: #cccccc66;
+   border-radius: 5px;
+}
+#data::-webkit-scrollbar-track {
+   background-color: transparent;
+}
+
 p {
    margin: 8px 0;
    text-align: center;
