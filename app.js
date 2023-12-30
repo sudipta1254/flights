@@ -115,11 +115,11 @@ function schedule(url) {
          if(dts.dep_gate)
             text += `<br>Gate: <b>${dts.dep_gate}</b>`;
          if(dts.dep_time_utc)
-            `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
+            text += `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
          if(dts.dep_estimated_utc)
-         text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
+            text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
          if(dts.dep_actual_utc)
-         text += `<br>Actual: <b>${time(dts.dep_actual_utc)}</b>`;
+            text += `<br>Actual: <b>${time(dts.dep_actual_utc)}</b>`;
          if(dts.arr_icao)
             text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
          if(dts.arr_baggage)
