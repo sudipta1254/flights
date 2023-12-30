@@ -275,7 +275,7 @@ $('#select1').change(function(){
 
 function time(t) {
    if(typeof t == 'string')
-      return new Date(t.replace(' ', 'T')).toLocaleString();
+      return new Date(t+'Z').toLocaleString();
    return new Date(t*1000).toLocaleString();
 }
 function ck(a, b) {
