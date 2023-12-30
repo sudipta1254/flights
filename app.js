@@ -250,7 +250,8 @@ function information(url) {
       $.each(d.response, (k, v) => {
          fill.append(k+': '+v+'<br>');
       });
-      if(d.dep_iata && d.arr_iata & d.percent)
+      d = d.response;
+      if(d.dep_iata && d.arr_iata && d.percent)
          distance(d.dep_iata, d.arr_iata, d.percent);
    })
    .catch(e => {
