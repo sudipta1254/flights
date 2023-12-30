@@ -227,11 +227,11 @@ function information(url) {
          if(dts.arr_actual_utc)
             text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
          if(dts.duration)
-            text += `<br>Duration: <b>${dts.duration} min(s)</b>`;
+            text += `<br>Duration: <b>${help1(dts.duration)}</b>`;
          if(dts.delayed)
-            text += `<br>Delay: <b>${dts.delayed} min(s)</b>`;
+            text += `<br>Delay: <b>${help1(dts.delayed)}</b>`;
          if(dts.dep_delayed)
-            text += `<br>Departure delay: <b>${dts.dep_delayed} min(s)</b>`;
+            text += `<br>Departure delay: <b>${help1(dts.dep_delayed)}</b>`;
          if(dts.arr_delayed)
             text += `<br>Arrival delay: <b>${help1(dts.arr_delayed)}</b>`;
          /*Airliner*/
@@ -244,7 +244,7 @@ function information(url) {
          if(dts.built)
             text += `<br>Built: <b>${dts.built} - ${dts.age}y</b>`;
          if(dts.eta && dts.eta > -1)
-            text += `<br>Arriving in <b>${dts.eta} min(s)</b>`;
+            text += `<br>Arriving in <b>${help1(dts.eta)}</b>`;
          if(dts.status)
             text += `<br>Status: <b>${dts.status}</b>`;
          if(dts.updated)
