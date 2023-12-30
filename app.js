@@ -243,16 +243,83 @@ function information(url) {
          alert('No data found!');
          return;
       }
+      let dts = d.response;
       fill.empty();
-      /*let txt = `Registration: ${d.reg_number}<br>
-                Aircraft ICAO: ${d.aircraft_icao}<br>`;
-      fill.html(txt);*/
-      $.each(d.response, (k, v) => {
-         fill.append(k+': '+v+'<br>');
-      });
-      d = d.response;
-      if(d.dep_iata && d.arr_iata && d.percent)
-         distance(d.dep_iata, d.arr_iata, d.percent);
+      /*Departure*/
+      let text = `Departure: <b>${dts.dep_name}, ${dts.dep_city}, ${dts.dep_country} ${flag(dts.dep_country)}</b><br>`;
+      if(dts.dep_icao)
+             text += `Departure ICAO/IATA: <b>${dts.dep_icao}/${dts.dep_iata}</b>`;
+         if(dts.dep_terminal)
+             text += `<br>Terminal: <b>${dts.dep_terminal}</b>`
+         if(dts.dep_gate)
+             text += `<br>Gate: <b>${dts.dep_gate}</b>`;
+         if(dts.dep_time_utc)
+             text += `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
+         if(dts.dep_estimated_utc)
+             text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
+         if(dts.dep_actual_utc)
+             text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
+         /*Airline*/
+         if(dts.airline_name)
+            text += `<br>Airline: <b>${dts.airline_name} ${logo(dts.airline_iata)}</b>`;
+         if(dts.airline_icao)
+            text += `<br>Airline ICAO/IATA: <b>${dts.airline_icao}/${dts.airline_iata}</b>`;
+         if(dts.flight_icao)
+             text += `<br>Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b>`;
+         if(dts.flight_number)
+             text += `<br>Flight Number: <b>${dts.flight_number}</b>`;
+         text += `<br>Registration: <b>${dts.reg_number}</b><br>
+               Flag: <b>${dts.flag} ${flag(dts.flag.toLowerCase())}</b><br>
+               Position: <b>${dts.lat.toFixed(2)}, ${dts.lng.toFixed(2)}</b><br>
+               Altitude: <b>${(dts.alt*3.28).toFixed(0)} ft</b><br>
+               Direction: <b>${dts.dir}°</b><br>
+               Speed: <b>${dts.speed} Kmph</b><br>`;
+         if(dts.v_speed)
+            text+= `V speed: <b>${dts.v_speed}</b><br>`;
+         if(dts.squawk)
+            text += `Squawk: <b>${dts.squawk}</b>`;
+         /*Arrival*/
+         text += `<br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${dts.arr_country} ${flag(dts.arr_country)}</b>`;
+         if(dts.arr_icao)
+             text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
+         if(dts.arr_baggage)
+             text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
+         if(dts.arr_terminal)
+             text += `<br>Terminal: <b>${dts.arr_terminal}</b>`
+         if(dts.arr_gate)
+             text += `<br>Gate: <b>${dts.arr_gate}</b>`;
+         if(dts.arr_time_utc)
+             text += `<br>Arrival time: <b>${time(dts.arr_time_utc)}</b>`;
+         if(dts.arr_estimated_utc)
+            text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
+         if(dts.arr_actual_utc)
+            text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
+         if(dts.duration)
+            text += `<br>Duration: <b>${dts.duration} min(s)</b>`;
+         if(dts.delayed)
+            text += `<br>Delay: <b>${dts.delayed} min(s)</b>`;
+         if(dts.dep_delayed)
+            text += `<br>Departure delay: <b>${dts.dep_delayed} min(s)</b>`;
+         if(dts.arr_delayed)
+            text += `<br>Baggage: <b>${dts.arr_delayed}</b>`;
+         /*Airliner*/
+         if(dts.model)
+            text += `<br>Airliner: <b>${dts.model} - ${dts.manufacturer}</b>`;
+         if(dts.aircraft_icao)
+            text += `<br>Aircraft ICAO: <b>${dts.aircraft_icao}</b>`;
+         if(dts)
+            text += `<br>Engine: <b>${dts.engine_count} ${dts.engine}</b>`;
+         if(dts.built)
+            text += `<br>Built: <b>${dts.built} - ${dts.age}y</b>`;
+         if(dts.eta)
+            text += `<br>Arriving in <b>${dts.eta} min(s)</b>`;
+         if(dts.status)
+            text += `<br>Status: <b>${dts.status}</b>`;
+         if(dts.updated)
+            text += `<br>Updated: <b>${time(dts.updated)}</b>`;
+      fill.html(text);
+      if(dts.dep_iata && dts.arr_iata && dts.percent)
+         distance(dts.dep_iata, dts.arr_iata, dts.percent);
    })
    .catch(e => {
       alert(`Information error: ${e.message}`);
