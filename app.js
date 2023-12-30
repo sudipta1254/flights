@@ -250,7 +250,7 @@ function information(url) {
          if(dts.updated)
             text += `<br>Updated: <b>${time(dts.updated)}</b>`;
       fill.html(text);
-      if(dts.dep_iata && dts.arr_iata && dts.percent)
+      if(dts.dep_iata && dts.arr_iata && dts.percent > -1)
          distance(dts.dep_iata, dts.arr_iata, dts.percent);
    })
    .catch(e => {
