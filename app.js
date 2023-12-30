@@ -234,7 +234,7 @@ function information(url) {
             text += `<br>Airliner: <b>${dts.model} - ${dts.manufacturer}</b>`;
          if(dts.aircraft_icao)
             text += `<br>Aircraft ICAO: <b>${dts.aircraft_icao}</b>`;
-         if(dts)
+         if(dts.engine)
             text += `<br>Engine: <b>${dts.engine_count} ${dts.engine}</b>`;
          if(dts.built)
             text += `<br>Built: <b>${dts.built} - ${dts.age}y</b>`;
