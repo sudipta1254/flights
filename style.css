@@ -83,7 +83,7 @@ span {
    //border: 1px solid;
 }
 #data::-webkit-scrollbar {
-   width: 3.5px;
+   width: 3px;
 }
 #data::-webkit-scrollbar-thumb {
    background-color: #cccccc66;
