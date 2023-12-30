@@ -234,8 +234,6 @@ function information(url) {
             text += `<br>Departure delay: <b>${dts.dep_delayed} min(s)</b>`;
          if(dts.arr_delayed)
             text += `<br>Arrival delay: <b>${help1(dts.arr_delayed)}</b>`;
-         if(dts.arr_baggage)
-            text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
          /*Airliner*/
          if(dts.model)
             text += `<br>Airliner: <b>${dts.model} - ${dts.manufacturer}</b>`;
