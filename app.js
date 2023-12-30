@@ -293,6 +293,7 @@ function updateMap(lat, long) {
    ifrm.attr('src', `https://maps.google.com/maps?hl=en&q=${lat},${long}&t=&z=13&ie=UTF8&iwloc=B&output=embed`);
 }
 function distance(d, a, x) {
+   if(x > -1) {
    fill.append(`<span id='distance'>
          <span id='dep'>${d}</span>
          <span id='line-p'>
@@ -301,6 +302,7 @@ function distance(d, a, x) {
          <span id='arr'>${a}</span>
       </span>`);
    $('#line').css('width', x+'%');
+   }
 }
 
 $('#update').change(function() {
