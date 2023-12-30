@@ -129,7 +129,7 @@ function schedule(url) {
          if(dts.arr_gate)
             text += `<br>Gate: <b>${dts.arr_gate}</b>`;
          if(dts.arr_time_utc)
-            text += `<br>Departure time: <b>${time(dts.arr_time_utc)}</b>`;
+            text += `<br>Arrival time: <b>${time(dts.arr_time_utc)}</b>`;
          if(dts.arr_estimated_utc)
             text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
          if(dts.arr_actual_utc)
