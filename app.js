@@ -212,6 +212,8 @@ function information(url) {
             text += `<br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${dts.arr_country} ${flag(dts.arr_country)}</b>`;
          if(dts.arr_icao)
              text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
+         if(!dts.airline_name)
+            text += ` ${logo(dts.airline_iata)}</b>`;
          if(dts.arr_baggage)
              text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
          if(dts.arr_terminal)
