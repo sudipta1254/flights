@@ -1,5 +1,3 @@
-import { key, key2, json } from './secrets.js';
-
 let select2 = $('#select2'), select3 = $('#select3'),
 select4 = $('#select4'), select5 = $('#select5'),
 fill = $('#data'), txt = $('input[type="search"]'),
@@ -353,3 +351,16 @@ $('button').click(() => {
    main();
 });
 
+
+
+
+
+
+
+
+
+
+
+
+const key = 'a1af1621-da48-4592-a132-52415d0cabd3',
+key2 = '7e5231c8-8efc-402c-a160-6c769fe8e934';
