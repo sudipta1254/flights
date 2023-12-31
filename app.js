@@ -184,10 +184,15 @@ function information(url) {
              text += `<br>Gate: <b>${dts.dep_gate}</b>`;
          if(dts.dep_time_utc)
              text += `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
-         if(dts.dep_estimated_utc)
-             text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
-         if(dts.dep_actual_utc)
-             text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
+         if(dts.dep_estimated_utc && dts.dep_actual_utc){
+             if(dts.dep_estimated_utc === dts.dep_actual_utc)
+                text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
+         } else {
+            if(dts.dep_estimated_utc)
+               text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
+            if(dts.dep_actual_utc)
+              text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
+         }
          /*Airline*/
          if(dts.airline_name)
             text += `<br>Airline: <b>${dts.airline_name} ${logo(dts.airline_iata)}</b>`;
@@ -222,10 +227,15 @@ function information(url) {
              text += `<br>Gate: <b>${dts.arr_gate}</b>`;
          if(dts.arr_time_utc)
              text += `<br>Arrival time: <b>${time(dts.arr_time_utc)}</b>`;
-         if(dts.arr_estimated_utc)
-            text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
-         if(dts.arr_actual_utc)
-            text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
+         if(dts.arr_estimated_utc && dts.arr_actual_utc){
+             if(dts.arr_estimated_utc === dts.arr_actual_utc)
+                text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
+         } else {
+            if(dts.arr_estimated_utc)
+               text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
+            if(dts.arr_actual_utc)
+              text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
+         }
          if(dts.duration)
             text += `<br>Duration: <b>${help1(dts.duration)}</b>`;
          if(dts.delayed)
