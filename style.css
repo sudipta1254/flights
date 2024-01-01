@@ -72,7 +72,7 @@ span {
 }
 #data {
    width: 85%;
-   height: 50vh;/*67*/
+   height: 67vh;
    max-width: 40rem;
    margin: 10px auto 0px;
    overflow: auto;
@@ -80,7 +80,7 @@ span {
    white-space: nowrap;
    scrollbar-width: thin; /* Firefox */
    scrollbar-color: transparent transparent;
-   border: 1px solid;
+   //border: 1px solid;
 }
 #data::-webkit-scrollbar {
    width: 3px;
