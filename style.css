@@ -2,7 +2,7 @@ body {
    min-height: 100vh;
    color: white;
    background: #212121;
-   font-family: Raleway;
+   font-family: Cailyne; /* Raleway */
    font-weight: 500;
 }
 input[type='search'] {
@@ -158,4 +158,9 @@ header, main {
    height: 2px;
    border-radius: 5px;
    background: white;
+}
+
+@font-face {
+   font-family: 'Cailyne';
+   src: url('Cailyne.ttf') format(truetype);
 }
