@@ -5,6 +5,17 @@ body {
    font-family: Raleway;
    font-weight: 500;
 }
+#instruction {
+   width: 85%;
+   margin: 15px auto 0;
+   line-height: 1;
+}
+#inst-p, ol > li {
+   text-decoration: 1px solid underline aliceblue
+}
+li {
+   line-height: 1.5
+}
 input[type='search'] {
    color: white;
    background: black;
