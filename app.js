@@ -4,7 +4,7 @@ fill = $('#data'), txt = $('input[type="search"]'),
 ifrm = $('iframe'), btn = $('button'), timeId,
 xt = 1;
 
-function main() {
+function main(updt = 0) {
    if(!txt.val()) {
       alert('Enter query to continue!');
       return;
@@ -16,26 +16,26 @@ function main() {
    switch(xt) {
       case 1:
          if(s2 == 'reg_number')
-            url += `/flights?api_key=${key2}&${s2}=${inp}`;
+            url += `/flights?api_key=${key}&${s2}=${inp}`;
          else
-            url += `/flights?api_key=${key2}&${s2}${s5}=${inp}`;
-         realtime(url);
+            url += `/flights?api_key=${key}&${s2}${s5}=${inp}`;
+         updt ? realtime(url, 1) : realtime(url);
          break;
       case 2:
-         url += `/schedules?api_key=${key2}&${s3}${s5}=${inp}`;
-         schedule(url);
+         url += `/schedules?api_key=${key}&${s3}${s5}=${inp}`;
+         updt ? schedule(url, 1) : schedule(url);
          break;
       case 3:
-         url += `/flight?api_key=${key2}&${s4}${s5}=${inp}`;
-         information(url);
+         url += `/flight?api_key=${key}&${s4}${s5}=${inp}`;
+         updt ? information(url, 1) : information(url);
          break;
       default:
          alert(xt);
    }
 }
 
-function realtime(url) {
-   fill.text('Loading...');
+function realtime(url, updt = 0) {
+   updt || fill.text('Loading...');
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -85,8 +85,8 @@ function realtime(url) {
       alert(`Realtime error: ${e.message}`);
    })
 }
-function schedule(url) {
-   fill.text('Loading...');
+function schedule(url, updt = 0) {
+   updt || fill.text('Loading...');
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -151,8 +151,8 @@ function schedule(url) {
       alert(`Schedule error: ${e.message}`);
    })
 }
-function information(url) {
-   fill.text('Loading...');
+function information(url, updt = 0) {
+   updt || fill.text('Loading...');
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -331,10 +331,7 @@ function help1(t) {
 $('#update').change(function() {
    if($(this).is(':checked')) {
       timeId = setInterval(function() {
-         if(!txt.val())
-            clearInterval(timeId);
-         else
-            btn.click();
+         txt.val() ? main(1) : clearInterval(timeId);
       }, 20000);
    } else {
       clearInterval(timeId);
