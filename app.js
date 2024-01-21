@@ -48,7 +48,7 @@ function realtime(url, updt = 0) {
          return;
       }
       if(!d.response.length) {
-         fill.text('No data found!');
+         fill.html('<em>No data found!</em>');
          alert('No data found!');
          return;
       }
@@ -99,7 +99,7 @@ function schedule(url, updt = 0) {
          return;
       }
       if(!d.response.length) {
-         fill.text('No data found!');
+         fill.html('<em>No data found!</em>');
          alert('No data found!');
          return;
       }
@@ -166,7 +166,7 @@ function information(url, updt = 0) {
          return;
       }
       if(!Object.keys(d.response)) {
-         fill.text('No data found!');
+         fill.html('<em>No data found!</em>');
          alert('No data found!');
          return;
       }
