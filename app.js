@@ -32,6 +32,7 @@ function main(updt = 0) {
       default:
          alert(xt);
    }
+   help2();
 }
 
 function realtime(url, updt = 0) {
@@ -262,6 +263,7 @@ function information(url, updt = 0) {
       fill.html(text);
       if(dts.dep_iata && dts.arr_iata && dts.percent)
          distance(dts.dep_iata, dts.arr_iata, dts.percent);
+      updateMap(dts.lat, dts.lng);
    })
    .catch(e => {
       alert(`Information error: ${e.message}`);
@@ -326,6 +328,11 @@ function help1(t) {
    if(min)
       str += min+' min(s)';
    return str;
+}
+function help2(x = 0) {
+   $('#map').css('display', x ? 'block' : 'none');
+   if(!x)
+      $('iframe').css('display', 'none');
 }
 
 $('#update').change(function() {
