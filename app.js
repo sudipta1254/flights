@@ -138,13 +138,13 @@ function schedule(url, updt = 0) {
          if(dts.status)
             text += `<br>Status: <b>${dts.status}</b>`;
          if(dts.duration)
-            text += `<br>Duration: <b>${dts.duration} min(s)</b>`;
+            text += `<br>Duration: <b>${help1(dts.duration)} </b>`;
          if(dts.delay)
-            text += `<br>Delay: <b>${dts.dlay} min(s)</b>`;
+            text += `<br>Delay: <b>${help1(dts.dlay}) </b>`;
          if(dts.dep_delayed)
-            text += `<br>Departure delay: <b>${dts.dep_delayed} min(s)</b>`;
-         if(dts.arr_delayed)
-            text += `<br>Baggage: <b>${dts.arr_delayed}</b>`;
+            text += `<br>Departure delay: <b>${help1(dts.dep_delayed)}</b>`;
+         if(dts.arr_baggage)
+            text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
          fill.append(text, '<hr>');
       });
    })
