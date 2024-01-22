@@ -117,10 +117,21 @@ function schedule(url, updt = 0) {
             text += `<br>Gate: <b>${dts.dep_gate}</b>`;
          if(dts.dep_time_utc)
             text += `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
-         if(dts.dep_estimated_utc)
+
+         if(dts.dep_estimated_utc && dts.dep_actual_utc){
+            if(dts.dep_estimated_utc === dts.dep_actual_utc)
+               text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
+         } else {
+            if(dts.dep_estimated_utc)
+               text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
+            if(dts.dep_actual_utc)
+               text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
+         }
+         
+         /*if(dts.dep_estimated_utc)
             text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
          if(dts.dep_actual_utc)
-            text += `<br>Actual: <b>${time(dts.dep_actual_utc)}</b>`;
+            text += `<br>Actual: <b>${time(dts.dep_actual_utc)}</b>`;*/
          if(dts.arr_icao)
             text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
          if(dts.arr_baggage)
@@ -131,10 +142,21 @@ function schedule(url, updt = 0) {
             text += `<br>Gate: <b>${dts.arr_gate}</b>`;
          if(dts.arr_time_utc)
             text += `<br>Arrival time: <b>${time(dts.arr_time_utc)}</b>`;
-         if(dts.arr_estimated_utc)
+
+         if(dts.arr_estimated_utc && dts.arr_actual_utc){
+            if(dts.arr_estimated_utc === dts.arr_actual_utc)
+               text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
+         } else {
+            if(dts.arr_estimated_utc)
+               text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
+            if(dts.arr_actual_utc)
+               text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
+         }
+         
+         /*if(dts.arr_estimated_utc)
             text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
          if(dts.arr_actual_utc)
-            text += `<br>Actual: <b>${time(dts.arr_actual_utc)}</b>`;
+            text += `<br>Actual: <b>${time(dts.arr_actual_utc)}</b>`;*/
          if(dts.status)
             text += `<br>Status: <b>${dts.status}</b>`;
          if(dts.duration)
