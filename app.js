@@ -140,7 +140,7 @@ function schedule(url, updt = 0) {
          if(dts.duration)
             text += `<br>Duration: <b>${help1(dts.duration)} </b>`;
          if(dts.delay)
-            text += `<br>Delay: <b>${help1(dts.dlay}) </b>`;
+            text += `<br>Delay: <b>${help1(dts.dlay)} </b>`;
          if(dts.dep_delayed)
             text += `<br>Departure delay: <b>${help1(dts.dep_delayed)}</b>`;
          if(dts.arr_baggage)
