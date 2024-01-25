@@ -134,7 +134,7 @@ iframe {
    width: 97%;
    max-width: 1000px;
    justify-content: center;
-   margin: 10px auto 0;
+   margin: 10px auto 5rem;
 }
 footer {
    //border: 1px solid;
