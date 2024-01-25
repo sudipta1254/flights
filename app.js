@@ -5,7 +5,7 @@ ifrm = $('iframe'), btn = $('button'), timeId,
 xt = 1;
 
 function main(updt = 0) {
-   if(!txt.val()) {
+   if(!txt.val().trim()) {
       alert('Enter query to continue!');
       return;
    }
@@ -345,6 +345,17 @@ function help2(x = 0) {
    if(!x)
       $('iframe').css('display', 'none');
 }
+async function help3(code) {
+   try {
+     const response = await fetch(`https://restcountries.com/v3/alpha/${code}`);
+     const data = await response.json();
+     const countryName = data[0].name.common;
+     return countryName;
+   } catch (error) {
+     throw new Error(`Error: ${error.message}`);
+   }
+}
+
 
 $('#update').change(function() {
    if($(this).is(':checked')) {
