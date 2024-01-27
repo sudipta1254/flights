@@ -21,7 +21,7 @@ input[type='search'] {
    background: black;
    text-align: center;
    width: 120px;
-   height: 35px;
+   height: 2.5rem;
    border-radius: 12px;
    transition: .4s;
 }
