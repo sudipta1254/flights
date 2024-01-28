@@ -284,7 +284,7 @@ function information(url, updt = 0) {
 $('#select1').change(function(){
    if($(this).val() === 'realtime') {
       select2.css('display', 'block');
-      $('#select3, #select4').css('display', 'none');
+      $('#select3, #select4').css('display', 'none');z
       xt = 1;
    } else if($(this).val() === 'schedule') {
       select3.css('display', 'block');
@@ -295,6 +295,9 @@ $('#select1').change(function(){
       $('#select2, #select3').css('display', 'none');
       xt = 3;
    }
+})
+select2.change(function() {
+   select5.css('display', $(this).val() == 'reg_number' ?  'none' : 'block');
 })
 
 function time(t) {
