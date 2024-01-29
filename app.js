@@ -32,7 +32,6 @@ function main(updt = 0) {
       default:
          alert(xt);
    }
-   // help2();
 }
 
 function realtime(url, updt = 0) {
@@ -350,12 +349,12 @@ function help2(x = 0) {
 }
 async function help3(code) {
    try {
-     const response = await fetch(`https://restcountries.com/v3/alpha/${code}`);
-     const data = await response.json();
-     const countryName = data[0].name.common;
-     return countryName;
+      const response = await fetch(`https://restcountries.com/v3/alpha/${code}`);
+      const data = await response.json();
+      const countryName = data[0].name.common;
+      return countryName;
    } catch (error) {
-     throw new Error(`Error: ${error.message}`);
+      throw new Error(error.message);
    }
 }
 
@@ -379,11 +378,11 @@ $('#mapt').change(function() {
 })
 
 txt.on("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    $(this).blur();
-    main();
-  }
+   if (event.key === "Enter") {
+      event.preventDefault();
+      $(this).blur();
+      main();
+   }
 });
 
 $('button').click(() => {
