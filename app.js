@@ -32,7 +32,7 @@ function main(updt = 0) {
       default:
          alert(xt);
    }
-   help2();
+   // help2();
 }
 
 function realtime(url, updt = 0) {
@@ -85,6 +85,7 @@ function realtime(url, updt = 0) {
    .catch(e => {
       alert(`Realtime error: ${e.message}`);
    })
+   help2()
 }
 function schedule(url, updt = 0) {
    updt || fill.text('Loading...');
@@ -161,6 +162,7 @@ function schedule(url, updt = 0) {
    .catch(e => {
       alert(`Schedule error: ${e.message}`);
    })
+   help2()
 }
 function information(url, updt = 0) {
    updt || fill.text('Loading...');
@@ -320,14 +322,14 @@ function updateMap(lat, long) {
 }
 function distance(d, a, x) {
    if(x > -1) {
-   fill.append(`<span id='distance'>
-         <span id='dep'>${d}</span>
-         <span id='line-p'>
-            <span id='line'></span>
-         </span>
-         <span id='arr'>${a}</span>
-      </span>`);
-   $('#line').css('width', x+'%');
+      fill.append(`<span id='distance'>
+            <span id='dep'>${d}</span>
+            <span id='line-p'>
+               <span id='line'></span>
+            </span>
+            <span id='arr'>${a}</span>
+         </span>`);
+      $('#line').css('width', x+'%');
    }
 }
 function help1(t) {
@@ -345,8 +347,6 @@ function help1(t) {
 }
 function help2(x = 0) {
    $('#map').css('display', x ? 'block' : 'none');
-   if(!x)
-      $('iframe').css('display', 'none');
 }
 async function help3(code) {
    try {

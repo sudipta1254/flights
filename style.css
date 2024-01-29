@@ -32,6 +32,9 @@ input:focus {
 input:invalid {
    border: 2px solid red;
 }
+input {
+   accent-color: #3fb6c9;
+}
 button {
    width: 60px;
    height: 30px;
@@ -177,6 +180,12 @@ header, main {
    height: 2px;
    border-radius: 5px;
    background: yellow;
+}
+
+@media screen and (min-width: 768px) {
+   #data {
+      height: 62.5vh;
+   }
 }
 
 @font-face {
