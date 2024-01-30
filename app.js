@@ -366,7 +366,7 @@ $('#update').change(function() {
             clearInterval(timeId),
             $('#update').prop('checked', false)
          );
-      }, 5000);
+      }, 20000);
    } else {
       clearInterval(timeId);
    }
