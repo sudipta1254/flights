@@ -362,8 +362,11 @@ async function help3(code) {
 $('#update').change(function() {
    if($(this).is(':checked')) {
       timeId = setInterval(function() {
-         txt.val() ? main(1) : clearInterval(timeId);
-      }, 20000);
+         txt.val() ? main(1) : (
+            clearInterval(timeId),
+            $('#update').prop('checked', false)
+         );
+      }, 5000);
    } else {
       clearInterval(timeId);
    }
