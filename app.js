@@ -171,7 +171,7 @@ function information(url, updt = 0) {
          alert(response.status+' '+response.type);
       return response.json();
    })
-   .then(d => {
+   .then(async (d) => {
       console.log(d)
       if(d.error) {
          fill.html(`<b>${d.error.message}. ${d.error.code}<b>`);
@@ -187,7 +187,7 @@ function information(url, updt = 0) {
       /*Departure*/
       let text = '';
       if(dts.dep_name)
-         text = `Departure: <b>${dts.dep_name}, ${dts.dep_city}, ${dts.dep_country} ${flag(dts.dep_country)}</b><br>`;
+         text = `Departure: <b>${dts.dep_name}, ${dts.dep_city}, ${await help3(dts.dep_country)} ${flag(dts.dep_country)}</b><br>`;
       if(dts.dep_icao)
             text += `Departure ICAO/IATA: <b>${dts.dep_icao}/${dts.dep_iata}</b>`;
       if(dts.dep_terminal)
@@ -228,7 +228,7 @@ function information(url, updt = 0) {
          text += `Squawk: <b>${dts.squawk}</b>`;
       /*Arrival*/
       if(dts.arr_name)
-         text += `<br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${dts.arr_country} ${flag(dts.arr_country)}</b>`;
+         text += `<br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${await help3(dts.arr_country)} ${flag(dts.arr_country)}</b>`;
       if(dts.arr_icao)
          text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
       if(dts.arr_baggage)
