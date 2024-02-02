@@ -351,8 +351,7 @@ async function help3(code) {
    try {
       const response = await fetch(`https://restcountries.com/v3/alpha/${code}`);
       const data = await response.json();
-      const countryName = data[0].name.common;
-      return countryName;
+      return data[0].name.common;
    } catch (error) {
       throw new Error(error.message);
    }
