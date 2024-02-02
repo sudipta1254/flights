@@ -2,7 +2,7 @@ let select2 = $('#select2'), select3 = $('#select3'),
 select4 = $('#select4'), select5 = $('#select5'),
 fill = $('#data'), txt = $('input[type="search"]'),
 ifrm = $('iframe'), btn = $('button'), timeId,
-xt = 1;
+xt = 1, key;
 
 function main(updt = 0) {
    if(!txt.val().trim()) {
@@ -44,7 +44,7 @@ function realtime(url, updt = 0) {
    })
    .then(d => {
       if(d.error) {
-         fill.html(`<b>${d.error.message}. ${d.error.code}<b>`);
+         fill.html(`<b>${d.error.message}<b>`);
          return;
       }
       if(!d.response.length) {
@@ -96,7 +96,7 @@ function schedule(url, updt = 0) {
    })
    .then(d => {
       if(d.error) {
-         fill.html(`<b>${d.error.message}. ${d.error.code}<b>`);
+         fill.html(`<b>${d.error.message}<b>`);
          return;
       }
       if(!d.response.length) {
@@ -174,7 +174,7 @@ function information(url, updt = 0) {
    .then(async (d) => {
       console.log(d)
       if(d.error) {
-         fill.html(`<b>${d.error.message}. ${d.error.code}<b>`);
+         fill.html(`<b>${d.error.message}<b>`);
          return;
       }
       if(!Object.keys(d.response)) {
@@ -406,5 +406,6 @@ $('button').click(() => {
 
 
 
-const key = 'a1af1621-da48-4592-a132-52415d0cabd3',
+const key1 = 'a1af1621-da48-4592-a132-52415d0cabd3',
 key2 = '7e5231c8-8efc-402c-a160-6c769fe8e934';
+key = key2;
