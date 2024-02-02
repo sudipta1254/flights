@@ -6,8 +6,7 @@ xt = 1;
 
 function main(updt = 0) {
    if(!txt.val().trim()) {
-      // alert('Enter query to continue!');
-      notif('Enter query to continue!');
+      alert('Enter query to continue!');
       return;
    }
    let url = 'https://airlabs.co/api/v9',
@@ -83,8 +82,7 @@ function realtime(url, updt = 0) {
       });
    })
    .catch(e => {
-      // alert(`Realtime error: ${e.message}`);
-      notif(`Realtime error: ${e.message}`);
+      alert(`Realtime error: ${e.message}`);
    })
    help2()
 }
@@ -279,8 +277,7 @@ function information(url, updt = 0) {
       updateMap(dts.lat, dts.lng);
    })
    .catch(e => {
-      // alert(`Information error: ${e.message}`);
-      notif(`Information error: ${e.message}`);
+      alert(`Information error: ${e.message}`);
    })
 }
 
@@ -357,31 +354,6 @@ async function help3(code) {
       return data[0].name.common;
    } catch (error) {
       throw new Error(error.message);
-   }
-}
-function notif(msg = "Hi there!") {
-   if (!("Notification" in window)) {
-      // Check if the browser supports notifications
-      alert(msg);
-      
-   } else if (Notification.permission === "granted") {
-      // Check whether notification permissions have already been granted;
-      // if so, create a notification
-
-      const notification = new Notification(msg);
-      notification.addEventListener('click', (event) => {
-         event.preventDefault();
-      })
-      
-   } else if (Notification.permission !== "denied") {
-      // We need to ask the user for permission
-      Notification.requestPermission().then((permission) => {
-         // If the user accepts, let's create a notification
-         if (permission === "granted") {
-            const notification = new Notification(msg);
-            
-         }
-      });
    }
 }
 
