@@ -54,9 +54,9 @@ function realtime(url, updt = 0) {
       }
       console.log(d)
       fill.empty();
-      d.response.forEach(dt => {
+      d.response.forEach(async dt => {
          let text = `Registration: <b>${dt.reg_number}</b><br>
-               Flag: <b>${dt.flag} ${flag(dt.flag.toLowerCase())}</b><br>
+               Flag: <b>${await help3(dt.flag)} ${flag(dt.flag.toLowerCase())}</b><br>
                Position: <b>${dt.lat.toFixed(2)}, ${dt.lng.toFixed(2)}</b><br>
                Altitude: <b>${(dt.alt*3.28).toFixed(0)} ft</b><br>
                Direction: <b>${dt.dir}°</b><br>
@@ -217,7 +217,7 @@ function information(url, updt = 0) {
       if(dts.flight_number)
             text += `<br>Flight Number: <b>${dts.flight_number}</b>`;
       text += `<br>Registration: <b>${dts.reg_number}</b><br>
-            Flag: <b>${dts.flag} ${flag(dts.flag.toLowerCase())}</b><br>
+            Flag: <b>${await help3(dts.flag)} ${flag(dts.flag.toLowerCase())}</b><br>
             Position: <b>${dts.lat.toFixed(2)}, ${dts.lng.toFixed(2)}</b><br>
             Altitude: <b>${(dts.alt*3.28).toFixed(0)} ft</b><br>
             Direction: <b>${dts.dir}°</b><br>
@@ -348,13 +348,17 @@ function help2(x = 0) {
    $('#map').css('display', x ? 'block' : 'none');
 }
 async function help3(code) {
-   try {
-      const response = await fetch(`https://restcountries.com/v3/alpha/${code}`);
-      const data = await response.json();
-      return data[0].name.common;
-   } catch (error) {
-      throw new Error(error.message);
-   }
+  try {
+    if(code == 'UK')
+       return code;
+     
+    const response = await fetch(`https://restcountries.com/v3/alpha/${code}`);
+    const data = await response.json();
+    const countryName = data[0].name.common;
+    return countryName;
+  } catch (error) {
+    throw new Error(error.message);
+  }
 }
 
 
