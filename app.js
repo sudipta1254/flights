@@ -217,16 +217,22 @@ function information(url, updt = 0) {
             text += `<br>Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b>`;
       if(dts.flight_number)
             text += `<br>Flight Number: <b>${dts.flight_number}</b>`;
-      text += `<br>Registration: <b>${dts.reg_number}</b><br>
-            Flag: <b>${await help3(dts.flag)} ${flag(dts.flag.toLowerCase())}</b><br>
-            Position: <b>${dts.lat.toFixed(2)}, ${dts.lng.toFixed(2)}</b><br>
-            Altitude: <b>${(dts.alt*3.28).toFixed(0)} ft</b><br>
-            Direction: <b>${dts.dir}°</b><br>
-            Speed: <b>${dts.speed} Kmph</b><br>`;
-      if(dts.v_speed)
-         text+= `V speed: <b>${dts.v_speed}</b><br>`;
-      if(dts.squawk)
-         text += `Squawk: <b>${dts.squawk}</b>`;
+      if(dts.reg_number)
+            text += `<br>Registration: <b>${dts.reg_number}</b>`;
+         if(dts.flag)
+            text += `<br>Flag: <b>${await help3(dts.flag)} ${flag(dts.flag.toLowerCase())}</b>`;
+         if(dts.lat)
+            text += `<br>Position: <b>${dts.lat.toFixed(2)}, ${dts.lng.toFixed(2)}</b>`;
+         if(dts.alt)
+            text += `<br>Altitude: <b>${(dts.alt*3.28).toFixed(0)} ft</b>`;
+         if(dts.dir)
+            text += `<br>Direction: <b>${dts.dir}°</b>`;
+         if(dts.speed)
+            text += `<br>Speed: <b>${dts.speed} Kmph</b>`;
+         if(dts.v_speed)
+            text+= `<br>V speed: <b>${dts.v_speed}</b>`;
+         if(dts.squawk)
+            text += `<br>Squawk: <b>${dts.squawk}</b>`;
       /*Arrival*/
       if(dts.arr_name)
          text += `<br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${await help3(dts.arr_country)} ${flag(dts.arr_country)}</b>`;
@@ -264,8 +270,8 @@ function information(url, updt = 0) {
          text += `<br>Aircraft ICAO: <b>${dts.aircraft_icao}</b>`;
       if(dts.engine)
          text += `<br>Engine: <b>${dts.engine_count} ${dts.engine}</b>`;
-      if(dts.built)
-         text += `<br>Built: <b>${dts.built} - ${dts.age}y</b>`;
+      if(dts.built && dts.age)
+         text += `<br>Built: <b>${dts.built} - ${dts.age+2}y</b>`;
       if(dts.eta && dts.eta > -1)
          text += `<br>Arriving in <b>${help1(dts.eta)}</b>`;
       if(dts.status)
