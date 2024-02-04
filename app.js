@@ -306,9 +306,26 @@ $('#select1').change(function(){
 })
 
 function time(t) {
-   if(typeof t == 'string')
-      return new Date(t+'Z').toLocaleString();
-   return new Date(t*1000).toLocaleString();
+   let vr;
+   if(typeof t === 'string')
+      vr = new Date(t+'Z');
+   else
+      vr = new Date(t*1000);
+   
+   // Get the components of the date
+   const day = vr.getDate();
+   const month = vr.getMonth() + 1; // Months are zero-based, so add 1
+   const year = vr.getFullYear();
+   let hours = vr.getHours();
+   const minutes = vr.getMinutes();
+   const seconds = vr.getSeconds();
+   const ampm = hours >= 12 ? 'PM' : 'AM';
+   
+   // Convert hours to 12-hour format
+   hours = hours % 12 || 12;
+
+   // Construct the format
+   return  `${day}/${month}/${year}, ${hours}:${minutes}:${seconds} ${ampm}`;
 }
 function ck(a, b) {
    return a.eq(b).prop('checked');
@@ -352,7 +369,7 @@ function help2(x = 0) {
    $('#map').css('display', x ? 'block' : 'none');
 }
 async function help3(code) {
-   fill.text('Loading...');
+   fill.text('Loadixng...');
   try {
     if(code == 'UK')
        return code;
