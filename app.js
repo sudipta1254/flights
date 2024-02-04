@@ -312,20 +312,11 @@ function time(t) {
    else
       vr = new Date(t*1000);
    
-   // Get the components of the date
-   const day = vr.getDate();
-   const month = vr.getMonth() + 1; // Months are zero-based, so add 1
-   const year = vr.getFullYear();
-   let hours = vr.getHours();
-   const minutes = vr.getMinutes();
-   const seconds = vr.getSeconds();
-   const ampm = hours >= 12 ? 'PM' : 'AM';
-   
-   // Convert hours to 12-hour format
-   hours = hours % 12 || 12;
-
-   // Construct the format
-   return  `${day}/${month}/${year}, ${hours}:${minutes}:${seconds} ${ampm}`;
+   let day = vr.getDate(),
+   month = vr.getMonth()+1,
+   year = vr.getFullYear();
+   vr = vr.toLocaleString().split(',');
+   return `${day}/${month}/${year}, ${vr[1]}`;
 }
 function ck(a, b) {
    return a.eq(b).prop('checked');
