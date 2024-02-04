@@ -381,6 +381,7 @@ async function help3(code) {
   } catch (error) {
     throw new Error(error.message);
   }
+   fill.text('')
 }
 function mapZoomLvl(z) {
    const c = 4200;
