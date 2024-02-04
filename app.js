@@ -27,7 +27,7 @@ function main(updt = 0) {
          break;
       case 3:
          url += `/flight?api_key=${key}&${s4}${s5}=${inp}`;
-         updt ? information(url, 1) : information(url);
+         information(url);
          break;
       default:
          alert(xt);
@@ -164,8 +164,8 @@ function schedule(url, updt = 0) {
    })
    help2()
 }
-function information(url, updt = 0) {
-   updt || fill.text('Loading...');
+function information(url) {
+   fill.text('Loading...');
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -352,6 +352,7 @@ function help2(x = 0) {
    $('#map').css('display', x ? 'block' : 'none');
 }
 async function help3(code) {
+   fill.text('Loading...');
   try {
     if(code == 'UK')
        return code;
