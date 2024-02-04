@@ -274,7 +274,7 @@ function information(url, updt = 0) {
       fill.html(text);
       if(dts.dep_iata && dts.arr_iata && dts.percent)
          distance(dts.dep_iata, dts.arr_iata, dts.percent);
-      updateMap(dts.lat, dts.lng);
+      updateMap(dts.lat, dts.lng, mapZoomLvl(dts.alt ?? 0));
    })
    .catch(e => {
       alert(`Information error: ${e.message}`);
@@ -315,9 +315,9 @@ function flag(flag) {
 function logo(logo) {
    return `<div id="logo-div"><img src=https://airlabs.co/img/airline/m/${logo}.png id='logo'></div>`;
 }
-function updateMap(lat, long) {
+function updateMap(lat, long, z) {
    help2(1);
-   ifrm.attr('src', `https://maps.google.com/maps?hl=en&q=${lat},${long}&t=&z=13&ie=UTF8&iwloc=B&output=embed`);
+   ifrm.attr('src', `https://maps.google.com/maps?hl=en&q=${lat},${long}&t=&z=${z}&ie=UTF8&iwloc=B&output=embed`);
 }
 function distance(d, a, x) {
    if(x > -1) {
@@ -359,6 +359,36 @@ async function help3(code) {
   } catch (error) {
     throw new Error(error.message);
   }
+}
+function mapZoomLvl(z) {
+   const c = 4200;
+   if(z)
+      z *= 3.28; /* Convert to feet */
+   if(!z)
+      return 13; /* Landed or altitude not available */
+   else if(z < c)
+      return 12;
+   else if(z >= c && z < c*2)
+      return 11;
+   else if(z >= c*3 && z < c*4)
+      return 10;
+   else if(z >= c*4 && z < c*5)
+      return 9;
+   else if(z >= c*6 && z < c*7)
+      return 8;
+   else if(z >= c*7 && z < c*8)
+      return 7;
+   else if(z >= c*8 && z < c*9)
+      return 6;
+   else if(z >= c*9 && z < c*10)
+      return 5;
+   else if(z >= c*10)
+      return 4;
+}
+function sortFl(num) {
+   return num.sort(function(a, b) {
+      return a.flight_number - b.flight_number;
+   });
 }
 
 
