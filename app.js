@@ -1,8 +1,8 @@
 let select2 = $('#select2'), select3 = $('#select3'),
 select4 = $('#select4'), select5 = $('#select5'),
-fill = $('#data'), txt = $('input[type="search"]'),
-ifrm = $('iframe'), btn = $('button'), timeId,
-xt = 1, key;
+s6 = $('#select6'), fill = $('#data'),
+txt = $('input[type="search"]'), ifrm = $('iframe'),
+btn = $('button'), timeId, xt = 1, key;
 
 function main(updt = 0) {
    if(!txt.val().trim()) {
@@ -52,6 +52,7 @@ function realtime(url, updt = 0) {
          alert('No data found!');
          return;
       }
+      sortFl(d.response); /* Sort flights */
       console.log(d)
       fill.empty();
       d.response.forEach(async dt => {
@@ -385,10 +386,19 @@ function mapZoomLvl(z) {
    else if(z >= c*10)
       return 4;
 }
-function sortFl(num) {
-   return num.sort(function(a, b) {
-      return a.flight_number - b.flight_number;
-   });
+function sortFl(d) {
+   if(s6.val()) {
+      let term = s6.val();
+      fill.text(`Sorting flights...`);
+      if(term.includes('_a'))
+         d.sort(function(a, b) {
+            return a[term.slice(0,-2)] - b[term.slice(0,-2)];
+         });
+      else
+         d.sort(function(a, b) {
+            return b[term.slice(0,-2)] - a[term.slice(0,-2)];
+         });
+   }
 }
 
 
