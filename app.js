@@ -285,16 +285,16 @@ function information(url, updt = 0) {
 
 $('#select1').change(function(){
    if($(this).val() === 'realtime') {
-      select2.css('display', 'block');
-      $('#select3, #select4').css('display', 'none');z
+      $('#select2, #select6').css('display', 'block');
+      $('#select3, #select4').css('display', 'none');
       xt = 1;
    } else if($(this).val() === 'schedule') {
       select3.css('display', 'block');
-      $('#select2, #select4').css('display', 'none');
+      $('#select2, #select4, #select6').css('display', 'none');
       xt = 2;
-   } else {
+   } else if($(this).val() === 'information'){
       select4.css('display', 'block');
-      $('#select2, #select3').css('display', 'none');
+      $('#select2, #select3, #select6').css('display', 'none');
       xt = 3;
    }
 })
