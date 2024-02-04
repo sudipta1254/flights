@@ -235,7 +235,7 @@ function information(url, updt = 0) {
             text += `<br>Squawk: <b>${dts.squawk}</b>`;
       /*Arrival*/
       if(dts.arr_name)
-         text += `<br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${await help3(dts.arr_country)} ${flag(dts.arr_country)}</b>`;
+         text += `<br><br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${await help3(dts.arr_country)} ${flag(dts.arr_country)}</b>`;
       if(dts.arr_icao)
          text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
       if(dts.arr_baggage)
