@@ -4,6 +4,9 @@ body {
    background: #212121;
    font-family: Raleway;
    font-weight: 500;
+   cursor: url('./Images/cursor1.png'),
+      url('https://img.icons8.com/doodle/30/blue-pointer.png'),
+      url('https://img.icons8.com/color-glass/30/select-cursor--v1.png'), auto;
 }
 #instruction {
    width: 85%;
