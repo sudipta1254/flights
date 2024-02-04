@@ -4,9 +4,8 @@ body {
    background: #212121;
    font-family: Raleway;
    font-weight: 500;
-   cursor: url('./Images/cursor1.png'),
-      url('https://img.icons8.com/doodle/30/blue-pointer.png'),
-      url('https://img.icons8.com/color-glass/30/select-cursor--v1.png'), auto;
+   cursor: url('https://img.icons8.com/color-glass/25/select-cursor--v1.png'),
+   url('https://img.icons8.com/doodle/30/blue-pointer.png'), auto;
 }
 #instruction {
    width: 85%;
@@ -51,6 +50,9 @@ header p {
 }
 main {
    //border: 1px solid;
+}
+select, button, input[type='checkbox'] {
+   cursor: pointer;
 }
 
 #outer-select {
@@ -193,5 +195,5 @@ header, main {
 
 @font-face {
    font-family: 'Cailyne';
-   src: url('Cailyne.ttf') format(truetype);
+   src: url('./Font/Cailyne.ttf') format(truetype);
 }

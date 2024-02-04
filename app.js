@@ -190,16 +190,16 @@ function information(url, updt = 0) {
       if(dts.dep_name)
          text = `Departure: <b>${dts.dep_name}, ${dts.dep_city}, ${await help3(dts.dep_country)} ${flag(dts.dep_country)}</b><br>`;
       if(dts.dep_icao)
-            text += `Departure ICAO/IATA: <b>${dts.dep_icao}/${dts.dep_iata}</b>`;
+         text += `Departure ICAO/IATA: <b>${dts.dep_icao}/${dts.dep_iata}</b>`;
       if(dts.dep_terminal)
-            text += `<br>Terminal: <b>${dts.dep_terminal}</b>`
+         text += `<br>Terminal: <b>${dts.dep_terminal}</b>`
       if(dts.dep_gate)
-            text += `<br>Gate: <b>${dts.dep_gate}</b>`;
+         text += `<br>Gate: <b>${dts.dep_gate}</b>`;
       if(dts.dep_time_utc)
-            text += `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
+         text += `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
       if(dts.dep_estimated_utc && dts.dep_actual_utc){
-            if(dts.dep_estimated_utc === dts.dep_actual_utc)
-               text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
+         if(dts.dep_estimated_utc === dts.dep_actual_utc)
+            text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
       } else {
          if(dts.dep_estimated_utc)
             text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
@@ -214,25 +214,25 @@ function information(url, updt = 0) {
       if(!dts.airline_name)
          text += ` ${logo(dts.airline_iata)}</b>`;
       if(dts.flight_icao)
-            text += `<br>Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b>`;
+         text += `<br>Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b>`;
       if(dts.flight_number)
-            text += `<br>Flight Number: <b>${dts.flight_number}</b>`;
+         text += `<br>Flight Number: <b>${dts.flight_number}</b>`;
       if(dts.reg_number)
-            text += `<br>Registration: <b>${dts.reg_number}</b>`;
-         if(dts.flag)
-            text += `<br>Flag: <b>${await help3(dts.flag)} ${flag(dts.flag.toLowerCase())}</b>`;
-         if(dts.lat)
-            text += `<br>Position: <b>${dts.lat.toFixed(2)}, ${dts.lng.toFixed(2)}</b>`;
-         if(dts.alt)
-            text += `<br>Altitude: <b>${(dts.alt*3.28).toFixed(0)} ft</b>`;
-         if(dts.dir)
-            text += `<br>Direction: <b>${dts.dir}°</b>`;
-         if(dts.speed)
-            text += `<br>Speed: <b>${dts.speed} Kmph</b>`;
-         if(dts.v_speed)
-            text+= `<br>V speed: <b>${dts.v_speed}</b>`;
-         if(dts.squawk)
-            text += `<br>Squawk: <b>${dts.squawk}</b>`;
+         text += `<br>Registration: <b>${dts.reg_number}</b>`;
+      if(dts.flag)
+         text += `<br>Flag: <b>${await help3(dts.flag)} ${flag(dts.flag.toLowerCase())}</b>`;
+      if(dts.lat)
+         text += `<br>Position: <b>${dts.lat.toFixed(2)}, ${dts.lng.toFixed(2)}</b>`;
+      if(dts.alt)
+         text += `<br>Altitude: <b>${(dts.alt*3.28).toFixed(0)} ft</b>`;
+      if(dts.dir)
+         text += `<br>Direction: <b>${dts.dir}°</b>`;
+      if(dts.speed)
+         text += `<br>Speed: <b>${dts.speed} Kmph</b>`;
+      if(dts.v_speed)
+         text+= `<br>V speed: <b>${dts.v_speed}</b>`;
+      if(dts.squawk)
+         text += `<br>Squawk: <b>${dts.squawk}</b>`;
       /*Arrival*/
       if(dts.arr_name)
          text += `<br><br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${await help3(dts.arr_country)} ${flag(dts.arr_country)}</b>`;
@@ -303,9 +303,6 @@ $('#select1').change(function(){
       $('#select2, #select3, #select6').css('display', 'none');
       xt = 3;
    }
-})
-select2.change(function() {
-   select5.css('display', $(this).val() == 'reg_number' ?  'none' : 'block');
 })
 
 function time(t) {
