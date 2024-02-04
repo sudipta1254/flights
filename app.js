@@ -369,7 +369,7 @@ function help2(x = 0) {
    $('#map').css('display', x ? 'block' : 'none');
 }
 async function help3(code) {
-   fill.text('Loadixng...');
+  // fill.text('Loadixng...');
   try {
     if(code == 'UK')
        return code;
