@@ -133,6 +133,10 @@ a:hover {
    transition: .4s;
    letter-spacing: 1px;
 }
+#msgBox {
+   display: none;
+   margin: 10px 0 0;
+}
 #logo-div {
    display: inline;
 }
