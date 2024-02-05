@@ -2,7 +2,7 @@ let select2 = $('#select2'), select3 = $('#select3'),
 select4 = $('#select4'), select5 = $('#select5'),
 s6 = $('#select6'), fill = $('#data'),
 txt = $('input[type="search"]'), ifrm = $('iframe'),
-btn = $('button'), timeId, xt = 1, key;
+btn = $('button'), timeId, xt = 1, key, dataStore;
 
 function main(updt = 0) {
    if(!txt.val().trim()) {
@@ -34,15 +34,21 @@ function main(updt = 0) {
    }
 }
 
-function realtime(url, updt = 0) {
-   updt || fill.text('Loading...');
-   fetch(url)
-   .then(response => {
-      if(!response.ok)
-         alert(response.status+' '+response.type);
-      return response.json();
-   })
-   .then(d => {
+async function realtime(url, updt = 0, stored = 0) {
+   try {
+      updt || fill.text('Loading...');
+      let d;
+      if(!stored) {
+         const response = await fetch(url);
+         if(!response.ok) {
+            alert(response.status+' '+response.type);
+            return;
+         }
+         d = await response.json();
+         dataStore = d; /* Store current data for better UX */
+      } else {
+         d = dataStore;
+      }
       if(d.error) {
          fill.html(`<b>${d.error.message}<b>`);
          return;
@@ -52,9 +58,8 @@ function realtime(url, updt = 0) {
          alert('No data found!');
          return;
       }
-      // dataStore = d; /* Store current data for better UX */
       sortFl(d.response); /* Sort flights */
-      console.log(d)
+      // console.log(d);
       fill.empty();
       d.response.forEach(async dt => {
          let text = `Registration: <b>${dt.reg_number}</b><br>
@@ -82,10 +87,9 @@ function realtime(url, updt = 0) {
                Type: <b>${dt.type}</b><hr>`;
          $('#data').append(text);
       });
-   })
-   .catch(e => {
+   } catch(e) {
       alert(`Realtime error: ${e.message}`);
-   })
+   }
    help2()
 }
 function schedule(url, updt = 0) {
@@ -174,7 +178,7 @@ function information(url) {
       return response.json();
    })
    .then(async (d) => {
-      console.log(d)
+      // console.log(d);
       if(d.error) {
          fill.html(`<b>${d.error.message}<b>`);
          return;
@@ -306,7 +310,7 @@ $('#select1').change(function(){
    }
 })
 s6.change(function() {
-   // realtime(0, 0);
+   realtime(0, 0, 1);
 })
 
 function time(t) {
