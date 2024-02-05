@@ -324,7 +324,7 @@ function time(t) {
    month = vr.getMonth()+1,
    year = vr.getFullYear();
    vr = vr.toLocaleString().split(',');
-   return `${day}/${month}/${year}, ${vr[1]}`;
+   return `${day}/${month}/${year}, ${vr[1].replace(':00','')}`;
 }
 function ck(a, b) {
    return a.eq(b).prop('checked');
