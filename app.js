@@ -46,18 +46,21 @@ async function realtime(url, updt = 0, stored = 0) {
          }
          d = await response.json();
          dataStore = d; /* Store current data for better UX */
+         if(d.error) {
+            fill.html(`<b>${d.error.message}<b>`);
+            return;
+         }
+         if(!d.response.length) {
+            fill.html('<em>No data found!</em>');
+            alert('No data found!');
+            return;
+         }
+         keyLeft(d);
+         s6.prop('disabled', false);
       } else {
          d = dataStore;
       }
-      if(d.error) {
-         fill.html(`<b>${d.error.message}<b>`);
-         return;
-      }
-      if(!d.response.length) {
-         fill.html('<em>No data found!</em>');
-         alert('No data found!');
-         return;
-      }
+      
       sortFl(d.response); /* Sort flights */
       // console.log(d);
       fill.empty();
@@ -110,6 +113,7 @@ function schedule(url, updt = 0) {
          alert('No data found!');
          return;
       }
+      keyLeft(d);
       fill.empty();
       d.response.forEach((dts) => {
          var text = `Airline ICAO/IATA: <b>${dts.airline_icao}/${dts.airline_iata} ${logo(dts.airline_iata)}</b><br>
@@ -188,6 +192,7 @@ function information(url) {
          alert('No data found!');
          return;
       }
+      keyLeft(d);
       let dts = d.response;
       fill.empty();
       /*Departure*/
@@ -419,6 +424,12 @@ function sortFl(d) {
             return b[term.slice(0,-2)] - a[term.slice(0,-2)];
          });
    }
+}
+function keyLeft(d) {
+   let key = d.request.key.limits_total;
+   const keys = '500 400 300 200 100 50 40 30 20 10 5 1';
+   if(keys.includes(key))
+      alert(`${key} call(s) letf!`);
 }
 
 
