@@ -379,13 +379,13 @@ $('#update').change(function() {
 
 $('#mapt').change(function() {
    if($(this).is(':checked')) {
-      ifrm.show('slow');
+      ifrm.show();
       //Smooth scroll to map when checked
       $('html, body').animate({
           scrollTop: ifrm.offset().top
       }, 1000);
    } else {
-      ifrm.hide('slow');
+      ifrm.hide();
    }
 })
 
