@@ -220,10 +220,10 @@ function information(url) {
          distance(dts.dep_iata, dts.arr_iata, dts.percent);
       updateMap(dts.lat, dts.lng, mapZoomLvl(dts.alt ?? 0));
    })
-   msgbox.hide();
    .catch(e => {
       alert(`Information error: ${e.message}`);
    })
+   msgbox.hide();
 }
 
 
