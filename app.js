@@ -223,11 +223,11 @@ function information(url) {
       if(dts.dep_iata && dts.arr_iata && dts.percent)
          distance(dts.dep_iata, dts.arr_iata, dts.percent);
       updateMap(dts.lat, dts.lng, mapZoomLvl(dts.alt ?? 0));
+      msgbox.hide();
    })
    .catch(e => {
       alert(`Information error: ${e.message}`);
    })
-   msgbox.hide();
 }
 
 
@@ -379,13 +379,13 @@ $('#update').change(function() {
 
 $('#mapt').change(function() {
    if($(this).is(':checked')) {
-      ifrm.show('linear');
+      ifrm.show();
       //Smooth scroll to map when checked
       $('html, body').animate({
           scrollTop: ifrm.offset().top
       }, 1000);
    } else {
-      ifrm.hide('linear');
+      ifrm.hide();
    }
 })
 
