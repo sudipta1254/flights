@@ -52,6 +52,7 @@ function realtime(url, updt = 0) {
          alert('No data found!');
          return;
       }
+      // dataStore = d; /* Store current data for better UX */
       sortFl(d.response); /* Sort flights */
       console.log(d)
       fill.empty();
@@ -304,6 +305,9 @@ $('#select1').change(function(){
       xt = 3;
    }
 })
+s6.change(function() {
+   // realtime(0, 0);
+})
 
 function time(t) {
    let vr;
@@ -360,19 +364,18 @@ function help2(x = 0) {
    $('#map').css('display', x ? 'block' : 'none');
 }
 async function help3(code) {
-  // fill.text('Loadixng...');
-  try {
-    if(code == 'UK')
-       return code;
-     
-    const response = await fetch(`https://restcountries.com/v3/alpha/${code}`);
-    const data = await response.json();
-    const countryName = data[0].name.common;
-    return countryName;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-   fill.text('')
+   // fill.text('Loadixng...');
+   try {
+      if(code == 'UK')
+         return code;
+      
+      const response = await fetch(`https://restcountries.com/v3/alpha/${code}`);
+      const data = await response.json();
+      const countryName = data[0].name.common;
+      return countryName;
+   } catch (error) {
+      throw new Error(error.message);
+   }
 }
 function mapZoomLvl(z) {
    const c = 4200;
