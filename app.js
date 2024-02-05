@@ -48,11 +48,13 @@ async function realtime(url, stored = 0) {
          dataStore = d; /* Store current data for better UX */
          if(d.error) {
             fill.html(`<b>${d.error.message}<b>`);
+            msgbox.hide();
             return;
          }
          if(!d.response.length) {
             fill.html('<em>No data found!</em>');
             alert('No data found!');
+            msgbox.hide();
             return;
          }
          keyLeft(d);
@@ -112,11 +114,13 @@ function information(url) {
       // console.log(d);
       if(d.error) {
          fill.html(`<b>${d.error.message}<b>`);
+         msgbox.hide();
          return;
       }
       if(!Object.keys(d.response)) {
          fill.html('<em>No data found!</em>');
          alert('No data found!');
+         msgbox.hide();
          return;
       }
       keyLeft(d);
