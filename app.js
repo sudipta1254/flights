@@ -1,10 +1,10 @@
 let select2 = $('#select2'), select3 = $('#select3'),
 select4 = $('#select4'), select5 = $('#select5'),
-s6 = $('#select6'), fill = $('#data'),
+s6 = $('#select6'), fill = $('#data'), msgbox = $('#msgBox'),
 txt = $('input[type="search"]'), ifrm = $('iframe'),
 btn = $('button'), timeId, xt = 1, key, dataStore;
 
-function main(updt = 0) {
+function main() {
    if(!txt.val().trim()) {
       alert('Enter query to continue!');
       return;
@@ -19,11 +19,11 @@ function main(updt = 0) {
             url += `/flights?api_key=${key}&${s2}=${inp}`;
          else
             url += `/flights?api_key=${key}&${s2}${s5}=${inp}`;
-         updt ? realtime(url, 1) : realtime(url);
+         realtime(url);
          break;
       case 2:
          url += `/schedules?api_key=${key}&${s3}${s5}=${inp}`;
-         updt ? schedule(url, 1) : schedule(url);
+         schedule(url);
          break;
       case 3:
          url += `/flight?api_key=${key}&${s4}${s5}=${inp}`;
@@ -34,11 +34,12 @@ function main(updt = 0) {
    }
 }
 
-async function realtime(url, updt = 0, stored = 0) {
+async function realtime(url, stored = 0) {
    try {
       updt || fill.text('Loading...');
       let d;
       if(!stored) {
+         msgbox.show().text('Loading...');
          const response = await fetch(url);
          if(!response.ok) {
             alert(response.status+' '+response.type);
@@ -58,6 +59,7 @@ async function realtime(url, updt = 0, stored = 0) {
          keyLeft(d);
          s6.prop('disabled', false);
       } else {
+         msgbox.show().text(`Sorting flights...`);
          d = dataStore;
       }
       
@@ -90,91 +92,17 @@ async function realtime(url, updt = 0, stored = 0) {
                Type: <b>${dt.type}</b><hr>`;
          $('#data').append(text);
       });
+      msgbox.hide();
    } catch(e) {
       alert(`Realtime error: ${e.message}`);
    }
    help2()
 }
-function schedule(url, updt = 0) {
-   updt || fill.text('Loading...');
-   fetch(url)
-   .then(response => {
-      if(!response.ok)
-         alert(response.status+' '+response.type);
-      return response.json();
-   })
-   .then(d => {
-      if(d.error) {
-         fill.html(`<b>${d.error.message}<b>`);
-         return;
-      }
-      if(!d.response.length) {
-         fill.html('<em>No data found!</em>');
-         alert('No data found!');
-         return;
-      }
-      keyLeft(d);
-      fill.empty();
-      d.response.forEach((dts) => {
-         var text = `Airline ICAO/IATA: <b>${dts.airline_icao}/${dts.airline_iata} ${logo(dts.airline_iata)}</b><br>
-            Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b><br>
-            Flight Number: <b>${dts.flight_number}</b><br>`;
-         if(dts.dep_icao)
-            text += `Departure ICAO/IATA: <b>${dts.dep_icao}/${dts.dep_iata}</b>`;
-         if(dts.dep_terminal)
-            text += `<br>Terminal: <b>${dts.dep_terminal}</b>`
-         if(dts.dep_gate)
-            text += `<br>Gate: <b>${dts.dep_gate}</b>`;
-         if(dts.dep_time_utc)
-            text += `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
-         if(dts.dep_estimated_utc && dts.dep_actual_utc){
-            if(dts.dep_estimated_utc === dts.dep_actual_utc)
-               text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
-         } else {
-            if(dts.dep_estimated_utc)
-               text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
-            if(dts.dep_actual_utc)
-               text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
-         }
-         if(dts.arr_icao)
-            text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
-         if(dts.arr_baggage)
-            text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
-         if(dts.arr_terminal)
-            text += `<br>Terminal: <b>${dts.arr_terminal}</b>`
-         if(dts.arr_gate)
-            text += `<br>Gate: <b>${dts.arr_gate}</b>`;
-         if(dts.arr_time_utc)
-            text += `<br>Arrival time: <b>${time(dts.arr_time_utc)}</b>`;
-         if(dts.arr_estimated_utc && dts.arr_actual_utc){
-            if(dts.arr_estimated_utc === dts.arr_actual_utc)
-               text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
-         } else {
-            if(dts.arr_estimated_utc)
-               text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
-            if(dts.arr_actual_utc)
-               text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
-         }
-         if(dts.status)
-            text += `<br>Status: <b>${dts.status}</b>`;
-         if(dts.duration)
-            text += `<br>Duration: <b>${help1(dts.duration)} </b>`;
-         if(dts.delay)
-            text += `<br>Delay: <b>${help1(dts.dlay)} </b>`;
-         if(dts.dep_delayed)
-            text += `<br>Departure delay: <b>${help1(dts.dep_delayed)}</b>`;
-         if(dts.arr_baggage)
-            text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
-         fill.append(text, '<hr>');
-      });
-   })
-   .catch(e => {
-      alert(`Schedule error: ${e.message}`);
-   })
-   help2()
+function schedule(url) {
+   fill.text('No data found!');
 }
 function information(url) {
-   fill.text('Loading...');
+   msgbox.show().text('Loading...');
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -293,6 +221,7 @@ function information(url) {
          distance(dts.dep_iata, dts.arr_iata, dts.percent);
       updateMap(dts.lat, dts.lng, mapZoomLvl(dts.alt ?? 0));
    })
+   msgbox.hide();
    .catch(e => {
       alert(`Information error: ${e.message}`);
    })
@@ -315,7 +244,7 @@ $('#select1').change(function(){
    }
 })
 s6.change(function() {
-   realtime(0, 0, 1);
+   realtime(0, 1);
 })
 
 function time(t) {
@@ -329,7 +258,7 @@ function time(t) {
    month = vr.getMonth()+1,
    year = vr.getFullYear();
    vr = vr.toLocaleString().split(',');
-   return `${day}/${month}/${year}, ${vr[1].replace(':00','')}`;
+   return `${day}/${month}/${year}, ${vr[1].replace(':00', '')}`;
 }
 function ck(a, b) {
    return a.eq(b).prop('checked');
@@ -414,7 +343,6 @@ function mapZoomLvl(z) {
 function sortFl(d) {
    if(s6.val()) {
       let term = s6.val();
-      fill.text(`Sorting flights...`);
       if(term.includes('_a'))
          d.sort(function(a, b) {
             return a[term.slice(0,-2)] - b[term.slice(0,-2)];
@@ -436,7 +364,7 @@ function keyLeft(d) {
 $('#update').change(function() {
    if($(this).is(':checked')) {
       timeId = setInterval(function() {
-         txt.val() ? main(1) : (
+         txt.val() ? main() : (
             clearInterval(timeId),
             $('#update').prop('checked', false)
          );
