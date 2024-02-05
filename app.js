@@ -36,7 +36,6 @@ function main() {
 
 async function realtime(url, stored = 0) {
    try {
-      updt || fill.text('Loading...');
       let d;
       if(!stored) {
          msgbox.show().text('Loading...');
