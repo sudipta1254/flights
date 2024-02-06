@@ -1,6 +1,8 @@
-var driver = new Driver(config);
-driver.defineSteps(steps);
-driver.start();
+document.addEventListener("DOMContentLoaded", function() {
+   var driver = new Driver(config);
+   driver.defineSteps(steps);
+   driver.start();
+});
 
 // Config driver.js
 const config = {
