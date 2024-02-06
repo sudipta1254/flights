@@ -73,8 +73,7 @@ var steps = [
     },
 ];
 
-driver.defineSteps(steps);
-
 document.addEventListener("DOMContentLoaded", function() {
+   driver.defineSteps(steps);
    driver.start();
 });
