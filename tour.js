@@ -2,9 +2,9 @@
 const config = {
     animate: true, // Enable animations
     opacity: 0.75, // Set overlay opacity
-    allowClose: false, // Allow users to close the guide
-    nextBtnText: '<b class="tour-nav">&rarr;</b>',
-    prevBtnText: '<b class="tour-nav">&larr;</b>'
+    allowClose: false, // Don't allow users to close the guide by clicking on window
+    nextBtnText: '<b>&rarr;</b>',
+    prevBtnText: '<b>&larr;</b>'
 };
 
 // Define the steps for the guide
