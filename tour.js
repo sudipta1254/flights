@@ -1,3 +1,7 @@
+var driver = new Driver(config);
+driver.defineSteps(steps);
+driver.start();
+
 // Config driver.js
 const config = {
     animate: true, // Enable animations
