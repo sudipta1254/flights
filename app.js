@@ -404,6 +404,12 @@ $('button').click(() => {
 
 
 
+//Start driver.js
+document.addEventListener("DOMContentLoaded", function() {
+   var driver = new Driver(config);
+   driver.defineSteps(steps);
+   driver.start();
+});
 
 
 
