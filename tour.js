@@ -1,9 +1,9 @@
 // Config driver.js
-var driver = new Driver({
+const config = {
     animate: true, // Enable animations
     opacity: 0.75, // Set overlay opacity
     allowClose: true, // Allow users to close the guide
-});
+};
 
 // Define the steps for the guide
 var steps = [
@@ -73,7 +73,9 @@ var steps = [
     },
 ];
 
+// On DOM load create a driver instance, define the steps & start the driver
 document.addEventListener("DOMContentLoaded", function() {
+   var driver = new Driver(config);
    driver.defineSteps(steps);
    driver.start();
 });
