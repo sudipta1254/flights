@@ -75,4 +75,6 @@ var steps = [
 
 driver.defineSteps(steps);
 
-driver.start();
+document.addEventListener("DOMContentLoaded", function() {
+   driver.start();
+});
