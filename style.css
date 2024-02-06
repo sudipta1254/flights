@@ -196,6 +196,10 @@ header, main {
    background: yellow;
 }
 
+.tour-nav {
+   font-size: 15px
+}
+
 @media screen and (min-width: 768px) {
    #data {
       height: 62.5vh;
