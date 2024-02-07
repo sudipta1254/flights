@@ -67,6 +67,7 @@ async function realtime(url, stored = 0) {
       sortFl(d.response); /* Sort flights */
       // console.log(d);
       fill.empty();
+      let maxCount = d.response.length, count = 0;
       d.response.forEach(async dt => {
          let text = `Registration: <b>${dt.reg_number}</b><br>
                Flag: <b>${await help3(dt.flag)} ${flag(dt.flag.toLowerCase())}</b><br>
@@ -92,8 +93,9 @@ async function realtime(url, stored = 0) {
                Status: <b>${dt.status}</b><br>
                Type: <b>${dt.type}</b><hr>`;
          $('#data').append(text);
+         if(++count === maxCount)
+            msgbox.hide();
       });
-      msgbox.hide();
    } catch(e) {
       alert(`Realtime error: ${e.message}`);
    }
