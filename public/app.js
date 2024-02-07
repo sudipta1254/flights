@@ -275,7 +275,7 @@ function logo(logo) {
    return `<div id="logo-div"><img src=https://airlabs.co/img/airline/m/${logo}.png id='logo'></div>`;
 }
 function updateMap(lat, long, z) {
-   isMapAv = lat && lng ? 0 : 1;
+   isMapAv = lat && long ? 0 : 1;
    help2(1);
    ifrm.attr('src', `https://maps.google.com/maps?hl=en&q=${lat},${long}&t=&z=${z}&ie=UTF8&iwloc=B&output=embed`);
 }
