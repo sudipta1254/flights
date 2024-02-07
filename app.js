@@ -382,7 +382,7 @@ $('#update').change(function() {
 
 $('#mapt').change(function() {
    if($(this).is(':checked')) {
-      if(!zx) {
+      if(!isMapAv) {
          ifrm.show();
          //Smooth scroll to map when checked
          $('html, body').animate({
