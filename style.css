@@ -161,6 +161,10 @@ iframe {
    justify-content: center;
    margin: 10px auto 5rem;
 }
+#msgMap {
+   display: none;
+   padding: 0px 0 4rem;
+}
 footer {
    //border: 1px solid;
    position: fixed;
