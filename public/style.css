@@ -133,9 +133,25 @@ a:hover {
    transition: .4s;
    letter-spacing: 1px;
 }
-#msgBox {
+#mgBox {
    display: none;
    margin: 10px 0 0;
+}
+#msgBox {
+   display: none;
+   width: 20px;
+   height: 20px;
+   padding: 0;
+   margin: 10px auto 0;
+   border-radius: 50%;
+   border: 2.5px solid transparent;
+   border-top-color: #4285F4;
+   animation: spin 1.9s ease-in-out infinite;
+}
+@keyframes spin {
+   100% {
+      transform: rotate(360deg);
+   }
 }
 #logo-div {
    display: inline;
