@@ -1,6 +1,6 @@
 let select2 = $('#select2'), select3 = $('#select3'),
 select4 = $('#select4'), select5 = $('#select5'),
-s6 = $('#select6'), fill = $('#data'), msgbox = $('#msgBox'),
+s6 = $('#select6'), fill = $('#data'), msgbox = $('#msgBox'), msgmap = $('#msgMap'),
 txt = $('input[type="search"]'), ifrm = $('iframe'),
 btn = $('button'), timeId, xt = 1, key, dataStore, isMapAv;
 
@@ -38,7 +38,8 @@ async function realtime(url, stored = 0) {
    try {
       let d;
       if(!stored) {
-         msgbox.show().text('Loading...');
+         msgbox.show();
+         start(0);
          const response = await fetch(url);
          if(!response.ok) {
             alert(response.status+' '+response.type);
@@ -60,7 +61,8 @@ async function realtime(url, stored = 0) {
          keyLeft(d);
          s6.prop('disabled', false);
       } else {
-         msgbox.show().text(`Sorting flights...`);
+         msgbox.show();
+         start(1);
          d = dataStore;
       }
       
@@ -105,7 +107,8 @@ function schedule(url) {
    fill.text('No data found!');
 }
 function information(url) {
-   msgbox.show().text('Loading...');
+   msgbox.show();
+   start(0);
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -365,6 +368,20 @@ function keyLeft(d) {
    if(keys.includes(key))
       alert(`${key} call(s) letf!`);
 }
+function start(zz) {
+   let str, counter = 0;
+   str = zz === 0 ? 'Loading.' : 'Sorting flights.';
+   const intervalId = setInterval(() => {
+        const dots = '.'.repeat(++counter % 3);
+        msgbox.text(str + dots);
+
+        // Stop the animation after 3 interaction & clear text
+        if (msgbox.css('display') === 'none') {
+            msgbox.text();
+            clearInterval(intervalId);
+        }
+    }, 500);
+}
 
 
 $('#update').change(function() {
@@ -389,14 +406,14 @@ $('#mapt').change(function() {
              scrollTop: ifrm.offset().top
          }, 1000);
       } else {
-         $('#msgMap').show();
+         msgmap.show();
          $('html, body').animate({
-             scrollTop: $('#msgMap').offset().top
+             scrollTop: msgmap.offset().top
          }, 1000);
       }
    } else {
       ifrm.hide();
-      $('#msgMap').hide();
+      msgmap.hide();
    }
 })
 
