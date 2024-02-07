@@ -2,7 +2,7 @@ let select2 = $('#select2'), select3 = $('#select3'),
 select4 = $('#select4'), select5 = $('#select5'),
 s6 = $('#select6'), fill = $('#data'), msgbox = $('#msgBox'),
 txt = $('input[type="search"]'), ifrm = $('iframe'),
-btn = $('button'), timeId, xt = 1, key, dataStore;
+btn = $('button'), timeId, xt = 1, key, dataStore, isMapAv;
 
 function main() {
    if(!txt.val().trim()) {
@@ -275,6 +275,7 @@ function logo(logo) {
    return `<div id="logo-div"><img src=https://airlabs.co/img/airline/m/${logo}.png id='logo'></div>`;
 }
 function updateMap(lat, long, z) {
+   isMapAv = lat && lng ? 0 : 1;
    help2(1);
    ifrm.attr('src', `https://maps.google.com/maps?hl=en&q=${lat},${long}&t=&z=${z}&ie=UTF8&iwloc=B&output=embed`);
 }
@@ -381,13 +382,21 @@ $('#update').change(function() {
 
 $('#mapt').change(function() {
    if($(this).is(':checked')) {
-      ifrm.show();
-      //Smooth scroll to map when checked
-      $('html, body').animate({
-          scrollTop: ifrm.offset().top
-      }, 1000);
+      if(!zx) {
+         ifrm.show();
+         //Smooth scroll to map when checked
+         $('html, body').animate({
+             scrollTop: ifrm.offset().top
+         }, 1000);
+      } else {
+         $('#msgMap').show();
+         $('html, body').animate({
+             scrollTop: $('#msgMap').offset().top
+         }, 1000);
+      }
    } else {
       ifrm.hide();
+      $('#msgMap').hide();
    }
 })
 
