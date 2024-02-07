@@ -1,2 +1,1 @@
-# flights
- Live flight tracking
+<h1 align="center"><img height="150" src="https://img.icons8.com/external-smashingstocks-outline-color-smashing-stocks/66/external-Aeroplane-transport-smashingstocks-outline-color-smashing-stocks.png"><br> Flight Tracker</h1>
