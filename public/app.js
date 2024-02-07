@@ -38,8 +38,7 @@ async function realtime(url, stored = 0) {
    try {
       let d;
       if(!stored) {
-         msgbox.show();
-         start(0);
+         msgbox.show(); //start(0);
          const response = await fetch(url);
          if(!response.ok) {
             alert(response.status+' '+response.type);
@@ -61,8 +60,7 @@ async function realtime(url, stored = 0) {
          keyLeft(d);
          s6.prop('disabled', false);
       } else {
-         msgbox.show();
-         start(1);
+         msgbox.show(); //start(1);
          d = dataStore;
       }
       
@@ -107,8 +105,7 @@ function schedule(url) {
    fill.text('No data found!');
 }
 function information(url) {
-   msgbox.show();
-   start(0);
+   msgbox.show(); //start(0);
    fetch(url)
    .then(response => {
       if(!response.ok)
