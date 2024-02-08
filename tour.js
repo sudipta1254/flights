@@ -8,8 +8,8 @@ const driver = driverW({
         {
             popover: {
                 title: 'Welcome!',
-                // description: "<img src='https://i.imgur.com/EAQhHu5.gif' style='height: 202.5px; width: 270px;'><p>Welcome to my website!</p>",
-                description: "<p>Welcome to my website!<br>You can track live flights here.</p>",
+                description: "<img src='https://i.imgur.com/EAQhHu5.gif' style='height: 202.5px; width: 270px;'><p>Welcome to my website!</p>",
+                //description: "<p>Welcome to my website!<br>You can track live flights here.</p>",
                 position: 'center'
             },
             highlight: false // Disable highlighting
