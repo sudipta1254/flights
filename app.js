@@ -411,6 +411,9 @@ $('#mapt').change(function() {
    } else {
       ifrm.hide();
       msgmap.hide();
+      $('html, body').animate({
+         scrollTop: $(body).offset().top
+      }, 1000);
    }
 })
 
