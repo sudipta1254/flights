@@ -369,15 +369,15 @@ function start(zz) {
    let str, counter = 0;
    str = zz === 0 ? 'Loading.' : 'Sorting flights.';
    const intervalId = setInterval(() => {
-        const dots = '.'.repeat(++counter % 3);
-        msgbox.text(str + dots);
+      const dots = '.'.repeat(++counter % 3);
+      msgbox.text(str + dots);
 
-        // Stop the animation after 3 interaction & clear text
-        if (msgbox.css('display') === 'none') {
-            msgbox.text();
-            clearInterval(intervalId);
-        }
-    }, 500);
+      // Stop the animation after 3 interaction & clear text
+      if (msgbox.css('display') === 'none') {
+         msgbox.text();
+         clearInterval(intervalId);
+      }
+   }, 500);
 }
 
 
@@ -417,13 +417,15 @@ $('#mapt').change(function() {
 txt.on("keypress", function(event) {
    if (event.key === "Enter") {
       event.preventDefault();
-      $(this).blur();
-      main();
+      if(msgbox.css('display') == 'none') {
+         $(this).blur();
+         main();
+      }
    }
 });
 
 $('button').click(() => {
-   main();
+   if(msgbox.css('display') == 'none') main();
 });
 
 

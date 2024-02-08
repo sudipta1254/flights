@@ -216,8 +216,9 @@ header, main {
    background: yellow;
 }
 
-.tour-nav {
-   font-size: 15px
+.tour {
+   background-color: #fde047;
+   color: #000;
 }
 
 @media screen and (min-width: 768px) {
