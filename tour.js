@@ -69,7 +69,7 @@ const driver = driverW({
             element: '#update_span',
             popover: {
                 title: 'Auto update',
-                description: 'Updates query automatically with an interval of 20s.',
+                description: 'Updates query automatically every 20s when checked.',
                 // position: 'bottom',
                 side: 'bottom',
                 align: 'center'
