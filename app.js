@@ -412,7 +412,7 @@ $('#mapt').change(function() {
       ifrm.hide();
       msgmap.hide();
       $('html, body').animate({
-         scrollTop: $(body).offset().top
+         scrollTop: 0
       }, 1000);
    }
 })
