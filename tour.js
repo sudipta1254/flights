@@ -4,6 +4,7 @@ const driver = driverW({
     animate: true, // Enable animations
     opacity: 0.75, // Set overlay opacity
     showProgress: true,
+    smoothScroll: true,
     steps: [
         {
             popover: {
