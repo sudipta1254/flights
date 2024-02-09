@@ -1,6 +1,7 @@
 let select2 = $('#select2'), select3 = $('#select3'),
 select4 = $('#select4'), select5 = $('#select5'),
-s6 = $('#select6'), fill = $('#data'), msgbox = $('#msgBox'), msgmap = $('#msgMap'),
+s6 = $('#select6'), fill = $('#data'), msgbox2 = $('#msgBox2'),
+msgbox = $('#msgBox'), msgmap = $('#msgMap'),
 txt = $('input[type="search"]'), ifrm = $('iframe'),
 btn = $('button'), timeId, xt = 1, key, dataStore, isMapAv;
 
@@ -36,7 +37,7 @@ function main() {
 
 async function realtime(url, stored = 0) {
    try {
-      let d;
+      let d, isFromStored = 1;
       if(!stored) {
          msgbox.show(); //start(0);
          const response = await fetch(url);
@@ -48,13 +49,13 @@ async function realtime(url, stored = 0) {
          dataStore = d; /* Store current data for better UX */
          if(d.error) {
             fill.html(`<b>${d.error.message}<b>`);
-            msgbox.hide();
+            stop();
             return;
          }
          if(!d.response.length) {
             fill.html('<em>No data found!</em>');
             alert('No data found!');
-            msgbox.hide();
+            stop();
             return;
          }
          keyLeft(d);
@@ -62,6 +63,7 @@ async function realtime(url, stored = 0) {
       } else {
          msgbox.show(); //start(1);
          d = dataStore;
+         isFromStored = 0;
       }
       
       sortFl(d.response); /* Sort flights */
@@ -94,7 +96,7 @@ async function realtime(url, stored = 0) {
                Type: <b>${dt.type}</b><hr>`;
          $('#data').append(text);
          if(++count === maxCount)
-            msgbox.hide();
+            stop(isFromStored, maxCount);
       });
    } catch(e) {
       alert(`Realtime error: ${e.message}`);
@@ -116,13 +118,13 @@ function information(url) {
       // console.log(d);
       if(d.error) {
          fill.html(`<b>${d.error.message}<b>`);
-         msgbox.hide();
+         stop();
          return;
       }
       if(!Object.keys(d.response)) {
          fill.html('<em>No data found!</em>');
          alert('No data found!');
-         msgbox.hide();
+         stop();
          return;
       }
       keyLeft(d);
@@ -225,7 +227,7 @@ function information(url) {
       if(dts.dep_iata && dts.arr_iata && dts.percent)
          distance(dts.dep_iata, dts.arr_iata, dts.percent);
       updateMap(dts.lat, dts.lng, mapZoomLvl(dts.alt ?? 0));
-      msgbox.hide();
+      stop();
    })
    .catch(e => {
       alert(`Information error: ${e.message}`);
@@ -378,6 +380,15 @@ function start(zz) {
          clearInterval(intervalId);
       }
    }, 500);
+}
+function stop(zz = 0, num = 0) {
+   msgbox.hide();
+   if(zz) {      
+      msgbox2.show().html(`<em>${num} flights found!</em>`);
+      setTimeout(() => {
+         msgbox2.hide();
+      }, 2000);
+   }
 }
 
 
