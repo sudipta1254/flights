@@ -16,7 +16,7 @@ function origin() {
    s3 = select3.val(), s4 = select4.val();
    switch(xt) {
       case 1:
-         if(s2 == 'reg_number')
+         if(s2 === 'reg_number')
             url += `/flights?api_key=${key}&${s2}=${inp}`;
          else
             url += `/flights?api_key=${key}&${s2}${s4}=${inp}`;
@@ -35,7 +35,7 @@ async function realtime(url, stored = 0) {
    try {
       let d, isFromStored = 1;
       if(!stored) {
-         msgbox.show(); //start(0);
+         start(1);
          const response = await fetch(url);
          if(!response.ok) {
             alert(response.status+' '+response.type);
@@ -57,7 +57,7 @@ async function realtime(url, stored = 0) {
          keyLeft(d);
          s5.prop('disabled', false);
       } else {
-         msgbox.show(); //start(1);
+         start(1);
          d = dataStore;
          isFromStored = 0;
       }
@@ -100,7 +100,7 @@ async function realtime(url, stored = 0) {
    help2()
 }
 function information(url) {
-   msgbox.show(); //start(0);
+   msgbox.show();
    fetch(url)
    .then(response => {
       if(!response.ok)
@@ -357,7 +357,10 @@ function keyLeft(d) {
       alert(`${key} call(s) letf!`);
 }
 function start(zz) {
-   let str, counter = 0;
+   if(zz)
+      msgbox.show();
+   s5.prop('disabled', msgbox.is(':visible'));
+   /*let str, counter = 0;
    str = zz === 0 ? 'Loading.' : 'Sorting flights.';
    const intervalId = setInterval(() => {
       const dots = '.'.repeat(++counter % 3);
@@ -368,7 +371,7 @@ function start(zz) {
          msgbox.text();
          clearInterval(intervalId);
       }
-   }, 500);
+   }, 500);*/
 }
 function stop(zz = 0, num = 0) {
    msgbox.hide();
@@ -378,6 +381,7 @@ function stop(zz = 0, num = 0) {
          msgbox2.hide();
       }, 2000);
    }
+   start(0);
 }
 
 
