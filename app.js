@@ -1,33 +1,29 @@
-let select2 = $('#select2'), select3 = $('#select3'),
-select4 = $('#select4'), select5 = $('#select5'),
-s6 = $('#select6'), fill = $('#data'), msgbox2 = $('#msgBox2'),
+let select2 = $('#select2'), //select3 = $('#select3'),
+select3 = $('#select3'), select4 = $('#select4'),
+s5 = $('#select5'), fill = $('#data'), msgbox2 = $('#msgBox2'),
 msgbox = $('#msgBox'), msgmap = $('#msgMap'),
 txt = $('input[type="search"]'), ifrm = $('iframe'),
 btn = $('button'), timeId, xt = 1, key, dataStore, isMapAv;
 
-function main() {
+function origin() {
    if(!txt.val().trim()) {
       alert('Enter query to continue!');
       return;
    }
    let url = 'https://airlabs.co/api/v9',
    inp = txt.val().trim(),
-   s2 = select2.val(), s3 = select3.val(),
-   s4 = select4.val(), s5 = select5.val();
+   s2 = select2.val(), //s3 = select3.val(),
+   s3 = select3.val(), s4 = select4.val();
    switch(xt) {
       case 1:
          if(s2 == 'reg_number')
             url += `/flights?api_key=${key}&${s2}=${inp}`;
          else
-            url += `/flights?api_key=${key}&${s2}${s5}=${inp}`;
+            url += `/flights?api_key=${key}&${s2}${s4}=${inp}`;
          realtime(url);
          break;
       case 2:
-         url += `/schedules?api_key=${key}&${s3}${s5}=${inp}`;
-         schedule(url);
-         break;
-      case 3:
-         url += `/flight?api_key=${key}&${s4}${s5}=${inp}`;
+         url += `/flight?api_key=${key}&${s3}${s4}=${inp}`;
          information(url);
          break;
       default:
@@ -59,7 +55,7 @@ async function realtime(url, stored = 0) {
             return;
          }
          keyLeft(d);
-         s6.prop('disabled', false);
+         s5.prop('disabled', false);
       } else {
          msgbox.show(); //start(1);
          d = dataStore;
@@ -102,9 +98,6 @@ async function realtime(url, stored = 0) {
       alert(`Realtime error: ${e.message}`);
    }
    help2()
-}
-function schedule(url) {
-   fill.text('No data found!');
 }
 function information(url) {
    msgbox.show(); //start(0);
@@ -237,20 +230,16 @@ function information(url) {
 
 $('#select1').change(function(){
    if($(this).val() === 'realtime') {
-      $('#select2, #select6').css('display', 'block');
-      $('#select3, #select4').css('display', 'none');
+      $('#select2, #select5').css('display', 'block');
+      $('#select3').css('display', 'none');
       xt = 1;
-   } else if($(this).val() === 'schedule') {
-      select3.css('display', 'block');
-      $('#select2, #select4, #select6').css('display', 'none');
-      xt = 2;
    } else if($(this).val() === 'information'){
-      select4.css('display', 'block');
-      $('#select2, #select3, #select6').css('display', 'none');
-      xt = 3;
+      select3.css('display', 'block');
+      $('#select2, #select5').css('display', 'none');
+      xt = 2;
    }
 })
-s6.change(function() {
+s5.change(function() {
    realtime(0, 1);
 })
 
@@ -349,8 +338,8 @@ function mapZoomLvl(z) {
       return 4;
 }
 function sortFl(d) {
-   if(s6.val()) {
-      let term = s6.val();
+   if(s5.val()) {
+      let term = s5.val();
       if(term.includes('_a'))
          d.sort(function(a, b) {
             return a[term.slice(0,-2)] - b[term.slice(0,-2)];
@@ -393,16 +382,14 @@ function stop(zz = 0, num = 0) {
 
 
 $('#update').change(function() {
-   if($(this).is(':checked')) {
+   $(this).is(':checked') ?
       timeId = setInterval(function() {
-         txt.val() ? main() : (
+         txt.val() ? origin() : (
             clearInterval(timeId),
             $('#update').prop('checked', false)
          );
-      }, 20000);
-   } else {
-      clearInterval(timeId);
-   }
+      }, 20000)
+   : clearInterval(timeId);
 })
 
 $('#mapt').change(function() {
@@ -424,22 +411,23 @@ $('#mapt').change(function() {
       msgmap.hide();
       $('html, body').animate({
          scrollTop: 0
-      }, 1000);
+      }, 500);
    }
 })
 
 txt.on("keypress", function(event) {
    if (event.key === "Enter") {
       event.preventDefault();
-      if(msgbox.css('display') == 'none') {
+      if(msgbox.css('display') === 'none') {
          $(this).blur();
-         main();
+         origin();
       }
    }
 });
 
 $('button').click(() => {
-   if(msgbox.css('display') == 'none') main();
+   if(msgbox.css('display') === 'none')
+      origin();
 });
 
 
