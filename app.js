@@ -1,3 +1,5 @@
+import country from './country.js';
+
 let select2 = $('#select2');
 let select3 = $('#select3');
 let select4 = $('#select4');
@@ -77,12 +79,19 @@ async function realtime(url, stored = 0) {
       fill.empty();
       let maxCount = d.response.length, count = 0;
       d.response.forEach(async dt => {
-         let text = `Registration: <b>${dt.reg_number}</b><br>
-               Flag: <b>${await help3(dt.flag)} ${flag(dt.flag.toLowerCase())}</b><br>
-               Position: <b>${dt.lat.toFixed(2)}, ${dt.lng.toFixed(2)}</b><br>
-               Altitude: <b>${(dt.alt*3.28).toFixed(0)} ft</b><br>
-               Direction: <b>${dt.dir}°</b><br>
-               Speed: <b>${dt.speed} Kmph</b><br>`;
+         let text = '';
+         if(dt.reg_number)
+            text = `Registration: <b>${dt.reg_number}</b><br>`;
+         if(dt.flag)
+            text += `Flag: <b>${await help3(dt.flag)} ${flag(dt.flag.toLowerCase())}</b><br>`;
+         if(dt.lat)
+            text += `Position: <b>${dt.lat.toFixed(2)}, ${dt.lng.toFixed(2)}</b><br>`;
+         if(dt.alt)
+            text += `Altitude: <b>${(dt.alt*3.28).toFixed(0)} ft</b><br>`;
+         if(dt.dir)
+            text += `Direction: <b>${dt.dir}°</b><br>`;
+         if(dt.speed)
+            text += `Speed: <b>${dt.speed} Kmph</b><br>`;
          if(dt.v_speed)
             text+= `V speed: <b>${dt.v_speed}</b><br>`;
          if(dt.squawk)
@@ -95,11 +104,16 @@ async function realtime(url, stored = 0) {
             text += `Departure ICAO/IATA: <b>${dt.dep_icao}/${dt.dep_iata}</b><br>`;
          if(dt.arr_icao)
             text +=` Arrival ICAO/IATA: <b>${dt.arr_icao}/${dt.arr_iata}</b><br>`;
-         text += `Airline ICAO/IATA: <b>${dt.airline_icao}/${dt.airline_iata} ${logo(dt.airline_iata)}</b><br>
-               Aircraft ICAO: <b>${dt.aircraft_icao}</b><br>
-               Updated: <b>${time(dt.updated)}</b><br>
-               Status: <b>${dt.status}</b><br>
-               Type: <b>${dt.type}</b><hr>`;
+         if(dt.airline_icao)
+            text += `Airline ICAO/IATA: <b>${dt.airline_icao}/${dt.airline_iata} ${logo(dt.airline_iata)}</b><br>`;
+         if(dt.aircraft_icao)
+            text += `Aircraft ICAO: <b>${dt.aircraft_icao}</b><br>`;
+         if(dt.updated)
+            text += `Updated: <b>${time(dt.updated)}</b><br>`;
+         if(dt.status)
+            text += `Status: <b>${dt.status}</b><br>`;
+         if(dt.type)
+            text += `Type: <b>${dt.type}</b><hr>`;
          $('#data').append(text);
          if(++count === maxCount)
             stop(isFromStored, maxCount);
@@ -244,12 +258,12 @@ $('#select1').change(function(){
    if($(this).val() === 'realtime') {
       $('#select2, #select5').css('display', 'block');
       $('#select3').css('display', 'none');
-      fill.css('height', '68vh');
+      fill.css('height', '67vh');
       xt = 1;
    } else if($(this).val() === 'information'){
       select3.css('display', 'block');
       $('#select2, #select5').css('display', 'none');
-      fill.css('height', '65vh');
+      fill.css('height', '64vh');
       xt = 2;
    }
 })
@@ -322,6 +336,7 @@ async function help3(code) {
       const data = await response.json();
       const countryName = data[0].name.common;
       return countryName;
+      // return country[code];
    } catch (error) {
       throw new Error(error.message);
    }
