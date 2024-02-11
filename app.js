@@ -105,6 +105,7 @@ async function realtime(url, stored = 0) {
             stop(isFromStored, maxCount);
       });
    } catch(e) {
+      stop();
       alert(`Realtime error: ${e.message}`);
    }
    help2()
@@ -233,6 +234,7 @@ function information(url) {
       stop();
    })
    .catch(e => {
+      stop();
       alert(`Information error: ${e.message}`);
    })
 }
