@@ -242,10 +242,12 @@ $('#select1').change(function(){
    if($(this).val() === 'realtime') {
       $('#select2, #select5').css('display', 'block');
       $('#select3').css('display', 'none');
+      fill.css('height', '68vh');
       xt = 1;
    } else if($(this).val() === 'information'){
       select3.css('display', 'block');
       $('#select2, #select5').css('display', 'none');
+      fill.css('height', '64vh');
       xt = 2;
    }
 })
