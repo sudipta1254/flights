@@ -9,8 +9,8 @@ const driver = driverW({
         {
             popover: {
                 title: 'Welcome!',
-                description: "<img src='https://i.imgur.com/EAQhHu5.gif' style='height: 202.5px; width: 270px;'><p>Welcome to my website!</p>",
-                //description: "<p>Welcome to my website!<br>You can track live flights here.</p>",
+                description: "<img src='https://media2.giphy.com/media/3ohjUOUjEK1TXCQRva/giphy.gif' style='height: 202.5px; width: 270px;'><p>Welcome to my flight tracking website! ☠️</p>",
+                //description: "<p>Welcome to my website!<br>You can track live flights here.</p>", //https://i.imgur.com/EAQhHu5.gif
                 position: 'center'
             },
             highlight: false // Disable highlighting
@@ -20,7 +20,6 @@ const driver = driverW({
             popover: {
                 title: 'Options',
                 description: 'Wide range of options to choose from.',
-                // position: 'bottom',
                 side: 'bottom',
                 align: 'center'
             },
@@ -28,19 +27,26 @@ const driver = driverW({
         {
             element: '#select1',
             popover: {
-                title: 'Choose from',
-                description: 'Realtime flights, Flight schedule or Flight information.',
-                // position: 'bottom',
+                title: 'Choose among',
+                description: 'Realtime flights & Flight information.',
                 side: 'bottom',
-                align: 'center'
+                align: 'left'
             }
         },
         {
             element: '#select2',
             popover: {
-                title: 'Step 3',
-                description: 'Flight number, Aircraft registration, Airline ICAO/IATA, Arrival ICAO/IATA or Departure ICAO/IATA.',
-                // position: 'bottom',
+                title: 'Choose an option',
+                description: 'When you choose realtime, choose between<br><ol><li>Aircraft registration<li>Airline ICAO/IATA<li>Arrival ICAO/IATA<li>Departure ICAO/IATA.',
+                side: 'bottom',
+                align: 'left'
+            }
+        },
+        {
+            element: '#select4',
+            popover: {
+                title: 'Step 4',
+                description: 'Select ICAO/IATA or leave when using Aircraft registration.',
                 side: 'bottom',
                 align: 'center'
             }
@@ -48,19 +54,8 @@ const driver = driverW({
         {
             element: '#select5',
             popover: {
-                title: 'Step 4',
-                description: 'Select ICAO/IATA or leave when using Aircraft registration.',
-                // position: 'bottom-right',
-                side: 'bottom',
-                align: 'center'
-            }
-        },
-        {
-            element: '#select6',
-            popover: {
                 title: 'Sorting',
                 description: 'Sort flights in ascending or descending order by\nFlight number, Altitude or Speed.',
-                // position: 'bottom-right',
                 side: 'bottom',
                 align: 'center'
             }
@@ -70,7 +65,6 @@ const driver = driverW({
             popover: {
                 title: 'Auto update',
                 description: 'Updates query automatically every 20s when checked.',
-                // position: 'bottom',
                 side: 'bottom',
                 align: 'center'
             }
@@ -80,7 +74,6 @@ const driver = driverW({
             popover: {
                 title: 'Query box',
                 description: 'Enter your query here.',
-                // position: 'bottom-right',
                 side: 'bottom',
                 align: 'center'
             }
@@ -90,7 +83,15 @@ const driver = driverW({
             popover: {
                 title: 'Go!',
                 description: 'Click here or click search/enter directly after entering query.',
-                // position: 'bottom-right',
+                side: 'bottom',
+                align: 'center'
+            }
+        },
+        {
+            element: '#data',
+            popover: {
+                title: 'Data format',
+                description: 'Here is a dummy data, the format you will get while querying.',
                 side: 'bottom',
                 align: 'center'
             }
