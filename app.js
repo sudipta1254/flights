@@ -318,7 +318,7 @@ async function help3(code) {
       if(code == 'UK')
          return code;
       
-      const response = await fetch(`https://restcountries.com/v3/alpha/${code}`);
+      const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}`);
       const data = await response.json();
       const countryName = data[0].name.common;
       return countryName;
