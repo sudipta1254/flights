@@ -91,7 +91,7 @@ driverW({
             element: '#data',
             popover: {
                 title: 'Data format',
-                description: 'Here is a dummy data, the format you will get while querying.',
+                description: 'Flights will appear here.',
                 side: 'bottom',
                 align: 'center'
             }
