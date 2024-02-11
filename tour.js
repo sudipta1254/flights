@@ -1,6 +1,6 @@
 const driverW = window.driver.js.driver;
 
-const driver = driverW({
+driverW({
     animate: true, // Enable animations
     opacity: 0.75, // Set overlay opacity
     showProgress: true,
@@ -97,9 +97,7 @@ const driver = driverW({
             }
         },
     ]
-});
-
-driver.drive();
+}).drive();
 
 // driver.highlight({
 //   element: "#some-element",
