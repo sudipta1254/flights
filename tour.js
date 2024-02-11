@@ -27,7 +27,7 @@ driverW({
         {
             element: '#select1',
             popover: {
-                title: 'Choose among',
+                title: 'Choose between',
                 description: 'Realtime flights & Flight information.',
                 side: 'bottom',
                 align: 'left'
@@ -37,7 +37,7 @@ driverW({
             element: '#select2',
             popover: {
                 title: 'Choose an option',
-                description: 'When you choose realtime, choose between<br><ol><li>Aircraft registration<li>Airline ICAO/IATA<li>Arrival ICAO/IATA<li>Departure ICAO/IATA.',
+                description: 'When you choose realtime, choose among<br><ol><li>Aircraft registration<li>Airline ICAO/IATA<li>Arrival ICAO/IATA<li>Departure ICAO/IATA.',
                 side: 'bottom',
                 align: 'left'
             }
