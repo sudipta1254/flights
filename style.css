@@ -184,7 +184,7 @@ hr {
 }
 #map {
    display: none;
-   margin: 15px 10px 0;
+   margin: 10px 10px 0;
 }
 iframe {
    display: none; /*flex*/
