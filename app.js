@@ -247,7 +247,7 @@ $('#select1').change(function(){
    } else if($(this).val() === 'information'){
       select3.css('display', 'block');
       $('#select2, #select5').css('display', 'none');
-      fill.css('height', '64vh');
+      fill.css('height', '65vh');
       xt = 2;
    }
 })
