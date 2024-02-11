@@ -152,7 +152,20 @@ a:hover {
    animation: spin 1.9s ease-in-out infinite;
 }
 @keyframes spin {
+   0% {
+      border-top-color: #4285F4; /* Initial color */
+   }
+   30% {
+      border-top-color: #DB4437; /* Change color at 25% of animation */
+   }
+   50% {
+      border-top-color: #F4B400; /* Change color at 50% of animation */
+   }
+   70% {
+      border-top-color: #0F9D58; /* Change color at 75% of animation */
+   }
    100% {
+      border-top-color: #4285F4; /* Back to initial color at 100% of animation */
       transform: rotate(360deg);
    }
 }
