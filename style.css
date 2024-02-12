@@ -42,11 +42,18 @@ button {
    height: 30px;
 }
 header {
+   display: flex;
    margin: 10px auto;
+   align-items: center;
+   justify-content: center;
    //border: 1px solid;
 }
 header p {
    text-decoration: underline;
+}
+header span {
+   position: absolute;
+   right: 20px;
 }
 main {
    //border: 1px solid;
@@ -235,7 +242,7 @@ header, main {
 
 @media screen and (min-width: 768px) {
    #data {
-      height: 62.5vh;
+      height: 67vh;
    }
 }
 
