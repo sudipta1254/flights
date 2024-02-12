@@ -109,7 +109,7 @@ const infoSteps = [
             title: 'Choose between',
             description: 'Realtime flights & Flight information.',
             side: 'bottom',
-            align: 'left'
+            align: 'start'
         }
     },
     {
@@ -118,7 +118,7 @@ const infoSteps = [
             title: 'Choose an option',
             description: 'When you choose realtime, choose among<br><ol><li>Aircraft registration<li>Airline ICAO/IATA<li>Arrival ICAO/IATA<li>Departure ICAO/IATA.',
             side: 'bottom',
-            align: 'left'
+            align: 'start'
         }
     },
     {
@@ -127,7 +127,7 @@ const infoSteps = [
             title: 'Step 4',
             description: 'Select ICAO/IATA or leave when using Aircraft registration.',
             side: 'bottom',
-            align: 'center'
+            align: 'end'
         }
     },
     {
@@ -136,7 +136,7 @@ const infoSteps = [
             title: 'Sorting',
             description: 'Sort flights in ascending or descending order by\nFlight number, Altitude or Speed.',
             side: 'bottom',
-            align: 'center'
+            align: 'end'
         }
     },
     {
@@ -145,7 +145,7 @@ const infoSteps = [
             title: 'Auto update',
             description: 'Updates query automatically every 20s when checked.',
             side: 'bottom',
-            align: 'center'
+            align: 'start'
         }
     },
     {
@@ -154,7 +154,7 @@ const infoSteps = [
             title: 'Query box',
             description: 'Enter your query here.',
             side: 'bottom',
-            align: 'center'
+            align: 'end'
         }
     },
     {
@@ -163,7 +163,7 @@ const infoSteps = [
             title: 'Go!',
             description: 'Click here or click search/enter directly after entering query.',
             side: 'bottom',
-            align: 'center'
+            align: 'end'
         }
     },
     {
