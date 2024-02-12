@@ -184,7 +184,7 @@ driverW({
     showProgress: true,
     smoothScroll: true,
     steps: allSteps
-})//.drive();
+}).drive();
 
 /* When user clicks on info icon, only info steps are shown */
 $('.fa-info').click(() => {
