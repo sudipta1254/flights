@@ -32,7 +32,7 @@ const allSteps = [
         element: '#select2',
         popover: {
             title: 'Choose an option',
-            description: 'When you choose realtime, choose among<br><ol><li>Aircraft registration<li>Airline ICAO/IATA<li>Arrival ICAO/IATA<li>Departure ICAO/IATA.',
+            description: 'When you choose realtime, choose among<ul id="tourli"><li>Aircraft registration<li>Airline ICAO/IATA<li>Arrival ICAO/IATA<li>Departure ICAO/IATA.</ul>',
             side: 'bottom',
             align: 'start'
         }
@@ -116,7 +116,7 @@ const infoSteps = [
         element: '#select2',
         popover: {
             title: 'Choose an option',
-            description: 'When you choose realtime, choose among<br><ol><li>Aircraft registration<li>Airline ICAO/IATA<li>Arrival ICAO/IATA<li>Departure ICAO/IATA.',
+            description: 'When you choose realtime, choose among<ul id="tourli"><li>Aircraft registration<li>Airline ICAO/IATA<li>Arrival ICAO/IATA<li>Departure ICAO/IATA.</ul>',
             side: 'bottom',
             align: 'start'
         }
