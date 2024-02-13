@@ -180,7 +180,7 @@ const infoSteps = [
 /*  */
 driverW({
     animate: true, // Enable animations
-    opacity: 0.75, // Set overlay opacity
+    overlayOpacity: 0.75, // Set overlay opacity
     showProgress: true,
     smoothScroll: true,
     steps: allSteps
@@ -189,7 +189,7 @@ driverW({
 /* When user clicks on info icon, only info steps are shown */
 $('.fa-info').click(() => {
     driverW({
-        opacity: 0.75,
+        overlayOpacity: 0.75,
         showProgress: true,
         smoothScroll: true,
         steps: infoSteps,
