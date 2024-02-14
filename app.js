@@ -1,4 +1,4 @@
-import country from './country.js';
+import { key3, country } from './env.js';
 
 let select2 = $('#select2');
 let select3 = $('#select3');
@@ -13,7 +13,7 @@ let ifrm = $('iframe');
 let btn = $('button');
 let timeId;
 let xt = 1;
-let key;
+let key = key3;
 let dataStore;
 let isMapAv;
 
@@ -472,11 +472,3 @@ $('button').click(() => {
 
 
 
-
-
-
-
-const key1 = 'a1af1621-da48-4592-a132-52415d0cabd3',
-key2 = '7e5231c8-8efc-402c-a160-6c769fe8e934',
-key3 = '5dbaf919-6297-43d4-bf12-b155f0a70d55';
-key = key3;
