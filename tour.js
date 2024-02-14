@@ -1,3 +1,5 @@
+import { steps, introSteps } from './env.js';
+
 const driverW = window.driver.js.driver;
 
 const allSteps = [
@@ -183,7 +185,7 @@ driverW({
     overlayOpacity: 0.75, // Set overlay opacity
     showProgress: true,
     smoothScroll: true,
-    steps: allSteps
+    steps: steps
 }).drive();
 
 /* When user clicks on info icon, only info steps are shown */
@@ -192,7 +194,7 @@ $('.fa-info').click(() => {
         overlayOpacity: 0.75,
         showProgress: true,
         smoothScroll: true,
-        steps: infoSteps,
+        steps: introSteps,
     }).drive()
 })
 
