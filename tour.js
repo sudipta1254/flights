@@ -1,4 +1,4 @@
-import { steps, introSteps } from './env.js';
+import { steps, introSteps1, introSteps2 } from './env.js';
 
 const driverW = window.driver.js.driver;
 
@@ -13,11 +13,12 @@ driverW({
 
 /* When user clicks on info icon, only info steps are shown */
 $('.fa-info').click(() => {
+    const stps = $('#select1').val() === 'realtime' ? introSteps1 : introSteps2;
     driverW({
         overlayOpacity: 0.75,
         showProgress: true,
         smoothScroll: true,
-        steps: introSteps,
+        steps: stps,
     }).drive()
 })
 
