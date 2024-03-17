@@ -117,7 +117,11 @@ span {
    /* //border: 1px solid; */
    padding: 0 0 0 20px;
    border-radius: 10px;
-   background-color: #32373c; /* #32373c */
+   /* background: #31373C */
+   background-image: linear-gradient(
+      to bottom right,
+      #403f44, #1e1b32
+   );
 }
 #data::-webkit-scrollbar {
    width: 3px;
