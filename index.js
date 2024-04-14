@@ -17,6 +17,10 @@ app.get("/updates", (req, res) => {
     res.json({ update: "New updates coming soon..."});
 });
 
+app.get("/icons", (req, res) => {
+    res.sendFile(__dirname+"/public/icons.html")
+});
+
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 })
