@@ -35,7 +35,7 @@ function origin() {
          realtime(url);
          break;
       case 2:
-         url += `/flight?api_key=${key}&${s3}${s4}=${inp}`;
+         url += `/flight?api_key=${key}&flight${s3}=${inp}`;
          information(url);
          break;
       default:
@@ -256,13 +256,13 @@ function information(url) {
 
 $('#select1').change(function(){
    if($(this).val() === 'realtime') {
-      $('#select2, #select5').css('display', 'block');
       $('#select3').css('display', 'none');
+      $('#select2, #select4, #select5').css('display', 'block');
       fill.css('height', '67vh');
       xt = 1;
    } else if($(this).val() === 'information'){
       select3.css('display', 'block');
-      $('#select2, #select5').css('display', 'none');
+      $('#select2, #select4, #select5').css('display', 'none');
       fill.css('height', '64vh');
       xt = 2;
    }
