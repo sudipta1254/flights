@@ -80,13 +80,13 @@ select, button, input[type='checkbox'] {
    //border: 1px solid;
 }
 select {
-   width: 100px;
+   //width: 100px;
    height: 35px;
    color: black;
    background: white;
    border-radius: 5px;
    font-size: 1rem;
-   margin: 10px 12px 0;
+   margin: 10px auto 0;
    text-align: center;
 }
 #select3 {
