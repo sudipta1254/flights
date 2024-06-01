@@ -21,6 +21,14 @@ app.get("/icons", (req, res) => {
     res.sendFile(__dirname+"/public/icons.html")
 });
 
+app.get("/music", (req, res) => {
+    res.sendFile(__dirname + "/public/music.html");
+});
+
+app.get('*', (req, res) => {
+    res.status(404).sendFile(__dirname + "/public/404.html")
+})
+
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 })

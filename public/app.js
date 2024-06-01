@@ -272,17 +272,8 @@ s5.change(function() {
 })
 
 function time(t) {
-   let vr;
-   if(typeof t === 'string')
-      vr = new Date(t+'Z');
-   else
-      vr = new Date(t*1000);
-   
-   let day = vr.getDate(),
-   month = vr.getMonth()+1,
-   year = vr.getFullYear();
-   vr = vr.toLocaleString().split(',');
-   return `${day}/${month}/${year}, ${vr[1].replace(':00', '')}`;
+   let vr = typeof t === 'string' ? new Date(t + 'Z') : new Date(t * 1000);
+   return vr.toLocaleString().replace(':00', '');
 }
 function ck(a, b) {
    return a.eq(b).prop('checked');
