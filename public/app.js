@@ -454,7 +454,7 @@ $('button').click(() => {
       origin();
 });
 
-$('header p').click(e => {
+$('header').click(function() {
    window.location = '/updates'
 })
 
