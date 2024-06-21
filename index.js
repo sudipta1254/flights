@@ -1,34 +1,89 @@
-import express from "express";
-import "dotenv/config";
-import path from "path";
-import { fileURLToPath } from "url";
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const _0x31f064 = _0x32b7;
+(function (_0x15fc2a, _0x304b9e) {
+    const _0x3bfc74 = _0x32b7,
+        _0x3f7f0f = _0x15fc2a();
+    while (!![]) {
+        try {
+            const _0x4d863d = parseInt(_0x3bfc74(0xcc)) / (0x1 * -0xab5 + -0x189 + 0x5f * 0x21) + parseInt(_0x3bfc74(0xd9)) / (0x48a + 0x1819 + -0x1ca1) * (-parseInt(_0x3bfc74(0xd7)) / (0x1c3 + -0x2b7 * -0x1 + -0x7f * 0x9)) + parseInt(_0x3bfc74(0xc9)) / (0x1a3 * 0x1 + 0xa3d + -0xbdc) * (-parseInt(_0x3bfc74(0xac)) / (0x1105 + -0xf34 * 0x1 + -0x1cc)) + -parseInt(_0x3bfc74(0xcf)) / (-0x2 * 0xba0 + 0x112d * -0x1 + 0x2873) + -parseInt(_0x3bfc74(0xc0)) / (-0x193 + 0x12b0 + -0x1116) * (-parseInt(_0x3bfc74(0xc3)) / (-0x1a80 + 0x1 * 0x1be0 + -0x158)) + parseInt(_0x3bfc74(0xb4)) / (-0x1c7 * 0x9 + -0x23fa + -0x2 * -0x1a01) + -parseInt(_0x3bfc74(0xb9)) / (-0xc4f * -0x2 + 0x1 * -0xf29 + -0x1 * 0x96b) * (-parseInt(_0x3bfc74(0xb0)) / (0x14b * -0x17 + 0xa * 0x15 + -0x2a2 * -0xb));
+            if (_0x4d863d === _0x304b9e) break;
+            else _0x3f7f0f['push'](_0x3f7f0f['shift']());
+        } catch (_0x576224) {
+            _0x3f7f0f['push'](_0x3f7f0f['shift']());
+        }
+    }
+}(_0x1334, -0xf7 * 0x11ab + -0xfbd9 + -0x5679 * -0x57));
+import _0x378af3 from 'express';
+import 'dotenv/config';
+import _0x47a97b from 'path';
+import {
+    fileURLToPath
+} from 'url';
 
-const port = process.env.PORT || 3000;
-const app = express();
+function _0x1334() {
+    const _0x275108 = ['pYJkI', '9233hrszdc', 'rrqUo', 'Listening\x20', '1856UeTOIb', '4.html', 'public', 'DbjYo', 'UhbwI', 'oon...', '5631368lMuyja', '/updates', 'on\x20http://', '1441698iEqIch', 'rglby', 'sic.html', '1571250OHrZiw', 'get', 'log', 'ZbHUn', 'listen', 'ons.html', 'ryyYw', 'New\x20update', '2601EcaUVn', 'use', '3148pAOMEv', 's\x20coming\x20s', '/public/40', 'dirname', 'sendFile', '5WWbqka', '/public/ic', '/music', 'static', '3454UAIkPF', '/index.htm', 'join', '/public/mu', '2902140ETcTfM', 'GCtMH', 'env', 'PORT', 'localhost:', '54410DaOqzj', 'status', 'ZXxWD', '/icons', 'url', 'json'];
+    _0x1334 = function () {
+        return _0x275108;
+    };
+    return _0x1334();
+}
+const __dirname = _0x47a97b[_0x31f064(0xaa)](fileURLToPath(
+        import.meta[_0x31f064(0xbd)])),
+    port = process[_0x31f064(0xb6)][_0x31f064(0xb7)] || -0x346 * 0x7 + -0x167e * 0x1 + 0x3920,
+    app = _0x378af3();
 
-app.use(express.static(path.join(__dirname, "public")));
-
-app.get("/", (req, res) => {
-    res.sendFile(__dirname+"/index.html");
+function _0x32b7(_0x5d5c8e, _0x1cd447) {
+    const _0x3757a6 = _0x1334();
+    return _0x32b7 = function (_0x4179b7, _0xe5c9d8) {
+        _0x4179b7 = _0x4179b7 - (0x1b + 0x184 + -0xf5);
+        let _0x1b8088 = _0x3757a6[_0x4179b7];
+        return _0x1b8088;
+    }, _0x32b7(_0x5d5c8e, _0x1cd447);
+}
+app[_0x31f064(0xd8)](_0x378af3[_0x31f064(0xaf)](_0x47a97b[_0x31f064(0xb2)](__dirname, _0x31f064(0xc5)))), app[_0x31f064(0xd0)]('/', (_0x281b75, _0x535c1d) => {
+    const _0xa0a84b = _0x31f064,
+        _0x319ed9 = {
+            'ryyYw': function (_0x31fd9e, _0x1997b2) {
+                return _0x31fd9e + _0x1997b2;
+            },
+            'DbjYo': _0xa0a84b(0xb1) + 'l'
+        };
+    _0x535c1d[_0xa0a84b(0xab)](_0x319ed9[_0xa0a84b(0xd5)](__dirname, _0x319ed9[_0xa0a84b(0xc6)]));
+}), app[_0x31f064(0xd0)](_0x31f064(0xca), (_0x4ee3a8, _0x1bed41) => {
+    const _0x22a70d = _0x31f064,
+        _0x5c4dff = {
+            'rglby': _0x22a70d(0xd6) + _0x22a70d(0xda) + _0x22a70d(0xc8)
+        };
+    _0x1bed41[_0x22a70d(0xbe)]({
+        'update': _0x5c4dff[_0x22a70d(0xcd)]
+    });
+}), app[_0x31f064(0xd0)](_0x31f064(0xbc), (_0x17399c, _0x2d09ee) => {
+    const _0x31f888 = _0x31f064,
+        _0xd59709 = {
+            'UhbwI': function (_0x6230ed, _0x350ec8) {
+                return _0x6230ed + _0x350ec8;
+            },
+            'rrqUo': _0x31f888(0xad) + _0x31f888(0xd4)
+        };
+    _0x2d09ee[_0x31f888(0xab)](_0xd59709[_0x31f888(0xc7)](__dirname, _0xd59709[_0x31f888(0xc1)]));
+}), app[_0x31f064(0xd0)](_0x31f064(0xae), (_0x20bdd4, _0x246b55) => {
+    const _0xc4bba5 = _0x31f064,
+        _0xf6a858 = {
+            'ZbHUn': function (_0x501493, _0x43d9c2) {
+                return _0x501493 + _0x43d9c2;
+            },
+            'ZXxWD': _0xc4bba5(0xb3) + _0xc4bba5(0xce)
+        };
+    _0x246b55[_0xc4bba5(0xab)](_0xf6a858[_0xc4bba5(0xd2)](__dirname, _0xf6a858[_0xc4bba5(0xbb)]));
+}), app[_0x31f064(0xd0)]('*', (_0x5868c3, _0x8432d5) => {
+    const _0x1265a0 = _0x31f064,
+        _0x50e98c = {
+            'pYJkI': function (_0xa70693, _0x519afe) {
+                return _0xa70693 + _0x519afe;
+            },
+            'GCtMH': _0x1265a0(0xdb) + _0x1265a0(0xc4)
+        };
+    _0x8432d5[_0x1265a0(0xba)](-0xd7b + 0x6 * 0x3fc + -0x97 * 0xf)[_0x1265a0(0xab)](_0x50e98c[_0x1265a0(0xbf)](__dirname, _0x50e98c[_0x1265a0(0xb5)]));
+}), app[_0x31f064(0xd3)](port, () => {
+    const _0x2760fb = _0x31f064;
+    console[_0x2760fb(0xd1)](_0x2760fb(0xc2) + _0x2760fb(0xcb) + _0x2760fb(0xb8) + port);
 });
-
-app.get("/updates", (req, res) => {
-    res.json({ update: "New updates coming soon..."});
-});
-
-app.get("/icons", (req, res) => {
-    res.sendFile(__dirname+"/public/icons.html")
-});
-
-app.get("/music", (req, res) => {
-    res.sendFile(__dirname + "/public/music.html");
-});
-
-app.get('*', (req, res) => {
-    res.status(404).sendFile(__dirname + "/public/404.html")
-})
-
-app.listen(port, () => {
-    console.log(`Listening on http://localhost:${port}`);
-})

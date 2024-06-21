@@ -1,32 +1,63 @@
-import { steps, introSteps1, introSteps2 } from './env.js';
+const _0x1d343a = _0x2382;
+(function (_0x576341, _0x248cbb) {
+    const _0x12db10 = _0x2382,
+        _0x38f1f9 = _0x576341();
+    while (!![]) {
+        try {
+            const _0xc67019 = parseInt(_0x12db10(0x17a)) / (0x1f7 + -0x1 * -0x2119 + -0x230f) * (-parseInt(_0x12db10(0x186)) / (0x533 * -0x1 + -0xd * 0x6c + -0x1 * -0xab1)) + parseInt(_0x12db10(0x178)) / (-0x2665 + 0xf06 + 0x2 * 0xbb1) * (parseInt(_0x12db10(0x179)) / (-0x18b4 + 0xf02 + 0x9b6)) + parseInt(_0x12db10(0x18c)) / (-0x88f + -0xfca + 0x185e) + parseInt(_0x12db10(0x176)) / (-0x1367 * -0x1 + 0x2f * 0xcb + -0x38a6) * (-parseInt(_0x12db10(0x17f)) / (-0x1a4 * -0x15 + -0x3e + -0x222f)) + parseInt(_0x12db10(0x17d)) / (0x1f4e + -0x1b19 + -0x1 * 0x42d) * (parseInt(_0x12db10(0x189)) / (0x21d + -0x1a4d + 0x1839)) + -parseInt(_0x12db10(0x182)) / (-0x1c1d + -0xb90 * -0x1 + 0x1f * 0x89) * (-parseInt(_0x12db10(0x183)) / (0xf50 + -0x2 * -0xd01 + -0x1 * 0x2947)) + -parseInt(_0x12db10(0x17b)) / (0x711 * 0x5 + 0x1 * 0xdbe + -0x3107);
+            if (_0xc67019 === _0x248cbb) break;
+            else _0x38f1f9['push'](_0x38f1f9['shift']());
+        } catch (_0x1e32d2) {
+            _0x38f1f9['push'](_0x38f1f9['shift']());
+        }
+    }
+}(_0x4f8e, -0x5a8f9 + 0x29 * -0x466e + 0x175ea3));
 
-const driverW = window.driver.js.driver;
+function _0x4f8e() {
+    const _0x4b1289 = ['156zCReip', '43684wFDCHa', '3WsyuZE', '11211216oBnggg', 'realtime', '40YeRXsP', 'drive', '1897763JiltPB', 'kjpwU', 'click', '10oHeGCr', '5156987ldZuvl', '.fa-info', 'driver', '145358fvErta', 'hdBUc', 'wpEOJ', '1108539zCnXNC', 'val', '#select1', '961190zOVDzO', '6ZPhXLT', 'wqvnr'];
+    _0x4f8e = function () {
+        return _0x4b1289;
+    };
+    return _0x4f8e();
+}
 
-/*  */
+function _0x2382(_0x2d0c4a, _0x1e969a) {
+    const _0x15f095 = _0x4f8e();
+    return _0x2382 = function (_0x52647c, _0x16d0d3) {
+        _0x52647c = _0x52647c - (-0xb * -0x133 + 0x26df + -0x329a);
+        let _0x30d244 = _0x15f095[_0x52647c];
+        return _0x30d244;
+    }, _0x2382(_0x2d0c4a, _0x1e969a);
+}
+import {
+    steps,
+    introSteps1,
+    introSteps2
+} from './env.js';
+const driverW = window[_0x1d343a(0x185)]['js'][_0x1d343a(0x185)];
 driverW({
-    animate: true, // Enable animations
-    overlayOpacity: 0.75, // Set overlay opacity
-    showProgress: true,
-    smoothScroll: true,
-    steps: steps
-}).drive();
-
-/* When user clicks on info icon, only info steps are shown */
-$('.fa-info').click(() => {
-    const stps = $('#select1').val() === 'realtime' ? introSteps1 : introSteps2;
-    driverW({
-        overlayOpacity: 0.75,
-        showProgress: true,
-        smoothScroll: true,
-        steps: stps,
-    }).drive()
-})
-
-
-// driver.highlight({
-//   element: "#some-element",
-//   popover: {
-//     title: "Title",
-//     description: "Description"
-//   }
-// });
+    'animate': !![],
+    'overlayOpacity': 0.75,
+    'showProgress': !![],
+    'smoothScroll': !![],
+    'steps': steps
+})[_0x1d343a(0x17e)](), $(_0x1d343a(0x184))[_0x1d343a(0x181)](() => {
+    const _0x5e69ae = _0x1d343a,
+        _0xad73f2 = {
+            'wqvnr': function (_0x576a80, _0x5c2ac4) {
+                return _0x576a80 === _0x5c2ac4;
+            },
+            'hdBUc': function (_0x30c727, _0x179fa7) {
+                return _0x30c727(_0x179fa7);
+            },
+            'kjpwU': _0x5e69ae(0x18b),
+            'wpEOJ': _0x5e69ae(0x17c)
+        },
+        _0x14b0c7 = _0xad73f2[_0x5e69ae(0x177)](_0xad73f2[_0x5e69ae(0x187)]($, _0xad73f2[_0x5e69ae(0x180)])[_0x5e69ae(0x18a)](), _0xad73f2[_0x5e69ae(0x188)]) ? introSteps1 : introSteps2;
+    _0xad73f2[_0x5e69ae(0x187)](driverW, {
+        'overlayOpacity': 0.75,
+        'showProgress': !![],
+        'smoothScroll': !![],
+        'steps': _0x14b0c7
+    })[_0x5e69ae(0x17e)]();
+});
