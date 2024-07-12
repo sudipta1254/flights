@@ -1,740 +1,468 @@
-const _0x4d180f = _0xe2ec;
-(function (_0x2d0fc7, _0x4274d3) {
-   const _0x5880ea = _0xe2ec,
-      _0x18b134 = _0x2d0fc7();
-   while (!![]) {
-      try {
-         const _0x407f06 = parseInt(_0x5880ea(0x15a)) / (-0xce7 + -0x12cb + 0x1fb3) + parseInt(_0x5880ea(0x261)) / (0x23b1 + 0x394 + -0x2743) + -parseInt(_0x5880ea(0x228)) / (-0x1bb4 + -0x11de + 0x2d95) + parseInt(_0x5880ea(0x134)) / (0x1eda + 0x4ca + -0x18 * 0x17c) + -parseInt(_0x5880ea(0x1f6)) / (-0x626 + 0x9 * -0x24f + -0xd79 * -0x2) + parseInt(_0x5880ea(0x123)) / (0x1 * 0x10e7 + -0x1 * -0x21ce + -0x32af) + parseInt(_0x5880ea(0x275)) / (-0x2 * -0x916 + -0x413 * 0x1 + -0xe12) * (-parseInt(_0x5880ea(0x1ab)) / (-0x1 * -0x34c + 0x1d * 0xfb + 0xa91 * -0x3));
-         if (_0x407f06 === _0x4274d3) break;
-         else _0x18b134['push'](_0x18b134['shift']());
-      } catch (_0x485022) {
-         _0x18b134['push'](_0x18b134['shift']());
-      }
-   }
-}(_0x51e2, -0x7 * 0x125a9 + -0x1e2f * 0xe + 0x12c033));
-import {
-   key3,
-   country
-} from './env.js';
-let select2 = $(_0x4d180f(0x23b)),
-   select3 = $(_0x4d180f(0x16e)),
-   select4 = $(_0x4d180f(0x286)),
-   s5 = $(_0x4d180f(0x240)),
-   fill = $(_0x4d180f(0x1ac)),
-   msgbox = $(_0x4d180f(0x14f)),
-   msgbox2 = $(_0x4d180f(0x185)),
-   msgmap = $(_0x4d180f(0x1bb)),
-   txt = $(_0x4d180f(0x1f5) + _0x4d180f(0x19a)),
-   ifrm = $(_0x4d180f(0x15b)),
-   btn = $(_0x4d180f(0x199)),
-   timeId, xt = -0x1f * -0x3d + -0x254 + -0x287 * 0x2,
-   key = key3,
-   dataStore, isMapAv;
+import { key3, country } from './env.js';
+
+let select2 = $('#select2');
+let select3 = $('#select3');
+let select4 = $('#select4');
+let s5 = $('#select5');
+let fill = $('#data');
+let msgbox = $('#msgBox');
+let msgbox2 = $('#msgBox2');
+let msgmap = $('#msgMap');
+let txt = $('input[type="search"]');
+let ifrm = $('iframe');
+let btn = $('button');
+let timeId;
+let xt = 1;
+let key = key3;
+let dataStore;
+let isMapAv;
 
 function origin() {
-   const _0x3b0bc8 = _0x4d180f,
-      _0x338019 = {
-         'tPClQ': function (_0xff7a3d, _0x2223da) {
-            return _0xff7a3d(_0x2223da);
-         },
-         'CNnHP': _0x3b0bc8(0x1ca) + _0x3b0bc8(0x189) + _0x3b0bc8(0x1bd),
-         'TVPOj': _0x3b0bc8(0x14a) + _0x3b0bc8(0x229) + _0x3b0bc8(0x12d),
-         'zrELf': function (_0x5cc826, _0x527a87) {
-            return _0x5cc826 === _0x527a87;
-         },
-         'svKWy': _0x3b0bc8(0x1c7)
-      };
-   if (!txt[_0x3b0bc8(0x173)]()[_0x3b0bc8(0x11d)]()) {
-      _0x338019[_0x3b0bc8(0xfb)](alert, _0x338019[_0x3b0bc8(0x1fd)]);
+   if(!txt.val().trim()) {
+      alert('Enter query to continue!');
       return;
    }
-   let _0x42dacb = _0x338019[_0x3b0bc8(0x224)],
-      _0x3368b4 = txt[_0x3b0bc8(0x173)]()[_0x3b0bc8(0x11d)](),
-      _0x496494 = select2[_0x3b0bc8(0x173)](),
-      _0x596bf0 = select3[_0x3b0bc8(0x173)](),
-      _0x177106 = select4[_0x3b0bc8(0x173)]();
-   switch (xt) {
-      case -0xc35 * 0x1 + -0x34e * -0x3 + 0x24c:
-         if (_0x338019[_0x3b0bc8(0x1de)](_0x496494, _0x338019[_0x3b0bc8(0x16a)])) _0x42dacb += _0x3b0bc8(0x117) + _0x3b0bc8(0x124) + key + '&' + _0x496494 + '=' + _0x3368b4;
-         else _0x42dacb += _0x3b0bc8(0x117) + _0x3b0bc8(0x124) + key + '&' + _0x496494 + _0x177106 + '=' + _0x3368b4;
-         _0x338019[_0x3b0bc8(0xfb)](realtime, _0x42dacb);
+   let url = 'https://airlabs.co/api/v9',
+   inp = txt.val().trim(),
+   s2 = select2.val(), s3 = select3.val(),
+   s4 = select4.val();
+   switch(xt) {
+      case 1:
+         if(s2 === 'reg_number')
+            url += `/flights?api_key=${key}&${s2}=${inp}`;
+         else
+            url += `/flights?api_key=${key}&${s2}${s4}=${inp}`;
+         realtime(url);
          break;
-      case -0x838 + 0x137 * -0x9 + 0x1329:
-         _0x42dacb += _0x3b0bc8(0x23e) + _0x3b0bc8(0x1b9) + key + _0x3b0bc8(0x200) + _0x596bf0 + '=' + _0x3368b4, _0x338019[_0x3b0bc8(0xfb)](information, _0x42dacb);
+      case 2:
+         url += `/flight?api_key=${key}&flight${s3}=${inp}`;
+         information(url);
          break;
       default:
-         _0x338019[_0x3b0bc8(0xfb)](alert, xt);
+         alert(xt);
    }
-}
-async function realtime(_0x3edd39, _0x3e20dd = -0xa23 + -0x1390 + 0x1db3) {
-   const _0x51a5db = _0x4d180f,
-      _0x150efb = {
-         'qEhWC': function (_0x49cd02, _0x63ae6e) {
-            return _0x49cd02(_0x63ae6e);
-         },
-         'PPGct': function (_0x5df805, _0x76316d) {
-            return _0x5df805 * _0x76316d;
-         },
-         'FQmPM': function (_0x38cc7a, _0x4a00a3) {
-            return _0x38cc7a(_0x4a00a3);
-         },
-         'TwueI': function (_0x2c6dcf, _0x8fc78f) {
-            return _0x2c6dcf(_0x8fc78f);
-         },
-         'mJqAl': function (_0x1d1e16, _0x1b1b8b) {
-            return _0x1d1e16(_0x1b1b8b);
-         },
-         'gpMRZ': _0x51a5db(0x1ac),
-         'zMwRm': function (_0x353def, _0x130e12) {
-            return _0x353def === _0x130e12;
-         },
-         'zSdpM': function (_0x3f2051, _0x4d0f94, _0x5aa679) {
-            return _0x3f2051(_0x4d0f94, _0x5aa679);
-         },
-         'OQPOw': function (_0x442e0e, _0x39c9c2) {
-            return _0x442e0e(_0x39c9c2);
-         },
-         'SIdQo': function (_0x58114e, _0x424ed6) {
-            return _0x58114e + _0x424ed6;
-         },
-         'oprQS': function (_0x2223af, _0x2b394e) {
-            return _0x2223af + _0x2b394e;
-         },
-         'omjCz': function (_0xdd47cd) {
-            return _0xdd47cd();
-         },
-         'wEONq': _0x51a5db(0x1bf) + _0x51a5db(0x28d) + _0x51a5db(0x121),
-         'FLggf': function (_0x2f964d, _0x141a10) {
-            return _0x2f964d(_0x141a10);
-         },
-         'QISxc': _0x51a5db(0x130) + _0x51a5db(0x155),
-         'oRXqk': function (_0x43ad39) {
-            return _0x43ad39();
-         },
-         'FQLTB': function (_0x53c68d, _0x511fe4) {
-            return _0x53c68d(_0x511fe4);
-         },
-         'RxISG': function (_0x2dcd33) {
-            return _0x2dcd33();
-         }
-      };
-   try {
-      let _0x5d8d2b, _0x50b392 = 0x1 * 0x1995 + -0x61e + -0x1376;
-      if (!_0x3e20dd) {
-         _0x150efb[_0x51a5db(0x28b)](start, -0x26c3 + 0x5ff + 0x20c5);
-         const _0x579e64 = await _0x150efb[_0x51a5db(0x196)](fetch, _0x3edd39);
-         if (!_0x579e64['ok']) {
-            _0x150efb[_0x51a5db(0x203)](alert, _0x150efb[_0x51a5db(0x204)](_0x150efb[_0x51a5db(0x14e)](_0x579e64[_0x51a5db(0x1f2)], '\x20'), _0x579e64[_0x51a5db(0x1fb)])), _0x150efb[_0x51a5db(0x271)](stop);
-            return;
-         }
-         _0x5d8d2b = await _0x579e64[_0x51a5db(0x1ee)](), dataStore = _0x5d8d2b;
-         if (_0x5d8d2b[_0x51a5db(0x2aa)]) {
-            fill[_0x51a5db(0x1a8)](_0x51a5db(0x207) + _0x5d8d2b[_0x51a5db(0x2aa)][_0x51a5db(0x127)] + _0x51a5db(0x207)), _0x150efb[_0x51a5db(0x271)](stop);
-            return;
-         }
-         if (!_0x5d8d2b[_0x51a5db(0x19f)][_0x51a5db(0x29b)]) {
-            fill[_0x51a5db(0x1a8)](_0x150efb[_0x51a5db(0x280)]), _0x150efb[_0x51a5db(0x201)](alert, _0x150efb[_0x51a5db(0x166)]), _0x150efb[_0x51a5db(0x10b)](stop);
-            return;
-         }
-         _0x150efb[_0x51a5db(0x203)](keyLeft, _0x5d8d2b);
-      } else _0x150efb[_0x51a5db(0x11b)](start, 0x1 * 0x1af + -0xdec + 0x61f * 0x2), _0x5d8d2b = dataStore, _0x50b392 = 0x41c * 0x6 + -0x5 * 0x713 + 0xab7;
-      _0x150efb[_0x51a5db(0x11b)](sortFl, _0x5d8d2b[_0x51a5db(0x19f)]), fill[_0x51a5db(0x1d5)]();
-      let _0x48f072 = _0x5d8d2b[_0x51a5db(0x19f)][_0x51a5db(0x29b)],
-         _0x392591 = 0x9f1 * 0x1 + -0x2 * 0xb0d + 0xb * 0x11b;
-      _0x5d8d2b[_0x51a5db(0x19f)][_0x51a5db(0x27f)](async _0x38cadb => {
-         const _0x1282d2 = _0x51a5db;
-         let _0x1e35a7 = '';
-         if (_0x38cadb[_0x1282d2(0x1c7)]) _0x1e35a7 = _0x1282d2(0x193) + _0x1282d2(0x1e6) + _0x38cadb[_0x1282d2(0x1c7)] + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x141)]) _0x1e35a7 += _0x1282d2(0x1d2) + await _0x150efb[_0x1282d2(0x203)](help3, _0x38cadb[_0x1282d2(0x141)]) + '\x20' + _0x150efb[_0x1282d2(0x203)](flag, _0x38cadb[_0x1282d2(0x141)][_0x1282d2(0x167) + 'e']()) + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x24d)]) _0x1e35a7 += _0x1282d2(0x135) + _0x1282d2(0x207) + _0x38cadb[_0x1282d2(0x24d)][_0x1282d2(0x267)](0xe9 * 0x1 + -0xe10 + 0xd29) + ',\x20' + _0x38cadb[_0x1282d2(0x195)][_0x1282d2(0x267)](-0x53 * -0x6 + -0x329 + 0x139) + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0xf9)]) _0x1e35a7 += _0x1282d2(0x2a4) + _0x1282d2(0x207) + _0x150efb[_0x1282d2(0x1d8)](_0x38cadb[_0x1282d2(0xf9)], 0x4d * -0x4e + 0x1f2f + -0x7b6 + 0.2799999999999998)[_0x1282d2(0x267)](-0xe36 + -0x19 * -0x59 + 0x1 * 0x585) + (_0x1282d2(0x1dc) + '>');
-         if (_0x38cadb[_0x1282d2(0x174)]) _0x1e35a7 += _0x1282d2(0x1ad) + _0x1282d2(0x158) + _0x38cadb[_0x1282d2(0x174)] + _0x1282d2(0x175);
-         if (_0x38cadb[_0x1282d2(0x202)]) _0x1e35a7 += _0x1282d2(0x1f3) + _0x38cadb[_0x1282d2(0x202)] + (_0x1282d2(0x29c) + _0x1282d2(0x1da));
-         if (_0x38cadb[_0x1282d2(0x24b)]) _0x1e35a7 += _0x1282d2(0x106) + 'b>' + _0x38cadb[_0x1282d2(0x24b)] + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x190)]) _0x1e35a7 += _0x1282d2(0x24c) + '>' + _0x38cadb[_0x1282d2(0x190)] + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x249) + _0x1282d2(0x20b)]) _0x1e35a7 += _0x1282d2(0x26c) + _0x1282d2(0x14b) + _0x38cadb[_0x1282d2(0x249) + _0x1282d2(0x20b)] + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x28a) + 'o']) _0x1e35a7 += _0x1282d2(0x216) + _0x1282d2(0x20a) + '>' + _0x38cadb[_0x1282d2(0x28a) + 'o'] + '/' + _0x38cadb[_0x1282d2(0x18e) + 'a'] + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x180)]) _0x1e35a7 += _0x1282d2(0x288) + _0x1282d2(0x17a) + _0x1282d2(0x158) + _0x38cadb[_0x1282d2(0x180)] + '/' + _0x38cadb[_0x1282d2(0x1cf)] + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x1b0)]) _0x1e35a7 += _0x1282d2(0x24f) + _0x1282d2(0x1f4) + _0x1282d2(0x207) + _0x38cadb[_0x1282d2(0x1b0)] + '/' + _0x38cadb[_0x1282d2(0x21f)] + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0xf1) + 'ao']) _0x1e35a7 += _0x1282d2(0x25d) + _0x1282d2(0x1f8) + 'b>' + _0x38cadb[_0x1282d2(0xf1) + 'ao'] + '/' + _0x38cadb[_0x1282d2(0x22b) + 'ta'] + '\x20' + _0x150efb[_0x1282d2(0x29d)](logo, _0x38cadb[_0x1282d2(0x22b) + 'ta']) + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x1d0) + _0x1282d2(0x28e)]) _0x1e35a7 += _0x1282d2(0x1e3) + _0x1282d2(0x187) + _0x38cadb[_0x1282d2(0x1d0) + _0x1282d2(0x28e)] + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x1f7)]) _0x1e35a7 += _0x1282d2(0x26f) + 'b>' + _0x150efb[_0x1282d2(0x28b)](time, _0x38cadb[_0x1282d2(0x1f7)]) + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x1f2)]) _0x1e35a7 += _0x1282d2(0x1e1) + '>' + _0x38cadb[_0x1282d2(0x1f2)] + _0x1282d2(0x162);
-         if (_0x38cadb[_0x1282d2(0x1fb)]) _0x1e35a7 += _0x1282d2(0x2a9) + _0x38cadb[_0x1282d2(0x1fb)] + _0x1282d2(0x26d);
-         _0x150efb[_0x1282d2(0x101)]($, _0x150efb[_0x1282d2(0x10e)])[_0x1282d2(0x25a)](_0x1e35a7);
-         if (_0x150efb[_0x1282d2(0x177)](++_0x392591, _0x48f072)) _0x150efb[_0x1282d2(0x27e)](stop, _0x50b392, _0x48f072);
-      });
-   } catch (_0x2206b6) {
-      _0x150efb[_0x51a5db(0x21e)](stop), _0x150efb[_0x51a5db(0x11b)](alert, _0x51a5db(0x2a3) + _0x51a5db(0xf6) + _0x2206b6[_0x51a5db(0x127)]);
-   }
-   _0x150efb[_0x51a5db(0x271)](help2);
 }
 
-function information(_0x19579d) {
-   const _0x490a41 = _0x4d180f,
-      _0x564b87 = {
-         'emrVA': function (_0x5ec049, _0x48c579) {
-            return _0x5ec049(_0x48c579);
-         },
-         'IAbry': function (_0x473a8e, _0x3a3442) {
-            return _0x473a8e + _0x3a3442;
-         },
-         'Qilki': function (_0xab9cc6) {
-            return _0xab9cc6();
-         },
-         'EnEuU': _0x490a41(0x1bf) + _0x490a41(0x28d) + _0x490a41(0x121),
-         'BAdoh': function (_0xf229c6, _0x2cf63c) {
-            return _0xf229c6(_0x2cf63c);
-         },
-         'bBbfw': _0x490a41(0x130) + _0x490a41(0x155),
-         'odCLa': function (_0x1c42b3, _0x4c74c5) {
-            return _0x1c42b3(_0x4c74c5);
-         },
-         'kPbxu': function (_0x13ed45, _0x4ff4db) {
-            return _0x13ed45(_0x4ff4db);
-         },
-         'IHLcK': function (_0x358526, _0x5884dd) {
-            return _0x358526(_0x5884dd);
-         },
-         'JkNfQ': function (_0x55c88c, _0x566bb7) {
-            return _0x55c88c === _0x566bb7;
-         },
-         'uyOlY': function (_0x56d28e, _0x576aeb) {
-            return _0x56d28e(_0x576aeb);
-         },
-         'JPXpD': function (_0x37b551, _0x39d8d4) {
-            return _0x37b551(_0x39d8d4);
-         },
-         'GBKQH': function (_0x308739, _0x4e53b8) {
-            return _0x308739(_0x4e53b8);
-         },
-         'NnKEg': function (_0x3f293c, _0x4094a1) {
-            return _0x3f293c(_0x4094a1);
-         },
-         'ZnDuv': function (_0x1ac8b8, _0x3f61a0) {
-            return _0x1ac8b8 * _0x3f61a0;
-         },
-         'hKuiF': function (_0x595540, _0x54767c) {
-            return _0x595540(_0x54767c);
-         },
-         'piwtq': function (_0x322862, _0x5a2758) {
-            return _0x322862(_0x5a2758);
-         },
-         'maULz': function (_0x5063bd, _0x3489f8) {
-            return _0x5063bd(_0x3489f8);
-         },
-         'EuHPv': function (_0x1137a6, _0x1732ea) {
-            return _0x1137a6(_0x1732ea);
-         },
-         'jvBWP': function (_0x5a2bdd, _0x10dc64) {
-            return _0x5a2bdd + _0x10dc64;
-         },
-         'mtnKM': function (_0x406790, _0x529555) {
-            return _0x406790 > _0x529555;
-         },
-         'gujtZ': function (_0x42aa0d, _0x3eb633, _0x3b987a, _0x46677a) {
-            return _0x42aa0d(_0x3eb633, _0x3b987a, _0x46677a);
-         },
-         'tJcii': function (_0x1313c7, _0x1cb40e, _0x4099db, _0x109ce2) {
-            return _0x1313c7(_0x1cb40e, _0x4099db, _0x109ce2);
-         },
-         'ewxhc': function (_0x2ba8cd) {
-            return _0x2ba8cd();
-         },
-         'Vsgng': function (_0x92afb8, _0x1b9067) {
-            return _0x92afb8(_0x1b9067);
+async function realtime(url, stored = 0) {
+   try {
+      let d, isFromStored = 1;
+      if(!stored) {
+         start(1);
+         const response = await fetch(url);
+         if(!response.ok) {
+            alert(response.status+' '+response.type);
+            stop();
+            return;
          }
-      };
-   msgbox[_0x490a41(0x1b6)](), _0x564b87[_0x490a41(0x231)](fetch, _0x19579d)[_0x490a41(0x2a2)](_0x535334 => {
-      const _0x14379d = _0x490a41;
-      if (!_0x535334['ok']) _0x564b87[_0x14379d(0x14d)](alert, _0x564b87[_0x14379d(0x10d)](_0x564b87[_0x14379d(0x10d)](_0x535334[_0x14379d(0x1f2)], '\x20'), _0x535334[_0x14379d(0x1fb)]));
-      return _0x535334[_0x14379d(0x1ee)]();
-   })[_0x490a41(0x2a2)](async _0x3c6d81 => {
-      const _0x5164f2 = _0x490a41;
-      if (_0x3c6d81[_0x5164f2(0x2aa)]) {
-         fill[_0x5164f2(0x1a8)](_0x5164f2(0x207) + _0x3c6d81[_0x5164f2(0x2aa)][_0x5164f2(0x127)] + _0x5164f2(0x207)), _0x564b87[_0x5164f2(0x150)](stop);
+         d = await response.json();
+         dataStore = d; /* Store current data for better UX */
+         if(d.error) {
+            fill.html(`<b>${d.error.message}<b>`);
+            stop();
+            return;
+         }
+         if(!d.response.length) {
+            fill.html('<em>No data found!</em>');
+            alert('No data found!');
+            stop();
+            return;
+         }
+         keyLeft(d);
+      } else {
+         start(1);
+         d = dataStore;
+         isFromStored = 0;
+      }
+      
+      sortFl(d.response); /* Sort flights */
+      // console.log(d);
+      fill.empty();
+      let maxCount = d.response.length, count = 0;
+      d.response.forEach(async dt => {
+         let text = '';
+         if(dt.reg_number)
+            text = `Registration: <b>${dt.reg_number}</b><br>`;
+         if(dt.flag)
+            text += `Flag: <b>${await help3(dt.flag)} ${flag(dt.flag.toLowerCase())}</b><br>`;
+         if(dt.lat)
+            text += `Position: <b>${dt.lat.toFixed(2)}, ${dt.lng.toFixed(2)}</b><br>`;
+         if(dt.alt)
+            text += `Altitude: <b>${(dt.alt*3.28).toFixed(0)} ft</b><br>`;
+         if(dt.dir)
+            text += `Direction: <b>${dt.dir}°</b><br>`;
+         if(dt.speed)
+            text += `Speed: <b>${dt.speed} Kmph</b><br>`;
+         if(dt.v_speed)
+            text+= `V speed: <b>${dt.v_speed}</b><br>`;
+         if(dt.squawk)
+            text += `Squawk: <b>${dt.squawk}</b><br>`;
+         if(dt.flight_number)
+            text += `Flight number: <b>${dt.flight_number}</b><br>`;
+         if(dt.flight_icao)
+            text += `Flight ICAO/IATA: <b>${dt.flight_icao}/${dt.flight_iata}</b><br>`;
+         if(dt.dep_icao)
+            text += `Departure ICAO/IATA: <b>${dt.dep_icao}/${dt.dep_iata}</b><br>`;
+         if(dt.arr_icao)
+            text +=` Arrival ICAO/IATA: <b>${dt.arr_icao}/${dt.arr_iata}</b><br>`;
+         if(dt.airline_icao)
+            text += `Airline ICAO/IATA: <b>${dt.airline_icao}/${dt.airline_iata} ${logo(dt.airline_iata)}</b><br>`;
+         if(dt.aircraft_icao)
+            text += `Aircraft ICAO: <b>${dt.aircraft_icao}</b><br>`;
+         if(dt.updated)
+            text += `Updated: <b>${time(dt.updated)}</b><br>`;
+         if(dt.status)
+            text += `Status: <b>${dt.status}</b><br>`;
+         if(dt.type)
+            text += `Type: <b>${dt.type}</b><hr>`;
+         $('#data').append(text);
+         if(++count === maxCount)
+            stop(isFromStored, maxCount);
+      });
+   } catch(e) {
+      stop();
+      alert(`Realtime error: ${e.message}`);
+   }
+   help2()
+}
+function information(url) {
+   msgbox.show();
+   fetch(url)
+   .then(response => {
+      if(!response.ok)
+         alert(response.status+' '+response.type);
+      return response.json();
+   })
+   .then(async (d) => {
+      // console.log(d);
+      if(d.error) {
+         fill.html(`<b>${d.error.message}<b>`);
+         stop();
          return;
       }
-      if (!Object[_0x5164f2(0x1d6)](_0x3c6d81[_0x5164f2(0x19f)])) {
-         fill[_0x5164f2(0x1a8)](_0x564b87[_0x5164f2(0x194)]), _0x564b87[_0x5164f2(0x297)](alert, _0x564b87[_0x5164f2(0x15f)]), _0x564b87[_0x5164f2(0x150)](stop);
+      if(!Object.keys(d.response)) {
+         fill.html('<em>No data found!</em>');
+         alert('No data found!');
+         stop();
          return;
       }
-      _0x564b87[_0x5164f2(0x132)](keyLeft, _0x3c6d81);
-      let _0x867002 = _0x3c6d81[_0x5164f2(0x19f)];
-      fill[_0x5164f2(0x1d5)]();
-      let _0x4529c1 = '';
-      if (_0x867002[_0x5164f2(0xfe)]) _0x4529c1 = _0x5164f2(0x186) + _0x5164f2(0x158) + _0x867002[_0x5164f2(0xfe)] + ',\x20' + _0x867002[_0x5164f2(0x146)] + ',\x20' + await _0x564b87[_0x5164f2(0x14d)](help3, _0x867002[_0x5164f2(0x1c9) + 'y']) + '\x20' + _0x564b87[_0x5164f2(0x147)](flag, _0x867002[_0x5164f2(0x1c9) + 'y']) + _0x5164f2(0x162);
-      if (_0x867002[_0x5164f2(0x180)]) _0x4529c1 += _0x5164f2(0x288) + _0x5164f2(0x17a) + _0x5164f2(0x158) + _0x867002[_0x5164f2(0x180)] + '/' + _0x867002[_0x5164f2(0x1cf)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x296) + 'al']) _0x4529c1 += _0x5164f2(0x1b2) + _0x5164f2(0x1a4) + _0x867002[_0x5164f2(0x296) + 'al'] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x25b)]) _0x4529c1 += _0x5164f2(0x284) + _0x5164f2(0x207) + _0x867002[_0x5164f2(0x25b)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x1fc) + 'tc']) _0x4529c1 += _0x5164f2(0x1c3) + _0x5164f2(0x29f) + _0x5164f2(0x207) + _0x564b87[_0x5164f2(0x242)](time, _0x867002[_0x5164f2(0x1fc) + 'tc']) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x246) + _0x5164f2(0x206)] && _0x867002[_0x5164f2(0x10a) + _0x5164f2(0x131)]) {
-         if (_0x564b87[_0x5164f2(0x1c0)](_0x867002[_0x5164f2(0x246) + _0x5164f2(0x206)], _0x867002[_0x5164f2(0x10a) + _0x5164f2(0x131)])) _0x4529c1 += _0x5164f2(0x1c3) + _0x5164f2(0x139) + _0x564b87[_0x5164f2(0x125)](time, _0x867002[_0x5164f2(0x10a) + _0x5164f2(0x131)]) + _0x5164f2(0x257);
+      keyLeft(d);
+      let dts = d.response;
+      fill.empty();
+      /*Departure*/
+      let text = '';
+      if(dts.dep_name)
+         text = `Departure: <b>${dts.dep_name}, ${dts.dep_city}, ${await help3(dts.dep_country)} ${flag(dts.dep_country)}</b><br>`;
+      if(dts.dep_icao)
+         text += `Departure ICAO/IATA: <b>${dts.dep_icao}/${dts.dep_iata}</b>`;
+      if(dts.dep_terminal)
+         text += `<br>Terminal: <b>${dts.dep_terminal}</b>`
+      if(dts.dep_gate)
+         text += `<br>Gate: <b>${dts.dep_gate}</b>`;
+      if(dts.dep_time_utc)
+         text += `<br>Departure time: <b>${time(dts.dep_time_utc)}</b>`;
+      if(dts.dep_estimated_utc && dts.dep_actual_utc){
+         if(dts.dep_estimated_utc === dts.dep_actual_utc)
+            text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
       } else {
-         if (_0x867002[_0x5164f2(0x246) + _0x5164f2(0x206)]) _0x4529c1 += _0x5164f2(0xfa) + _0x5164f2(0x11c) + _0x564b87[_0x5164f2(0x14d)](time, _0x867002[_0x5164f2(0x246) + _0x5164f2(0x206)]) + _0x5164f2(0x257);
-         if (_0x867002[_0x5164f2(0x10a) + _0x5164f2(0x131)]) _0x4529c1 += _0x5164f2(0x1c3) + _0x5164f2(0x139) + _0x564b87[_0x5164f2(0x147)](time, _0x867002[_0x5164f2(0x10a) + _0x5164f2(0x131)]) + _0x5164f2(0x257);
+         if(dts.dep_estimated_utc)
+            text += `<br>Estimated: <b>${time(dts.dep_estimated_utc)}</b>`;
+         if(dts.dep_actual_utc)
+            text += `<br>Departed: <b>${time(dts.dep_actual_utc)}</b>`;
       }
-      if (_0x867002[_0x5164f2(0x105) + 'me']) _0x4529c1 += _0x5164f2(0x218) + _0x5164f2(0x233) + _0x867002[_0x5164f2(0x105) + 'me'] + '\x20' + _0x564b87[_0x5164f2(0x12e)](logo, _0x867002[_0x5164f2(0x22b) + 'ta']) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0xf1) + 'ao']) _0x4529c1 += _0x5164f2(0x218) + _0x5164f2(0x225) + _0x5164f2(0x245) + _0x867002[_0x5164f2(0xf1) + 'ao'] + '/' + _0x867002[_0x5164f2(0x22b) + 'ta'] + _0x5164f2(0x257);
-      if (!_0x867002[_0x5164f2(0x105) + 'me']) _0x4529c1 += '\x20' + _0x564b87[_0x5164f2(0x242)](logo, _0x867002[_0x5164f2(0x22b) + 'ta']) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x28a) + 'o']) _0x4529c1 += _0x5164f2(0x226) + _0x5164f2(0x283) + _0x5164f2(0x1cd) + _0x867002[_0x5164f2(0x28a) + 'o'] + '/' + _0x867002[_0x5164f2(0x18e) + 'a'] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x249) + _0x5164f2(0x20b)]) _0x4529c1 += _0x5164f2(0x226) + _0x5164f2(0x1df) + 'b>' + _0x867002[_0x5164f2(0x249) + _0x5164f2(0x20b)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x1c7)]) _0x4529c1 += _0x5164f2(0x2a8) + _0x5164f2(0x1a1) + '>' + _0x867002[_0x5164f2(0x1c7)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x141)]) _0x4529c1 += _0x5164f2(0x1c6) + _0x5164f2(0x207) + await _0x564b87[_0x5164f2(0x198)](help3, _0x867002[_0x5164f2(0x141)]) + '\x20' + _0x564b87[_0x5164f2(0x23f)](flag, _0x867002[_0x5164f2(0x141)][_0x5164f2(0x167) + 'e']()) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x24d)]) _0x4529c1 += _0x5164f2(0x26b) + _0x5164f2(0x1e6) + _0x867002[_0x5164f2(0x24d)][_0x5164f2(0x267)](-0x1317 + -0x6d0 + 0x19e9) + ',\x20' + _0x867002[_0x5164f2(0x195)][_0x5164f2(0x267)](-0xd * 0x163 + -0xb49 + 0x1d52) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0xf9)]) _0x4529c1 += _0x5164f2(0x110) + _0x5164f2(0x1ce) + _0x564b87[_0x5164f2(0x2a7)](_0x867002[_0x5164f2(0xf9)], -0x191c + 0x1 * -0x768 + 0x2087 + 0.2799999999999998)[_0x5164f2(0x267)](-0x93c * 0x4 + -0x20b * 0x7 + -0x1 * -0x333d) + _0x5164f2(0x210);
-      if (_0x867002[_0x5164f2(0x174)]) _0x4529c1 += _0x5164f2(0x114) + _0x5164f2(0x244) + _0x867002[_0x5164f2(0x174)] + _0x5164f2(0x21b);
-      if (_0x867002[_0x5164f2(0x202)]) _0x4529c1 += _0x5164f2(0x222) + _0x5164f2(0x158) + _0x867002[_0x5164f2(0x202)] + _0x5164f2(0x107);
-      if (_0x867002[_0x5164f2(0x24b)]) _0x4529c1 += _0x5164f2(0x17e) + _0x5164f2(0x22f) + _0x867002[_0x5164f2(0x24b)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x190)]) _0x4529c1 += _0x5164f2(0x21c) + _0x5164f2(0x1cd) + _0x867002[_0x5164f2(0x190)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x156)]) _0x4529c1 += _0x5164f2(0x1db) + _0x5164f2(0x1ea) + _0x867002[_0x5164f2(0x156)] + ',\x20' + _0x867002[_0x5164f2(0x1b4)] + ',\x20' + await _0x564b87[_0x5164f2(0x297)](help3, _0x867002[_0x5164f2(0x138) + 'y']) + '\x20' + _0x564b87[_0x5164f2(0x1d7)](flag, _0x867002[_0x5164f2(0x138) + 'y']) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x1b0)]) _0x4529c1 += _0x5164f2(0x272) + _0x5164f2(0x214) + _0x5164f2(0x245) + _0x867002[_0x5164f2(0x1b0)] + '/' + _0x867002[_0x5164f2(0x21f)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x1dd) + 'e']) _0x4529c1 += _0x5164f2(0x217) + _0x5164f2(0x233) + _0x867002[_0x5164f2(0x1dd) + 'e'] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x115) + 'al']) _0x4529c1 += _0x5164f2(0x1b2) + _0x5164f2(0x1a4) + _0x867002[_0x5164f2(0x115) + 'al'] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x22d)]) _0x4529c1 += _0x5164f2(0x284) + _0x5164f2(0x207) + _0x867002[_0x5164f2(0x22d)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x108) + 'tc']) _0x4529c1 += _0x5164f2(0x272) + _0x5164f2(0x247) + '>' + _0x564b87[_0x5164f2(0x132)](time, _0x867002[_0x5164f2(0x108) + 'tc']) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x29a) + _0x5164f2(0x206)] && _0x867002[_0x5164f2(0x182) + _0x5164f2(0x131)]) {
-         if (_0x564b87[_0x5164f2(0x1c0)](_0x867002[_0x5164f2(0x29a) + _0x5164f2(0x206)], _0x867002[_0x5164f2(0x182) + _0x5164f2(0x131)])) _0x4529c1 += _0x5164f2(0x234) + _0x5164f2(0x22f) + _0x564b87[_0x5164f2(0x231)](time, _0x867002[_0x5164f2(0x182) + _0x5164f2(0x131)]) + _0x5164f2(0x257);
+      /*Airline*/
+      if(dts.airline_name)
+         text += `<br>Airline: <b>${dts.airline_name} ${logo(dts.airline_iata)}</b>`;
+      if(dts.airline_icao)
+         text += `<br>Airline ICAO/IATA: <b>${dts.airline_icao}/${dts.airline_iata}</b>`;
+      if(!dts.airline_name)
+         text += ` ${logo(dts.airline_iata)}</b>`;
+      if(dts.flight_icao)
+         text += `<br>Flight ICAO/IATA: <b>${dts.flight_icao}/${dts.flight_iata}</b>`;
+      if(dts.flight_number)
+         text += `<br>Flight Number: <b>${dts.flight_number}</b>`;
+      if(dts.reg_number)
+         text += `<br>Registration: <b>${dts.reg_number}</b>`;
+      if(dts.flag)
+         text += `<br>Flag: <b>${await help3(dts.flag)} ${flag(dts.flag.toLowerCase())}</b>`;
+      if(dts.lat)
+         text += `<br>Position: <b>${dts.lat.toFixed(2)}, ${dts.lng.toFixed(2)}</b>`;
+      if(dts.alt)
+         text += `<br>Altitude: <b>${(dts.alt*3.28).toFixed(0)} ft</b>`;
+      if(dts.dir)
+         text += `<br>Direction: <b>${dts.dir}°</b>`;
+      if(dts.speed)
+         text += `<br>Speed: <b>${dts.speed} Kmph</b>`;
+      if(dts.v_speed)
+         text+= `<br>V speed: <b>${dts.v_speed}</b>`;
+      if(dts.squawk)
+         text += `<br>Squawk: <b>${dts.squawk}</b>`;
+      /*Arrival*/
+      if(dts.arr_name)
+         text += `<br><br>Arrival: <b>${dts.arr_name}, ${dts.arr_city}, ${await help3(dts.arr_country)} ${flag(dts.arr_country)}</b>`;
+      if(dts.arr_icao)
+         text += `<br>Arrival ICAO/IATA: <b>${dts.arr_icao}/${dts.arr_iata}</b>`;
+      if(dts.arr_baggage)
+         text += `<br>Baggage: <b>${dts.arr_baggage}</b>`;
+      if(dts.arr_terminal)
+         text += `<br>Terminal: <b>${dts.arr_terminal}</b>`
+      if(dts.arr_gate)
+         text += `<br>Gate: <b>${dts.arr_gate}</b>`;
+      if(dts.arr_time_utc)
+         text += `<br>Arrival time: <b>${time(dts.arr_time_utc)}</b>`;
+      if(dts.arr_estimated_utc && dts.arr_actual_utc){
+         if(dts.arr_estimated_utc === dts.arr_actual_utc)
+            text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
       } else {
-         if (_0x867002[_0x5164f2(0x29a) + _0x5164f2(0x206)]) _0x4529c1 += _0x5164f2(0xfa) + _0x5164f2(0x11c) + _0x564b87[_0x5164f2(0x242)](time, _0x867002[_0x5164f2(0x29a) + _0x5164f2(0x206)]) + _0x5164f2(0x257);
-         if (_0x867002[_0x5164f2(0x182) + _0x5164f2(0x131)]) _0x4529c1 += _0x5164f2(0x234) + _0x5164f2(0x22f) + _0x564b87[_0x5164f2(0x23f)](time, _0x867002[_0x5164f2(0x182) + _0x5164f2(0x131)]) + _0x5164f2(0x257);
+         if(dts.arr_estimated_utc)
+            text += `<br>Estimated: <b>${time(dts.arr_estimated_utc)}</b>`;
+         if(dts.arr_actual_utc)
+            text += `<br>Arrived: <b>${time(dts.arr_actual_utc)}</b>`;
       }
-      if (_0x867002[_0x5164f2(0x21d)]) _0x4529c1 += _0x5164f2(0x151) + _0x5164f2(0x1e6) + _0x564b87[_0x5164f2(0x14d)](help1, _0x867002[_0x5164f2(0x21d)]) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x112)]) _0x4529c1 += _0x5164f2(0x163) + _0x5164f2(0x158) + _0x564b87[_0x5164f2(0x125)](help1, _0x867002[_0x5164f2(0x112)]) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x129) + 'd']) _0x4529c1 += _0x5164f2(0x1c3) + _0x5164f2(0x183) + _0x5164f2(0x158) + _0x564b87[_0x5164f2(0x144)](help1, _0x867002[_0x5164f2(0x129) + 'd']) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x1e0) + 'd']) _0x4529c1 += _0x5164f2(0x272) + _0x5164f2(0x153) + 'b>' + _0x564b87[_0x5164f2(0x1be)](help1, _0x867002[_0x5164f2(0x1e0) + 'd']) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x215)]) _0x4529c1 += _0x5164f2(0x218) + _0x5164f2(0x1e8) + _0x867002[_0x5164f2(0x215)] + _0x5164f2(0x213) + _0x867002[_0x5164f2(0xf7) + 'er'] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x1d0) + _0x5164f2(0x28e)]) _0x4529c1 += _0x5164f2(0x11a) + _0x5164f2(0x290) + 'b>' + _0x867002[_0x5164f2(0x1d0) + _0x5164f2(0x28e)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x179)]) _0x4529c1 += _0x5164f2(0x1f0) + _0x5164f2(0x1cd) + _0x867002[_0x5164f2(0x168) + 'nt'] + '\x20' + _0x867002[_0x5164f2(0x179)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x211)] && _0x867002[_0x5164f2(0x20f)]) _0x4529c1 += _0x5164f2(0xfc) + _0x5164f2(0x158) + _0x867002[_0x5164f2(0x211)] + _0x5164f2(0x213) + _0x564b87[_0x5164f2(0x220)](_0x867002[_0x5164f2(0x20f)], -0x34f * 0x7 + 0x20f5 + -0x9ca) + _0x5164f2(0x1ed);
-      if (_0x867002[_0x5164f2(0x237)] && _0x564b87[_0x5164f2(0xf5)](_0x867002[_0x5164f2(0x237)], -(-0x22 * 0x121 + -0x489 + 0x2aec))) _0x4529c1 += _0x5164f2(0x274) + _0x5164f2(0x279) + _0x564b87[_0x5164f2(0x132)](help1, _0x867002[_0x5164f2(0x237)]) + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x1f2)]) _0x4529c1 += _0x5164f2(0x10c) + _0x5164f2(0x1cd) + _0x867002[_0x5164f2(0x1f2)] + _0x5164f2(0x257);
-      if (_0x867002[_0x5164f2(0x1f7)]) _0x4529c1 += _0x5164f2(0x100) + _0x5164f2(0x22f) + _0x564b87[_0x5164f2(0x23f)](time, _0x867002[_0x5164f2(0x1f7)]) + _0x5164f2(0x257);
-      fill[_0x5164f2(0x1a8)](_0x4529c1);
-      if (_0x867002[_0x5164f2(0x1cf)] && _0x867002[_0x5164f2(0x21f)] && _0x867002[_0x5164f2(0x103)]) _0x564b87[_0x5164f2(0x13c)](distance, _0x867002[_0x5164f2(0x1cf)], _0x867002[_0x5164f2(0x21f)], _0x867002[_0x5164f2(0x103)]);
-      _0x564b87[_0x5164f2(0x1c8)](updateMap, _0x867002[_0x5164f2(0x24d)], _0x867002[_0x5164f2(0x195)], _0x564b87[_0x5164f2(0x23f)](mapZoomLvl, _0x867002[_0x5164f2(0xf9)] ?? -0x5 * 0x3b5 + 0x3 * -0x40f + -0x1 * -0x1eb6)), _0x564b87[_0x5164f2(0x1f9)](stop);
-   })[_0x490a41(0x1c4)](_0x4af9ac => {
-      const _0x24a399 = _0x490a41;
-      _0x564b87[_0x24a399(0x1f9)](stop), _0x564b87[_0x24a399(0x208)](alert, _0x24a399(0x28c) + _0x24a399(0x20e) + _0x4af9ac[_0x24a399(0x127)]);
-   });
+      if(dts.duration)
+         text += `<br>Duration: <b>${help1(dts.duration)}</b>`;
+      if(dts.delayed)
+         text += `<br>Delay: <b>${help1(dts.delayed)}</b>`;
+      if(dts.dep_delayed)
+         text += `<br>Departure delay: <b>${help1(dts.dep_delayed)}</b>`;
+      if(dts.arr_delayed)
+         text += `<br>Arrival delay: <b>${help1(dts.arr_delayed)}</b>`;
+      /*Airliner*/
+      if(dts.model)
+         text += `<br>Airliner: <b>${dts.model} - ${dts.manufacturer}</b>`;
+      if(dts.aircraft_icao)
+         text += `<br>Aircraft ICAO: <b>${dts.aircraft_icao}</b>`;
+      if(dts.engine)
+         text += `<br>Engine: <b>${dts.engine_count} ${dts.engine}</b>`;
+      if(dts.built && dts.age)
+         text += `<br>Built: <b>${dts.built} - ${dts.age+2}y</b>`;
+      if(dts.eta && dts.eta > -1)
+         text += `<br>Arriving in <b>${help1(dts.eta)}</b>`;
+      if(dts.status)
+         text += `<br>Status: <b>${dts.status}</b>`;
+      if(dts.updated)
+         text += `<br>Updated: <b>${time(dts.updated)}</b>`;
+      fill.html(text);
+      if(dts.dep_iata && dts.arr_iata && dts.percent)
+         distance(dts.dep_iata, dts.arr_iata, dts.percent);
+      updateMap(dts.lat, dts.lng, mapZoomLvl(dts.alt ?? 0));
+      stop();
+   })
+   .catch(e => {
+      stop();
+      alert(`Information error: ${e.message}`);
+   })
 }
 
-function _0x51e2() {
-   const _0x55c282 = ['dep_name', '#select4,\x20', '<br>Update', 'mJqAl', 'PrzeE', 'percent', 'informatio', 'airline_na', 'V\x20speed:\x20<', '\x20Kmph</b>', 'arr_time_u', 'keypress', 'dep_actual', 'oRXqk', '<br>Status', 'IAbry', 'gpMRZ', 'src', '<br>Altitu', '<span\x20id=\x27', 'delayed', 'display', '<br>Direct', 'arr_termin', 'floor', '/flights?a', 'YhGBb', '#update', '<br>Aircra', 'FQLTB', 'ted:\x20<b>', 'trim', 'ogo-div\x22><', 'gtaZM', 'id=\x27line\x27>', 'em>', 'gvTUw', '5132544tsReDq', 'pi_key=', 'uyOlY', '\x20min(s)', 'message', ':00', 'dep_delaye', 'prop', 'SJuGz', 'FGtjn', 'pi/v9', 'JPXpD', 'USZno', 'No\x20data\x20fo', '_utc', 'odCLa', 'HiaUr', '195852xPksMa', 'Position:\x20', 'CPilo', 'frgxm', 'arr_countr', 'ed:\x20<b>', 'KVVNO', 'distance\x27>', 'gujtZ', 'fEnem', 'epvyS', 'line-p\x27>\x0a\x20', '\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20', 'flag', 'PFQkw', 'WNrOG', 'maULz', 'WESdk', 'dep_city', 'kPbxu', '#select2,\x20', 'LjaFk', 'https://ai', 'ber:\x20<b>', 'cHowE', 'emrVA', 'oprQS', '#msgBox', 'Qilki', '<br>Durati', '<img\x20src=\x22', 'l\x20delay:\x20<', 'MAfVO', 'und!', 'arr_name', 'BkfXF', '\x20<b>', 'request', '230318dulSBS', 'iframe', 'CzXnt', '<div\x20id=\x22l', 'etf!', 'bBbfw', 'includes', '/updates', '</b><br>', '<br>Delay:', 'caQeX', 'gikpg', 'QISxc', 'toLowerCas', 'engine_cou', 'zFBBt', 'svKWy', '\x20flights\x20f', 'attr', '67vh', '#select3', 'CVpbb', 'toLocaleSt', 'l=en&q=', 'checked', 'val', 'dir', '°</b><br>', 'name', 'zMwRm', 'kOhkT', 'engine', 'ICAO/IATA:', 'block', 'OMCyi', 'com/maps?h', '<br>V\x20spee', 'lgMAU', 'dep_icao', '#map', 'arr_actual', 'ure\x20delay:', 'NBSap', '#msgBox2', 'Departure:', 'CAO:\x20<b>', 'arr\x27>', 'y\x20to\x20conti', 'FEkBK', 'ound!</em>', 'TouDT', 'trMYM', 'flight_iat', 'disabled', 'squawk', 'HoFjc', 'HORYz', 'Registrati', 'EnEuU', 'lng', 'OQPOw', 'preventDef', 'GBKQH', 'button', '=\x22search\x22]', '\x20\x20\x20\x20<span\x20', 'fYbDy', 'oqQgz', 'animate', 'response', '64vh', 'ration:\x20<b', 'YprdI', 'pzNmI', 'al:\x20<b>', 'fxSPn', 'JFqWd', 'mfvII', 'html', 'css', 'JjNPv', '2245608sYatlW', '#data', 'Direction:', 'offset', '0\x2010\x205\x201', 'arr_icao', '\x20day(s),\x20', '<br>Termin', 'FiFOA', 'arr_city', '50\x2040\x2030\x202', 'show', '\x20call(s)\x20l', 'BFSwz', 'i_key=', 'width', '#msgMap', '/airline/m', 'nue!', 'EuHPv', '<em>No\x20dat', 'JkNfQ', 'biLdc', 'limits_tot', '<br>Depart', 'catch', 'location', '<br>Flag:\x20', 'reg_number', 'tJcii', 'dep_countr', 'Enter\x20quer', 'WlVAF', 'SUuSG', ':\x20<b>', 'de:\x20<b>', 'dep_iata', 'aircraft_i', '&t=&z=', 'Flag:\x20<b>', 'zxEET', 'put=embed', 'empty', 'keys', 'hKuiF', 'PPGct', 'https://re', 'br>', '<br><br>Ar', '\x20ft</b><br', 'arr_baggag', 'zrELf', '\x20Number:\x20<', 'arr_delaye', 'Status:\x20<b', '<em>', 'Aircraft\x20I', 'string', '0\x20200\x20100\x20', 'on:\x20<b>', 'qwFkT', 'er:\x20<b>', '.png\x22>', 'rival:\x20<b>', 'uaAHN', 'wLKdK', 'y</b>', 'json', 'BTdLB', '<br>Engine', ':checked', 'status', 'Speed:\x20<b>', 'CAO/IATA:\x20', 'input[type', '1710690DAVUeh', 'updated', 'AO/IATA:\x20<', 'ewxhc', 'fqpoU', 'type', 'dep_time_u', 'CNnHP', 'aIpPm', 'none', '&flight', 'FLggf', 'speed', 'qEhWC', 'SIdQo', 'Enter', 'ted_utc', '<b>', 'Vsgng', 'IsXXc', 'O/IATA:\x20<b', 'ber', 'top', 'https://fl', 'n\x20error:\x20', 'age', '\x20ft</b>', 'built', '#select1', '\x20-\x20', 'l\x20ICAO/IAT', 'model', 'Flight\x20ICA', '<br>Baggag', '<br>Airlin', 'urQuJ', '#mapt', '°</b>', '<br>Squawk', 'duration', 'RxISG', 'arr_iata', 'jvBWP', 'sort', '<br>Speed:', 'oCJYQ', 'TVPOj', 'e\x20ICAO/IAT', '<br>Flight', 'ylwsC', '431376IRvOcI', 'rlabs.co/a', 'height', 'airline_ia', 'nKnCM', 'arr_gate', 'abs.co/img', 'd:\x20<b>', 'JlFgr', 'piwtq', 'hVijZ', 'e:\x20<b>', '<br>Arrive', 'sfSED', '#line', 'eta', 'key', 'pFPDR', 's.com/v3.1', '#select2', 'PJvrW', 'SrlTz', '/flight?ap', 'NnKEg', '#select5', 'replace', 'IHLcK', 'ring', 'ion:\x20<b>', 'A:\x20<b>', 'dep_estima', 'l\x20time:\x20<b', 'yAfiy', 'flight_num', '&ie=UTF8&i', 'v_speed', 'Squawk:\x20<b', 'lat', 'QBZYh', '\x20Arrival\x20I', 'https://ma', 'click', 'wloc=B&out', 'kVSSP', 'pHCxf', 'iMdwy', '\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20', '</b>', 'rnVaE', 'change', 'append', 'dep_gate', 'rYzBf', 'Airline\x20IC', 'AciZq', 'wejrz', 'JIgmE', '1014122ExfyDe', 'pan>', 'Hynbz', 'hide', 'JFVgG', 'd=\x27dep\x27>', 'toFixed', 'ps.google.', 'QvWJB', 'WRBpb', '<br>Positi', 'Flight\x20num', '</b><hr>', 'img\x20src=ht', 'Updated:\x20<', 'aCCCy', 'omjCz', '<br>Arriva', '500\x20400\x2030', '<br>Arrivi', '14FtkTYZ', 'KnZnj', 'slice', 'html,\x20body', 'ng\x20in\x20<b>', 'stcountrie', 'agcdn.com/', '24x18/', 'roHim', 'zSdpM', 'forEach', 'wEONq', 'onYzt', '</span>\x0a\x20\x20', '\x20ICAO/IATA', '<br>Gate:\x20', 'jWzSM', '#select4', '.png\x20id=\x27l', 'Departure\x20', 'TxHEZ', 'flight_ica', 'TwueI', 'Informatio', 'a\x20found!</', 'cao', '\x20\x20\x20<span\x20i', 'ft\x20ICAO:\x20<', ':visible', 'bMObQ', 'ault', 'blur', '/alpha/', 'dep_termin', 'BAdoh', 'TYkcK', 'header', 'arr_estima', 'length', '\x20Kmph</b><', 'FQmPM', 'common', 'ure\x20time:\x20', 'tps://airl', '\x20\x20\x20\x20\x20\x20\x20</s', 'then', 'Realtime\x20e', 'Altitude:\x20', 'RZhEQ', 'xKLlH', 'ZnDuv', '<br>Regist', 'Type:\x20<b>', 'error', '\x20hour(s),\x20', 'airline_ic', 'WBoNR', 'ogo\x27></div', 'umhbo', 'mtnKM', 'rror:\x20', 'manufactur', 'realtime', 'alt', '<br>Estima', 'tPClQ', '<br>Built:', 'zbCZt'];
-   _0x51e2 = function () {
-      return _0x55c282;
-   };
-   return _0x51e2();
-}
-$(_0x4d180f(0x212))[_0x4d180f(0x259)](function () {
-   const _0x4dc024 = _0x4d180f,
-      _0x3c62fc = {
-         'CzXnt': function (_0x3868b1, _0x9c842c) {
-            return _0x3868b1 === _0x9c842c;
-         },
-         'nKnCM': function (_0x5d080, _0x6f5bb4) {
-            return _0x5d080(_0x6f5bb4);
-         },
-         'cHowE': _0x4dc024(0xf8),
-         'zFBBt': function (_0x20c995, _0x233253) {
-            return _0x20c995(_0x233253);
-         },
-         'uaAHN': _0x4dc024(0x16e),
-         'YprdI': _0x4dc024(0x113),
-         'TYkcK': _0x4dc024(0x1ff),
-         'WBoNR': _0x4dc024(0x148) + _0x4dc024(0xff) + _0x4dc024(0x240),
-         'aIpPm': _0x4dc024(0x17b),
-         'SrlTz': _0x4dc024(0x22a),
-         'lgMAU': _0x4dc024(0x16d),
-         'epvyS': function (_0x237837, _0x2be941) {
-            return _0x237837 === _0x2be941;
-         },
-         'FEkBK': function (_0x246ff8, _0x479ea8) {
-            return _0x246ff8(_0x479ea8);
-         },
-         'SJuGz': _0x4dc024(0x104) + 'n',
-         'HiaUr': function (_0x1bad17, _0x5e2b11) {
-            return _0x1bad17(_0x5e2b11);
-         },
-         'HoFjc': _0x4dc024(0x1a0)
-      };
-   if (_0x3c62fc[_0x4dc024(0x15c)](_0x3c62fc[_0x4dc024(0x22c)]($, this)[_0x4dc024(0x173)](), _0x3c62fc[_0x4dc024(0x14c)])) _0x3c62fc[_0x4dc024(0x169)]($, _0x3c62fc[_0x4dc024(0x1eb)])[_0x4dc024(0x1a9)](_0x3c62fc[_0x4dc024(0x1a2)], _0x3c62fc[_0x4dc024(0x298)]), _0x3c62fc[_0x4dc024(0x22c)]($, _0x3c62fc[_0x4dc024(0xf2)])[_0x4dc024(0x1a9)](_0x3c62fc[_0x4dc024(0x1a2)], _0x3c62fc[_0x4dc024(0x1fe)]), fill[_0x4dc024(0x1a9)](_0x3c62fc[_0x4dc024(0x23d)], _0x3c62fc[_0x4dc024(0x17f)]), xt = 0x3 * -0x9b7 + -0x1da2 + 0x3ac8;
-   else _0x3c62fc[_0x4dc024(0x13e)](_0x3c62fc[_0x4dc024(0x18a)]($, this)[_0x4dc024(0x173)](), _0x3c62fc[_0x4dc024(0x12b)]) && (select3[_0x4dc024(0x1a9)](_0x3c62fc[_0x4dc024(0x1a2)], _0x3c62fc[_0x4dc024(0x1fe)]), _0x3c62fc[_0x4dc024(0x133)]($, _0x3c62fc[_0x4dc024(0xf2)])[_0x4dc024(0x1a9)](_0x3c62fc[_0x4dc024(0x1a2)], _0x3c62fc[_0x4dc024(0x298)]), fill[_0x4dc024(0x1a9)](_0x3c62fc[_0x4dc024(0x23d)], _0x3c62fc[_0x4dc024(0x191)]), xt = -0xfd1 * -0x2 + -0xa20 + -0x2b0 * 0x8);
-}), s5[_0x4d180f(0x259)](function () {
-   const _0x1f6a8f = _0x4d180f,
-      _0x3b8dce = {
-         'pHCxf': function (_0x4c51bc, _0x4fc3f1, _0x4dcb9e) {
-            return _0x4c51bc(_0x4fc3f1, _0x4dcb9e);
-         }
-      };
-   _0x3b8dce[_0x1f6a8f(0x254)](realtime, 0x2037 + 0x2 * 0x19d + 0xd3 * -0x2b, -0x243b + 0xffb + -0x131 * -0x11);
-});
 
-function time(_0x466989) {
-   const _0x524ddf = _0x4d180f,
-      _0x409dd7 = {
-         'QBZYh': function (_0x265910, _0x572a3b) {
-            return _0x265910 === _0x572a3b;
-         },
-         'QvWJB': _0x524ddf(0x1e4),
-         'IsXXc': function (_0x1f825d, _0x3c63c2) {
-            return _0x1f825d + _0x3c63c2;
-         },
-         'CVpbb': function (_0x5caeea, _0x1157f3) {
-            return _0x5caeea * _0x1157f3;
-         },
-         'KVVNO': _0x524ddf(0x128)
-      };
-   let _0x3505e1 = _0x409dd7[_0x524ddf(0x24e)](typeof _0x466989, _0x409dd7[_0x524ddf(0x269)]) ? new Date(_0x409dd7[_0x524ddf(0x209)](_0x466989, 'Z')) : new Date(_0x409dd7[_0x524ddf(0x16f)](_0x466989, 0x2008 + -0x570 + 0xb0 * -0x21));
-   return _0x3505e1[_0x524ddf(0x170) + _0x524ddf(0x243)]()[_0x524ddf(0x241)](_0x409dd7[_0x524ddf(0x13a)], '');
-}
+$('#select1').change(function(){
+   if($(this).val() === 'realtime') {
+      $('#select3').css('display', 'none');
+      $('#select2, #select4, #select5').css('display', 'block');
+      fill.css('height', '67vh');
+      xt = 1;
+   } else if($(this).val() === 'information'){
+      select3.css('display', 'block');
+      $('#select2, #select4, #select5').css('display', 'none');
+      fill.css('height', '64vh');
+      xt = 2;
+   }
+})
+s5.change(function() {
+   realtime(0, 1);
+})
 
-function ck(_0x44dbc9, _0x580712) {
-   const _0x5edd07 = _0x4d180f,
-      _0x4dafa2 = {
-         'BFSwz': _0x5edd07(0x172)
-      };
-   return _0x44dbc9['eq'](_0x580712)[_0x5edd07(0x12a)](_0x4dafa2[_0x5edd07(0x1b8)]);
+function time(t) {
+   let vr = typeof t === 'string' ? new Date(t + 'Z') : new Date(t * 1000);
+   return vr.toLocaleString().replace(':00', '');
 }
-
-function flag(_0x59cf9d) {
-   const _0x2fa59b = _0x4d180f;
-   return _0x2fa59b(0x152) + _0x2fa59b(0x20d) + _0x2fa59b(0x27b) + _0x2fa59b(0x27c) + _0x59cf9d[_0x2fa59b(0x167) + 'e']() + _0x2fa59b(0x1e9);
+function ck(a, b) {
+   return a.eq(b).prop('checked');
 }
-
-function logo(_0x281cd4) {
-   const _0x39d291 = _0x4d180f;
-   return _0x39d291(0x15d) + _0x39d291(0x11e) + _0x39d291(0x26e) + _0x39d291(0x2a0) + _0x39d291(0x22e) + _0x39d291(0x1bc) + '/' + _0x281cd4 + (_0x39d291(0x287) + _0x39d291(0xf3) + '>');
+function flag(flag) {
+   return `<img src="https://flagcdn.com/24x18/${flag.toLowerCase()}.png">`;
 }
-
-function updateMap(_0x199440, _0x5a2b7d, _0x5cf2ee) {
-   const _0xbb39a8 = _0x4d180f,
-      _0x1ef268 = {
-         'hVijZ': function (_0x5df2ce, _0x336a9a) {
-            return _0x5df2ce && _0x336a9a;
-         },
-         'wLKdK': function (_0x4edbd8, _0x4c4cae) {
-            return _0x4edbd8(_0x4c4cae);
-         },
-         'biLdc': _0xbb39a8(0x10f)
-      };
-   isMapAv = _0x1ef268[_0xbb39a8(0x232)](_0x199440, _0x5a2b7d) ? -0x2 * -0x623 + -0x869 * -0x1 + 0x6e5 * -0x3 : -0x2622 + 0xf7c + 0x16a7, _0x1ef268[_0xbb39a8(0x1ec)](help2, 0x133 * 0x1 + -0xacc * -0x2 + -0x16ca), ifrm[_0xbb39a8(0x16c)](_0x1ef268[_0xbb39a8(0x1c1)], _0xbb39a8(0x250) + _0xbb39a8(0x268) + _0xbb39a8(0x17d) + _0xbb39a8(0x171) + _0x199440 + ',' + _0x5a2b7d + _0xbb39a8(0x1d1) + _0x5cf2ee + (_0xbb39a8(0x24a) + _0xbb39a8(0x252) + _0xbb39a8(0x1d4)));
+function logo(logo) {
+   return `<div id="logo-div"><img src=https://airlabs.co/img/airline/m/${logo}.png id='logo'></div>`;
 }
-
-function distance(_0x1b6b51, _0x2ed259, _0x2230a4) {
-   const _0x290e13 = _0x4d180f,
-      _0x1e6e64 = {
-         'PJvrW': function (_0x495e47, _0x1af8b3) {
-            return _0x495e47 > _0x1af8b3;
-         },
-         'WESdk': function (_0x2acdca, _0x4b1390) {
-            return _0x2acdca(_0x4b1390);
-         },
-         'frgxm': _0x290e13(0x236),
-         'qwFkT': _0x290e13(0x1ba),
-         'OMCyi': function (_0x19aab0, _0xb6ea33) {
-            return _0x19aab0 + _0xb6ea33;
-         }
-      };
-   _0x1e6e64[_0x290e13(0x23c)](_0x2230a4, -(0x99d + -0x8 * -0x3c3 + -0x27b4)) && (fill[_0x290e13(0x25a)](_0x290e13(0x111) + _0x290e13(0x13b) + _0x290e13(0x256) + _0x290e13(0x28f) + _0x290e13(0x266) + _0x1b6b51 + (_0x290e13(0x282) + _0x290e13(0x140) + _0x290e13(0x111) + _0x290e13(0x13f) + _0x290e13(0x140) + _0x290e13(0x19b) + _0x290e13(0x120) + _0x290e13(0x282) + _0x290e13(0x140) + _0x290e13(0x282) + _0x290e13(0x140) + _0x290e13(0x111) + _0x290e13(0x188)) + _0x2ed259 + (_0x290e13(0x282) + _0x290e13(0x2a1) + _0x290e13(0x262))), _0x1e6e64[_0x290e13(0x145)]($, _0x1e6e64[_0x290e13(0x137)])[_0x290e13(0x1a9)](_0x1e6e64[_0x290e13(0x1e7)], _0x1e6e64[_0x290e13(0x17c)](_0x2230a4, '%')));
+function updateMap(lat, long, z) {
+   isMapAv = lat && long ? 0 : 1;
+   help2(1);
+   ifrm.attr('src', `https://maps.google.com/maps?hl=en&q=${lat},${long}&t=&z=${z}&ie=UTF8&iwloc=B&output=embed`);
 }
-
-function help1(_0x25d545) {
-   const _0x446957 = _0x4d180f,
-      _0x1d8a7d = {
-         'HORYz': function (_0x28ae50, _0x43643b) {
-            return _0x28ae50 / _0x43643b;
-         },
-         'MAfVO': function (_0x1a8e43, _0x2cc41c) {
-            return _0x1a8e43 / _0x2cc41c;
-         },
-         'urQuJ': function (_0x16b4de, _0x581ca8) {
-            return _0x16b4de % _0x581ca8;
-         },
-         'pzNmI': function (_0x397c8c, _0x52207c) {
-            return _0x397c8c / _0x52207c;
-         },
-         'NBSap': function (_0x1d58b3, _0x426527) {
-            return _0x1d58b3 + _0x426527;
-         },
-         'iMdwy': _0x446957(0x1b1),
-         'BTdLB': _0x446957(0xf0),
-         'zxEET': function (_0x502b53, _0x56f77f) {
-            return _0x502b53 + _0x56f77f;
-         },
-         'gtaZM': _0x446957(0x126)
-      };
-   let _0x803874 = Math[_0x446957(0x116)](_0x1d8a7d[_0x446957(0x192)](_0x1d8a7d[_0x446957(0x154)](_0x25d545, -0x1998 + 0x2185 + -0x5 * 0x191), -0x18f * 0x13 + 0x2 * -0x979 + 0x30cb * 0x1)),
-      _0x2abd5d = Math[_0x446957(0x116)](_0x1d8a7d[_0x446957(0x219)](_0x1d8a7d[_0x446957(0x1a3)](_0x25d545, -0x213f + 0x17 * 0x4c + 0x1aa7), -0x1 * -0x1345 + -0x6a5 + -0xc88)),
-      _0xb69d40 = Math[_0x446957(0x116)](_0x1d8a7d[_0x446957(0x219)](_0x25d545, 0x1a07 + -0x20f7 + 0x72c)),
-      _0x4e21a0 = '';
-   if (_0x803874) _0x4e21a0 = _0x1d8a7d[_0x446957(0x184)](_0x803874, _0x1d8a7d[_0x446957(0x255)]);
-   if (_0x2abd5d) _0x4e21a0 += _0x1d8a7d[_0x446957(0x184)](_0x2abd5d, _0x1d8a7d[_0x446957(0x1ef)]);
-   if (_0xb69d40) _0x4e21a0 += _0x1d8a7d[_0x446957(0x1d3)](_0xb69d40, _0x1d8a7d[_0x446957(0x11f)]);
-   return _0x4e21a0;
+function distance(d, a, x) {
+   if(x > -1) {
+      fill.append(`<span id='distance'>
+            <span id='dep'>${d}</span>
+            <span id='line-p'>
+               <span id='line'></span>
+            </span>
+            <span id='arr'>${a}</span>
+         </span>`);
+      $('#line').css('width', x+'%');
+   }
 }
-
-function _0xe2ec(_0x22c5fb, _0x174c01) {
-   const _0x572542 = _0x51e2();
-   return _0xe2ec = function (_0x21cbf4, _0x141744) {
-      _0x21cbf4 = _0x21cbf4 - (-0x59 * 0x25 + -0x631 * 0x6 + 0x1 * 0x32f3);
-      let _0x5aff3c = _0x572542[_0x21cbf4];
-      return _0x5aff3c;
-   }, _0xe2ec(_0x22c5fb, _0x174c01);
+function help1(t) {
+   let day =  Math.floor(t/24/60),
+   hour = Math.floor(t/60%24),
+   min = Math.floor(t%60),
+   str = '';
+   if(day)
+      str = day+' day(s), ';
+   if(hour)
+      str += hour+' hour(s), ';
+   if(min)
+      str += min+' min(s)';
+   return str;
 }
-
-function help2(_0x43a7f0 = 0x19e6 + 0x1205 + 0x2beb * -0x1) {
-   const _0x2736e7 = _0x4d180f,
-      _0x2d9d68 = {
-         'rnVaE': function (_0x5ae3e3, _0x591b8d) {
-            return _0x5ae3e3(_0x591b8d);
-         },
-         'fqpoU': _0x2736e7(0x181),
-         'CPilo': _0x2736e7(0x113),
-         'WlVAF': _0x2736e7(0x17b),
-         'PrzeE': _0x2736e7(0x1ff)
-      };
-   _0x2d9d68[_0x2736e7(0x258)]($, _0x2d9d68[_0x2736e7(0x1fa)])[_0x2736e7(0x1a9)](_0x2d9d68[_0x2736e7(0x136)], _0x43a7f0 ? _0x2d9d68[_0x2736e7(0x1cb)] : _0x2d9d68[_0x2736e7(0x102)]);
+function help2(x = 0) {
+   $('#map').css('display', x ? 'block' : 'none');
 }
-async function help3(_0xac9d10) {
-   const _0x22049f = _0x4d180f,
-      _0x5b4205 = {
-         'bMObQ': function (_0x877245, _0x3c2f9d) {
-            return _0x877245 == _0x3c2f9d;
-         },
-         'kVSSP': function (_0x28f462, _0x40e880) {
-            return _0x28f462(_0x40e880);
-         }
-      };
+async function help3(code) {
+   // fill.text('Loadixng...');
    try {
-      if (_0x5b4205[_0x22049f(0x292)](_0xac9d10, 'UK')) return _0xac9d10;
-      const _0xebfd70 = await _0x5b4205[_0x22049f(0x253)](fetch, _0x22049f(0x1d9) + _0x22049f(0x27a) + _0x22049f(0x23a) + _0x22049f(0x295) + _0xac9d10),
-         _0x485ce4 = await _0xebfd70[_0x22049f(0x1ee)](),
-         _0x3d2c56 = _0x485ce4[-0x673 * 0x3 + 0x1255 + 0x34 * 0x5][_0x22049f(0x176)][_0x22049f(0x29e)];
-      return _0x3d2c56;
-   } catch (_0x4b0c42) {
-      throw new Error(_0x4b0c42[_0x22049f(0x127)]);
+      if(code == 'UK')
+         return code;
+      
+      const response = await fetch(`https://restcountries.com/v3.1/alpha/${code}`);
+      const data = await response.json();
+      const countryName = data[0].name.common;
+      return countryName;
+      // return country[code];
+   } catch (error) {
+      throw new Error(error.message);
    }
 }
+function mapZoomLvl(z) {
+   const c = 4200;
+   if(z)
+      z *= 3.28; /* Convert to feet */
+   if(!z)
+      return 13; /* Landed or altitude not available */
+   else if(z < c)
+      return 12;
+   else if(z >= c && z < c*2)
+      return 11;
+   else if(z >= c*3 && z < c*4)
+      return 10;
+   else if(z >= c*4 && z < c*5)
+      return 9;
+   else if(z >= c*6 && z < c*7)
+      return 8;
+   else if(z >= c*7 && z < c*8)
+      return 7;
+   else if(z >= c*8 && z < c*9)
+      return 6;
+   else if(z >= c*9 && z < c*10)
+      return 5;
+   else if(z >= c*10)
+      return 4;
+}
+function sortFl(d) {
+   if(s5.val()) {
+      let term = s5.val();
+      if(term.includes('_a'))
+         d.sort(function(a, b) {
+            return a[term.slice(0,-2)] - b[term.slice(0,-2)];
+         });
+      else
+         d.sort(function(a, b) {
+            return b[term.slice(0,-2)] - a[term.slice(0,-2)];
+         });
+   }
+}
+function keyLeft(d) {
+   let key = d.request.key.limits_total;
+   const keys = '500 400 300 200 100 50 40 30 20 10 5 1';
+   if(keys.includes(key))
+      console.warn(`${key} call(s) letf!`);
+}
+function start(zz) {
+   if(zz)
+      msgbox.show();
+   s5.prop('disabled', msgbox.is(':visible'));
+   /*let str, counter = 0;
+   str = zz === 0 ? 'Loading.' : 'Sorting flights.';
+   const intervalId = setInterval(() => {
+      const dots = '.'.repeat(++counter % 3);
+      msgbox.text(str + dots);
 
-function mapZoomLvl(_0xd536e9) {
-   const _0x4b6516 = _0x4d180f,
-      _0x45b855 = {
-         'mfvII': function (_0x237f86, _0x14be0e) {
-            return _0x237f86 < _0x14be0e;
-         },
-         'SUuSG': function (_0x2e7b1a, _0x432090) {
-            return _0x2e7b1a >= _0x432090;
-         },
-         'RZhEQ': function (_0x54ccd3, _0x30db32) {
-            return _0x54ccd3 * _0x30db32;
-         },
-         'ylwsC': function (_0x2ea8b1, _0x419187) {
-            return _0x2ea8b1 * _0x419187;
-         },
-         'TxHEZ': function (_0x45fbee, _0x7d208b) {
-            return _0x45fbee < _0x7d208b;
-         },
-         'JlFgr': function (_0x5721c8, _0x256cbc) {
-            return _0x5721c8 * _0x256cbc;
-         },
-         'aCCCy': function (_0x13e6b2, _0x39269b) {
-            return _0x13e6b2 >= _0x39269b;
-         },
-         'onYzt': function (_0xaa3ba, _0x190fc3) {
-            return _0xaa3ba * _0x190fc3;
-         },
-         'sfSED': function (_0x3d5f23, _0x40f675) {
-            return _0x3d5f23 * _0x40f675;
-         },
-         'pFPDR': function (_0x253598, _0x4321c0) {
-            return _0x253598 * _0x4321c0;
-         },
-         'PFQkw': function (_0x1aaa88, _0x3e2bf3) {
-            return _0x1aaa88 < _0x3e2bf3;
-         },
-         'gvTUw': function (_0x5018b6, _0x93f206) {
-            return _0x5018b6 * _0x93f206;
-         },
-         'FGtjn': function (_0x3e6774, _0x4b751b) {
-            return _0x3e6774 * _0x4b751b;
-         },
-         'fxSPn': function (_0x1a17bb, _0x1a527c) {
-            return _0x1a17bb * _0x1a527c;
-         },
-         'fYbDy': function (_0x2c0336, _0x2e8c11) {
-            return _0x2c0336 * _0x2e8c11;
-         }
-      },
-      _0x46f018 = -0x201f + -0x1 * -0x18cb + 0x7 * 0x364;
-   if (_0xd536e9) _0xd536e9 *= -0x22cf + -0x17 * -0x184 + 0x1 * -0xa + 0.2799999999999998;
-   if (!_0xd536e9) return -0x6a8 + 0x1396 + -0xce1;
-   else {
-      if (_0x45b855[_0x4b6516(0x1a7)](_0xd536e9, _0x46f018)) return 0x453 * 0x1 + -0x5ec + 0x1a5 * 0x1;
-      else {
-         if (_0x45b855[_0x4b6516(0x1cc)](_0xd536e9, _0x46f018) && _0x45b855[_0x4b6516(0x1a7)](_0xd536e9, _0x45b855[_0x4b6516(0x2a5)](_0x46f018, 0x4e4 * 0x3 + 0x225d + -0x3107))) return 0x2 * 0x10a0 + 0xeb0 + -0xc9 * 0x3d;
-         else {
-            if (_0x45b855[_0x4b6516(0x1cc)](_0xd536e9, _0x45b855[_0x4b6516(0x227)](_0x46f018, 0x251c + -0x3f * 0x1 + -0x24da)) && _0x45b855[_0x4b6516(0x289)](_0xd536e9, _0x45b855[_0x4b6516(0x230)](_0x46f018, 0x1 * -0xf24 + 0xd37 + 0x1f1))) return 0x12ae + -0x59a + 0xd0a * -0x1;
-            else {
-               if (_0x45b855[_0x4b6516(0x270)](_0xd536e9, _0x45b855[_0x4b6516(0x227)](_0x46f018, 0x15 * 0x66 + 0xbf0 + 0x35 * -0x62)) && _0x45b855[_0x4b6516(0x289)](_0xd536e9, _0x45b855[_0x4b6516(0x281)](_0x46f018, -0x3b2 + -0x16a2 + 0x1a59))) return 0x2e2 + -0x5f0 + 0x1 * 0x317;
-               else {
-                  if (_0x45b855[_0x4b6516(0x1cc)](_0xd536e9, _0x45b855[_0x4b6516(0x235)](_0x46f018, 0x1bd9 + 0x1 * -0x53 + -0x50 * 0x58)) && _0x45b855[_0x4b6516(0x289)](_0xd536e9, _0x45b855[_0x4b6516(0x227)](_0x46f018, -0x1e35 + -0xf99 * 0x1 + 0x2dd5))) return -0x21ef * -0x1 + -0x128 * -0xe + -0x1 * 0x3217;
-                  else {
-                     if (_0x45b855[_0x4b6516(0x270)](_0xd536e9, _0x45b855[_0x4b6516(0x239)](_0x46f018, -0x1 * 0x9c2 + -0xaa8 + 0x1471)) && _0x45b855[_0x4b6516(0x142)](_0xd536e9, _0x45b855[_0x4b6516(0x239)](_0x46f018, -0x20cb + 0x2 * 0x2b6 + 0x1b67))) return 0x1da4 + 0x1d28 + -0x3ac5;
-                     else {
-                        if (_0x45b855[_0x4b6516(0x270)](_0xd536e9, _0x45b855[_0x4b6516(0x122)](_0x46f018, 0x1 * -0x599 + 0x1 * -0x1657 + 0x1bf8)) && _0x45b855[_0x4b6516(0x289)](_0xd536e9, _0x45b855[_0x4b6516(0x12c)](_0x46f018, 0x1e0c + 0x563 * 0x1 + -0x2366))) return -0x208e + -0xc97 + -0x175 * -0x1f;
-                        else {
-                           if (_0x45b855[_0x4b6516(0x1cc)](_0xd536e9, _0x45b855[_0x4b6516(0x1a5)](_0x46f018, -0x2394 + -0x17a9 + 0x3b46)) && _0x45b855[_0x4b6516(0x1a7)](_0xd536e9, _0x45b855[_0x4b6516(0x19c)](_0x46f018, 0xa6 + -0x2476 * 0x1 + 0x1 * 0x23da))) return 0x1534 + 0x1807 + -0x2d36;
-                           else {
-                              if (_0x45b855[_0x4b6516(0x270)](_0xd536e9, _0x45b855[_0x4b6516(0x19c)](_0x46f018, 0x1daf * 0x1 + -0x101 * -0x13 + -0x30b8))) return -0x2214 + -0x21b * -0x3 + -0x1bc7 * -0x1;
-                           }
-                        }
-                     }
-                  }
-               }
-            }
-         }
+      // Stop the animation after 3 interaction & clear text
+      if (msgbox.css('display') === 'none') {
+         msgbox.text();
+         clearInterval(intervalId);
+      }
+   }, 500);*/
+}
+function stop(zz = 0, num = 0) {
+   msgbox.hide();
+   if(zz) {
+      msgbox2.show().html(`<em>${num} flights found!</em>`);
+      setTimeout(() => {
+         msgbox2.hide();
+      }, 2000);
+   }
+   start(0);
+}
+
+
+$('#update').change(function() {
+   $(this).is(':checked') ?
+      timeId = setInterval(function() {
+         txt.val() ? origin() : (
+            clearInterval(timeId),
+            $('#update').prop('checked', false)
+         );
+      }, 20000)
+   : clearInterval(timeId);
+})
+
+$('#mapt').change(function() {
+   if($(this).is(':checked')) {
+      if(!isMapAv) {
+         ifrm.show();
+         //Smooth scroll to map when checked
+         $('html, body').animate({
+             scrollTop: ifrm.offset().top
+         }, 1000);
+      } else {
+         msgmap.show();
+         $('html, body').animate({
+             scrollTop: msgmap.offset().top
+         }, 1000);
+      }
+   } else {
+      ifrm.hide();
+      msgmap.hide();
+      $('html, body').animate({
+         scrollTop: 0
+      }, 500);
+   }
+})
+
+txt.on("keypress", function(event) {
+   if (event.key === "Enter") {
+      event.preventDefault();
+      if(msgbox.css('display') === 'none') {
+         $(this).blur();
+         origin();
       }
    }
-}
-
-function sortFl(_0x548d6e) {
-   const _0x3d6980 = _0x4d180f,
-      _0x16d781 = {
-         'trMYM': function (_0x386a9c, _0x5ef9ed) {
-            return _0x386a9c - _0x5ef9ed;
-         },
-         'YhGBb': function (_0x175ea2, _0x2476eb) {
-            return _0x175ea2 - _0x2476eb;
-         }
-      };
-   if (s5[_0x3d6980(0x173)]()) {
-      let _0xc1da55 = s5[_0x3d6980(0x173)]();
-      if (_0xc1da55[_0x3d6980(0x160)]('_a')) _0x548d6e[_0x3d6980(0x221)](function (_0x5a609f, _0x32d11a) {
-         const _0x553011 = _0x3d6980;
-         return _0x16d781[_0x553011(0x18d)](_0x5a609f[_0xc1da55[_0x553011(0x277)](-0xa * 0x15 + -0x1 * -0x192a + -0x1858, -(-0x5ab * 0x4 + 0x26e8 + -0x103a))], _0x32d11a[_0xc1da55[_0x553011(0x277)](0x1 * -0x7de + -0x106e + 0x184c, -(-0x1 * -0x2573 + -0xa * -0x257 + -0x3cd7))]);
-      });
-      else _0x548d6e[_0x3d6980(0x221)](function (_0x1022b0, _0x13e051) {
-         const _0x54222d = _0x3d6980;
-         return _0x16d781[_0x54222d(0x118)](_0x13e051[_0xc1da55[_0x54222d(0x277)](0x7 * 0x515 + -0x33 * 0x59 + -0x11d8, -(0x5db * 0x1 + 0x151 * -0x5 + -0x2f * -0x4))], _0x1022b0[_0xc1da55[_0x54222d(0x277)](0x25b4 + -0x1ef6 + -0x6be, -(0x2 * 0xf33 + -0x47e + -0x19e6))]);
-      });
-   }
-}
-
-function keyLeft(_0xcad62f) {
-   const _0x5babe1 = _0x4d180f,
-      _0x2427ce = {
-         'WRBpb': _0x5babe1(0x273) + _0x5babe1(0x1e5) + _0x5babe1(0x1b5) + _0x5babe1(0x1af),
-         'oqQgz': function (_0x6cd69a, _0x23f19b) {
-            return _0x6cd69a(_0x23f19b);
-         }
-      };
-   let _0x576243 = _0xcad62f[_0x5babe1(0x159)][_0x5babe1(0x238)][_0x5babe1(0x1c2) + 'al'];
-   const _0x182ed6 = _0x2427ce[_0x5babe1(0x26a)];
-   if (_0x182ed6[_0x5babe1(0x160)](_0x576243)) _0x2427ce[_0x5babe1(0x19d)](alert, _0x576243 + (_0x5babe1(0x1b7) + _0x5babe1(0x15e)));
-}
-
-function start(_0x357bd8) {
-   const _0xb7aa50 = _0x4d180f,
-      _0x2fa488 = {
-         'oCJYQ': _0xb7aa50(0x18f),
-         'USZno': _0xb7aa50(0x291)
-      };
-   if (_0x357bd8) msgbox[_0xb7aa50(0x1b6)]();
-   s5[_0xb7aa50(0x12a)](_0x2fa488[_0xb7aa50(0x223)], msgbox['is'](_0x2fa488[_0xb7aa50(0x12f)]));
-}
-
-function stop(_0x3cecdb = -0x1 * 0x1407 + -0x150c + 0x2913, _0x580ff7 = 0x7a * 0x49 + 0x239 + -0x2503) {
-   const _0x3988c8 = _0x4d180f,
-      _0x45647f = {
-         'LjaFk': function (_0x1b6973, _0x1c288b, _0x4a50db) {
-            return _0x1b6973(_0x1c288b, _0x4a50db);
-         },
-         'AciZq': function (_0xf2f09b, _0x481ca8) {
-            return _0xf2f09b(_0x481ca8);
-         }
-      };
-   msgbox[_0x3988c8(0x264)](), _0x3cecdb && (msgbox2[_0x3988c8(0x1b6)]()[_0x3988c8(0x1a8)](_0x3988c8(0x1e2) + _0x580ff7 + (_0x3988c8(0x16b) + _0x3988c8(0x18b))), _0x45647f[_0x3988c8(0x149)](setTimeout, () => {
-      const _0x12045d = _0x3988c8;
-      msgbox2[_0x12045d(0x264)]();
-   }, -0x164b + 0x1ef3 + 0x36 * -0x4)), _0x45647f[_0x3988c8(0x25e)](start, -0x1 * 0x4bb + -0x1 * 0x1d08 + 0x21c3);
-}
-$(_0x4d180f(0x119))[_0x4d180f(0x259)](function () {
-   const _0x37b931 = _0x4d180f,
-      _0x4e4ee3 = {
-         'JIgmE': function (_0x3dc162) {
-            return _0x3dc162();
-         },
-         'gikpg': function (_0x2b1281, _0xd133ac) {
-            return _0x2b1281(_0xd133ac);
-         },
-         'FiFOA': _0x37b931(0x119),
-         'KnZnj': _0x37b931(0x172),
-         'BkfXF': _0x37b931(0x1f1),
-         'JFqWd': function (_0x4af37e, _0x24603b, _0x28f6d0) {
-            return _0x4af37e(_0x24603b, _0x28f6d0);
-         }
-      };
-   _0x4e4ee3[_0x37b931(0x165)]($, this)['is'](_0x4e4ee3[_0x37b931(0x157)]) ? timeId = _0x4e4ee3[_0x37b931(0x1a6)](setInterval, function () {
-      const _0x44ccee = _0x37b931;
-      txt[_0x44ccee(0x173)]() ? _0x4e4ee3[_0x44ccee(0x260)](origin) : (_0x4e4ee3[_0x44ccee(0x165)](clearInterval, timeId), _0x4e4ee3[_0x44ccee(0x165)]($, _0x4e4ee3[_0x44ccee(0x1b3)])[_0x44ccee(0x12a)](_0x4e4ee3[_0x44ccee(0x276)], ![]));
-   }, -0x28e4 + -0x1688 + 0x2 * 0x46c6) : _0x4e4ee3[_0x37b931(0x165)](clearInterval, timeId);
-}), $(_0x4d180f(0x21a))[_0x4d180f(0x259)](function () {
-   const _0x5117cc = _0x4d180f,
-      _0xb08889 = {
-         'wejrz': function (_0x1dfbc4, _0x19100a) {
-            return _0x1dfbc4(_0x19100a);
-         },
-         'kOhkT': _0x5117cc(0x1f1),
-         'zbCZt': function (_0x12d0be, _0x362b63) {
-            return _0x12d0be(_0x362b63);
-         },
-         'TouDT': _0x5117cc(0x278)
-      };
-   _0xb08889[_0x5117cc(0x25f)]($, this)['is'](_0xb08889[_0x5117cc(0x178)]) ? !isMapAv ? (ifrm[_0x5117cc(0x1b6)](), _0xb08889[_0x5117cc(0xfd)]($, _0xb08889[_0x5117cc(0x18c)])[_0x5117cc(0x19e)]({
-      'scrollTop': ifrm[_0x5117cc(0x1ae)]()[_0x5117cc(0x20c)]
-   }, 0xa6 * -0x32 + 0x1e3c * 0x1 + 0x618)) : (msgmap[_0x5117cc(0x1b6)](), _0xb08889[_0x5117cc(0xfd)]($, _0xb08889[_0x5117cc(0x18c)])[_0x5117cc(0x19e)]({
-      'scrollTop': msgmap[_0x5117cc(0x1ae)]()[_0x5117cc(0x20c)]
-   }, -0x278 + 0x2 * 0x17b + 0x36a)) : (ifrm[_0x5117cc(0x264)](), msgmap[_0x5117cc(0x264)](), _0xb08889[_0x5117cc(0xfd)]($, _0xb08889[_0x5117cc(0x18c)])[_0x5117cc(0x19e)]({
-      'scrollTop': 0x0
-   }, -0x1 * -0x2427 + 0x130e + -0x3541));
-}), txt['on'](_0x4d180f(0x109), function (_0x32457c) {
-   const _0x58d8e8 = _0x4d180f,
-      _0x4d0d7c = {
-         'xKLlH': function (_0x3edcba, _0x1a4911) {
-            return _0x3edcba === _0x1a4911;
-         },
-         'JFVgG': _0x58d8e8(0x205),
-         'caQeX': function (_0xdabae3, _0x40c8b8) {
-            return _0xdabae3 === _0x40c8b8;
-         },
-         'JjNPv': _0x58d8e8(0x113),
-         'rYzBf': _0x58d8e8(0x1ff),
-         'Hynbz': function (_0x3da67a, _0x7adf0d) {
-            return _0x3da67a(_0x7adf0d);
-         },
-         'roHim': function (_0x2da6bb) {
-            return _0x2da6bb();
-         }
-      };
-   _0x4d0d7c[_0x58d8e8(0x2a6)](_0x32457c[_0x58d8e8(0x238)], _0x4d0d7c[_0x58d8e8(0x265)]) && (_0x32457c[_0x58d8e8(0x197) + _0x58d8e8(0x293)](), _0x4d0d7c[_0x58d8e8(0x164)](msgbox[_0x58d8e8(0x1a9)](_0x4d0d7c[_0x58d8e8(0x1aa)]), _0x4d0d7c[_0x58d8e8(0x25c)]) && (_0x4d0d7c[_0x58d8e8(0x263)]($, this)[_0x58d8e8(0x294)](), _0x4d0d7c[_0x58d8e8(0x27d)](origin)));
-}), $(_0x4d180f(0x199))[_0x4d180f(0x251)](() => {
-   const _0x2c4f7e = _0x4d180f,
-      _0x386df6 = {
-         'umhbo': function (_0x4791fe, _0x548db7) {
-            return _0x4791fe === _0x548db7;
-         },
-         'fEnem': _0x2c4f7e(0x113),
-         'jWzSM': _0x2c4f7e(0x1ff),
-         'WNrOG': function (_0x2a8e94) {
-            return _0x2a8e94();
-         }
-      };
-   if (_0x386df6[_0x2c4f7e(0xf4)](msgbox[_0x2c4f7e(0x1a9)](_0x386df6[_0x2c4f7e(0x13d)]), _0x386df6[_0x2c4f7e(0x285)])) _0x386df6[_0x2c4f7e(0x143)](origin);
-}), $(_0x4d180f(0x299))[_0x4d180f(0x251)](function () {
-   const _0x18320c = _0x4d180f,
-      _0x505e29 = {
-         'yAfiy': _0x18320c(0x161)
-      };
-   window[_0x18320c(0x1c5)] = _0x505e29[_0x18320c(0x248)];
 });
+
+$('button').click(() => {
+   if(msgbox.css('display') === 'none')
+      origin();
+});
+
+$('header').click(function() {
+   window.location = '/updates'
+})
+
+
+
+
+
+
+
+
+
