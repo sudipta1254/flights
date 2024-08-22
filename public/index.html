@@ -1,109 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <meta name="keywords" content="Aviation, Weather, Forecast, Service, AWC, CheckWX, API, VFR, MVFR, IFR, LIFR, Climate, Data, Rain, Raining, Snow, flight tracker, flight tracking, flight, track, tracker, live, schedule, realtime, flight information, flight schedule, information, htnl, css, javascript, jquery">
-    <meta name="description" content="Live flight tracking.">
-    <link rel="icon" type="image/x-icon" href="./Images/icon2.png">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
-    <script src='https://kit.fontawesome.com/a26a0964b9.js'></script>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="./icon2.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Advent+Pro:wght@100;200;300;400;500;600;700&family=Aladin&family=Alegreya+Sans+SC:wght@300&family=Alegreya+Sans:wght@300&family=Allerta+Stencil&family=Annie+Use+Your+Telescope&family=Arima:wght@100&family=Atma:wght@300&family=Audiowide&family=Bad+Script&family=Barriecito&family=Barrio&family=Black+And+White+Picture&family=Black+Ops+One&family=Bonbon&family=Bonheur+Royale&family=Bungee&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Outline&family=Bungee+Shade&family=Cabin&family=Cabin+Sketch&family=Calligraffitti&family=Capriola&family=Caveat&family=Chakra+Petch:wght@300&family=Chathura:wght@100;300;400;700;800&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700;800&family=Clicker+Script&family=Comforter+Brush&family=Concert+One&family=Contrail+One&family=Corinthia:wght@400;700&family=Cormorant+SC:wght@300&family=Cormorant+Unicase:wght@300&family=Cormorant+Upright:wght@300&family=Cormorant:wght@300&family=Crafty+Girls&family=Creepster&family=Dancing+Script:wght@400;600&family=Darker+Grotesque:wght@300;400&family=Delius&family=Delius+Unicase&family=Eagle+Lake&family=Eczar&family=El+Messiri:wght@400;600;700&family=Emilys+Candy&family=Euphoria+Script&family=Ewert&family=Explora&family=Farsan&family=Fredericka+the+Great&family=Fruktur&family=Gentium+Plus&family=Gotu&family=Great+Vibes&family=Grenze+Gotisch:wght@200&family=Handlee&family=Henny+Penny&family=Homemade+Apple&family=IBM+Plex+Sans:wght@100&family=IM+Fell+Great+Primer+SC&family=Imprima&family=Inconsolata:wght@200&family=Inknut+Antiqua:wght@300&family=Italiana&family=Italianno&family=JetBrains+Mono:wght@100&family=Josefin+Sans:wght@100;200&family=Josefin+Slab:wght@300&family=Julius+Sans+One&family=Kalam:wght@300&family=Kaushan+Script&family=Kenia&family=Kufam:wght@400;500;600&family=La+Belle+Aurore&family=Lato:ital,wght@0,100;0,300;1,100&family=Libre+Barcode+128&family=Libre+Barcode+128+Text&family=Libre+Barcode+39&family=Libre+Barcode+39+Extended&family=Libre+Barcode+39+Extended+Text&family=Libre+Barcode+39+Text&family=Libre+Barcode+EAN13+Text&family=Lobster+Two&family=Londrina+Outline&family=Londrina+Shadow&family=Major+Mono+Display&family=Marck+Script&family=Meie+Script&family=Meow+Script&family=Merriweather:ital,wght@0,300;1,300&family=Metamorphous&family=Mogra&family=Monoton&family=MonteCarlo&family=Montez&family=Montserrat+Alternates:wght@100;200;300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;1,100&family=Moon+Dance&family=Mountains+of+Christmas&family=Mr+Dafoe&family=Mr+De+Haviland&family=MuseoModerno:wght@200;300&family=Nanum+Gothic+Coding&family=Nanum+Pen+Script&family=Noto+Serif+Oriya&family=Noto+Serif+Vithkuqi&family=Nova+Cut&family=Nova+Flat&family=Nova+Mono&family=Nova+Oval&family=Nova+Round&family=Nova+Script&family=Nova+Slim&family=Nova+Square&family=Nunito:wght@200&family=Odibee+Sans&family=Oleo+Script&family=Orbitron&family=Overlock:wght@400;700&family=Pacifico&family=Parisienne&family=Patrick+Hand+SC&family=Permanent+Marker&family=Petit+Formal+Script&family=Philosopher:wght@400;700&family=Pinyon+Script&family=Playfair+Display+SC&family=Poiret+One&family=Prosto+One&family=Proza+Libre&family=Quantico&family=Rajdhani:wght@300&family=Rakkas&family=Raleway:wght@400;500&family=Rancho&family=Redacted+Script:wght@300&family=Righteous&family=Roboto+Mono:wght@200;300;400;500;600;700&family=Rouge+Script&family=Rubik+Dirt&family=Rubik+Distressed&family=Rubik+Glitch&family=Rubik+Iso&family=Rubik+Marker+Hatch&family=Rubik+Maze&family=Rubik+Microbe&family=Sacramento&family=Sanchez&family=Sancreek&family=Satisfy&family=Scope+One&family=Seaweed+Script&family=Signika+Negative:wght@300&family=Silkscreen&family=Space+Grotesk:wght@300&family=Style+Script&family=Sulphur+Point:wght@300&family=Syne+Mono&family=Syne+Tactile&family=Tangerine:wght@400;700&family=Taviraj:wght@100&family=Tenali+Ramakrishna&family=Text+Me+One&family=Texturina:opsz,wght@12..72,100;12..72,200;12..72,300;12..72,400;12..72,500;12..72,600;12..72,700;12..72,800;12..72,900&family=Tillana:wght@400;500;600&family=Titillium+Web:wght@200;300&family=Ubuntu+Condensed&family=Ubuntu:ital,wght@0,300;1,300&family=Urbanist:wght@200;300&family=VT323&family=Vampiro+One&family=Vujahday+Script&family=Yatra+One&family=Zen+Dots&display=swap" rel="stylesheet">
-    <!-- Driver.js cdn for website guide -->
-    <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
-    <title>Flight tracker</title>
-</head>
-<body>
-    <header id='header'>
-        <p>Flight Tracker</p>
-        <span class="fa-solid fa-info"></span>
-    </header>
-    <main>
-        <div id='outer-select'>
-            <label id='select-label'>Select from:</label>
-            <div id='selects'>
-                <select id='select1'>
-                    <option value='realtime'>Realtime</option>
-                    <option value='information'>Information</option>
-                </select>
-                <select id='select2'>
-                    <option value='airline'>Airline</option>
-                    <option value='arr'>Arrival</option>
-                    <option value='dep'>Departure</option>
-                    <option value='reg_number'>Registration</option>
-                </select>
-                <select id='select3'>
-                   <option value='_iata'>Flight IATA</option>
-                   <option value='_icao'>Flight ICAO</option>
-                </select>
-                <select id='select4'>
-                    <option value='_iata'>IATA</option>
-                    <option value='_icao'>ICAO</option>
-                </select>
-                <select id='select5' disabled>
-                    <option value=''>--sort--</option>
-                    <option value='flight_number_a'>Flight ↑</option>
-                    <option value='flight_number_d'>Flight ↓</option>
-                    <option value='alt_a'>Altitude ↑</option>
-                    <option value='alt_d'>Altitude ↓</option>
-                    <option value='speed_a'>Speed ↑</option>
-                    <option value='speed_d'>Speed ↓</option>
-                </select>
-            </div>
-        </div>
-        <div id="submit">
-            <span id="update_span">
-               <label for="update">Auto update</label>
-               <input type="checkbox" id="update">
-            </span>
-            <input type='search' placeholder='Enter query' minlength=2 >
-            <button>Go</button>
-        </div>
-        <p id='msgBox'></p>
-        <p id='msgBox2'></p>
-        <div id='data'>
-            <div id='instruction'>
-                <p id='inst-p'>Get started with</p>
-                <ol>
-                    <li>Realtime</li>
-                    <ul>
-                    <li>Registration</li>
-                    <li>Airline ICAO/IATA</li>
-                    <li>Arrival ICAO/IATA</li>
-                    <li>Departure ICAO/IATA</li>
-                    </ul>
-                </ol>
-                <ol>
-                    <li value='2'>Information</li>
-                    <ul>
-                    <li>Flight ICAO/IATA</li>
-                    </ul>
-                </ol>
-            </div>
-        </div>
-        <div id='map'>
-           <span id='map-check'>
-              <label for='mapt'>Show Map</label>
-              <input id='mapt' type='checkbox'>
-           </span>
-           <iframe width="100%" height='400px' frameborder="1" scrolling="no" marginheight="0" marginwidth="0" src=""></iframe>
-           <p id='msgMap'>Map unavailable!</p>
-        </div>
-    </main>
-    <footer>
-        <p>Page designed by
-            <a target='none' href='//sudipta1254.github.io/linkline'>Sudipto</a>
-        </p>
-        <p>
-            Data provided by
-            <a target='none' href='//airlabs.co'>AirLabs.co</a>
-        </p>
-    </footer>
-    <script type="module" src="./app.js"></script>
-    <script type="module" src="./tour.js"></script>
-</body>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal+SC&family=Open+Sans&family=Poppins:wght@300;400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+    <title>Flights - Live flight tracking</title>
+  </head>
+  <body>
+      <noscript>You need to enable JavaScript to run this app.</noscript>
+
+      <div id="root"></div>
+  </body>
 </html>

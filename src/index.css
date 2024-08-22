@@ -1,0 +1,398 @@
+body {
+  background: #f4f4f4;
+  font-family: "Arsenal SC", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  /* font-family: "Roboto", sans-serif; */
+  /* font-family: "Open Sans", sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Main {
+  margin: 4.5rem auto 0;
+}
+
+
+/* Header */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 4.2rem;
+  display: flex;
+  margin: 0 auto;
+  padding: 0 2rem;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px 1px 10px #bbb;
+}
+header .app-logo-text {
+  display: flex;
+  align-items: center;
+}
+header img, footer img {
+  width: 4rem;
+}
+header .sidenav-trigger {
+  display: flex;
+}
+header .sidenav-overlay {
+  z-index: 999;
+}
+header .sidenav {
+  z-index: 1001;
+}
+.app-logo-text a {
+  color: #388E3C !important;
+  font-size: 2rem;
+  font-style: italic;
+  margin: auto .5rem;
+}
+header span {
+  position: absolute;
+  right: 20px;
+}
+
+
+/* Options */
+
+.options {
+  margin: 1rem auto 0;
+  max-width: 45rem;
+}
+.options .select-wrapper  { /* Dropdown */
+  width: 8rem;
+}
+.option-options-1 {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.option-options-2 {
+  max-width: 30rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.option-options-2 #inpRealtime,
+.option-options-2 #inpInformation {
+  width: 9rem;
+  text-align: center;
+}
+.option-options-2 button {
+  width: 4.5rem;
+}
+
+
+/* Data section */
+
+#data {
+  width: 93%;
+  height: 64vh;
+  max-width: 40rem;
+  margin: 10px auto;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  line-height: 2;
+  white-space: nowrap;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent;
+  padding: 5px 0 0 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  background-image: linear-gradient(
+    to bottom right,
+    #403f44, #1e1b32
+  );
+}
+.data-scroll {
+  overflow-x: auto;
+}
+#logo-div {
+  display: inline;
+}
+#logo {
+  position: relative; /*absolute*/
+  margin: 0px 5px 0;
+  width: 25px;
+  background: white;
+}
+hr {
+  width: 80%;
+}
+
+.flight-options {
+  width: 50%;
+  margin: auto;
+}
+.flight-options ul {
+  margin-top: 0;
+}
+
+
+/* GenAI */
+
+.GenAI.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 6rem auto 0;
+  font-size: large;
+}
+.GenAI .input-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  border-radius: 5rem;
+  background: #ece9e9;
+}
+.GenAI .message-text {
+  margin: 10px auto;
+  text-align: center;
+}
+#GenAI-input {
+  width: 80%;
+  margin-left: 1rem;
+}
+.GenAI .GenAI-btn {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #999;
+  cursor: pointer;
+  background: #ece9e9;
+}
+.GenAI-btn:active {
+  background: #ccc;
+}
+
+.markdown-container {
+  padding: 0 10px;
+  background: #ece9e9;
+  border-radius: 1rem;
+  max-width: 100%;
+  overflow-x: auto;
+  word-wrap: break-word; /* Ensures that long breakable words wrap */
+}
+.markdown-container * {
+  white-space: normal; /* Default for all elements */
+}
+.markdown-container code {
+  white-space: nowrap; /* Prevent wrapping for code blocks */
+  display: inline-block;
+}
+.markdown-container pre {
+  white-space: pre-wrap; /* Allow wrapping within pre-formatted blocks */
+}
+
+
+/* Weather Chart */
+
+.Weather.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 6rem auto 0;
+}
+.Weather .chart-input-container {
+  width: 90%;
+  margin: 2rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.Weather #chart-input {
+  width: 75%;
+}
+.Weather .chart-button {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #999;
+  cursor: pointer;
+  background: #ece9e9;
+}
+.Weather .chart-container {
+  margin: 15px auto 0;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+}
+.Weather #myChart {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/* Footer */
+
+footer {
+  margin: 5rem 0 0;
+  font-size: large;
+  box-shadow: 0 -1px 10px #bbb;
+}
+.footer-main {
+  margin: auto;
+}
+.footer-heading-top {
+  display: flex;
+  align-items: center;
+}
+.footer-heading-top h5 {
+  font-size: 2rem;
+  margin: 1rem;
+}
+.footer-heading p {
+  font-size: 2rem;
+  margin: 0 0  1rem;
+}
+
+
+/* */
+
+.error-text {
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-size: medium;
+  text-align: center;
+}
+
+.loading-text {
+  font-size: medium;
+  text-align: center;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+/* */
+#distance {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  margin: 1rem auto;
+}
+#line-p {
+  width: 100%;
+  margin: auto 5px;
+  border-radius: 5px;
+  background: #cccccc66;
+}
+#line {
+  display: block;
+  height: 2px;
+  border-radius: 5px;
+  background: yellow;
+  position: relative;
+}
+#line::after {
+  margin: var(--smiley-margin, -15px 0 0 0);
+  content: "✈️";
+  position: absolute;
+}
+
+#msgBox {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 10px auto;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  border-top-color: #4285F4;
+  animation: spin 1.9s ease-in-out infinite;
+}
+@keyframes spin {
+  0% {
+    border-top-color: #4285F4; /* Initial color */
+  }
+  30% {
+    border-top-color: #DB4437; /* Change color at 25% of animation */
+  }
+  50% {
+    border-top-color: #F4B400; /* Change color at 50% of animation */
+  }
+  70% {
+    border-top-color: #0F9D58; /* Change color at 75% of animation */
+  }
+  100% {
+    border-top-color: #4285F4; /* Back to initial color at 100% of animation */
+    transform: rotate(360deg);
+  }
+}
+
+.NotFound {
+  margin: 8rem auto;
+}
+
+
+/* Chart */
+b {
+  text-align: center
+}
+input {
+  color: #000;
+  width: 10rem;
+  height: 2.5rem;
+  text-align: center;
+  border-radius: 10px;
+}
+button {
+  margin: 0 1rem;
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 10px;
+}
+
+
+/* Barcode */
+.BarcodeScanner {
+   width: 98%;
+   height: 50vh;
+   margin: auto;
+   text-align: center;
+}
+.scanner-div {
+   width: 15rem;
+   height: fit-content;
+   margin: 2rem auto;
+}
+video {
+   width: 100%;
+}
+.barcode {
+   width: 12rem;
+   margin: auto;
+   padding: 1rem;
+   border-radius: 2rem;
+   border: 2px solid #c2bdbd;
+   box-shadow: 0px 0px 5px #000;
+   backdrop-filter: blur(1rem);
+}
+.barcode-format {
+   margin: 1rem;
+}
+.barcode-button {
+   width: 8rem;
+   padding: 10px;
+   margin: 2rem auto 0;
+   border-radius: 10px;
+}
+.BarcodeScanner canvas {
+   width: 0 !important;
+}
