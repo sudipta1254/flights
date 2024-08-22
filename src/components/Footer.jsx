@@ -9,9 +9,9 @@ const Footer = () => {
                <div className="col l6 s12 footer-heading">
                   <div className="footer-heading-top">
                      <img src={icon1} alt="app icon" />
-                     <h5 className="">Flights - Live flight tracking</h5>
+                     <h5 className="">Flighty - Live flight tracking</h5>
                   </div>
-                  <p className="details">Track live flights in your device.</p>
+                  <p className="details">Track live flights.</p>
                </div>
                <div className="col l4 offset-l2 s12">
                   <h5 className="">Links</h5>

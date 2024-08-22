@@ -17,7 +17,7 @@ const Header = () => {
       <header className='header blue lighten-4 green-text text-darken-2' style={flex}>
          <div className="app-logo-text">
             <img src={icon1} alt="app logo" />
-            <p><Link to="/">Flights</Link></p>
+            <p><Link to="/">Flighty</Link></p>
          </div>
          <div>
             <a href='#!' data-target="slide-nav" className="sidenav-trigger">
