@@ -22,7 +22,7 @@
   * Departure ICAO/IATA :flight_departure: - All* departing flights from the airport
 * Flight information through:
   * Flight ICAO/IATA :airplane: - Information* about the flight
-<p>* listed in the <a href="https://airlabs.co">airlabs.co</a> database.</p>
+<p><i>* listed in the <a href="https://airlabs.co">airlabs.co</a> database.</i></p>
 
 #### <p>2. Generate AI prompts in <a href="https://ai.google.dev/gemini-api/docs/get-started/tutorial?lang=node">Gemini 1.5 Flash</a> Generative AI.</p>
 
@@ -35,8 +35,8 @@ To run the documentation locally on your machine, you need [Node.js](https://nod
 Run these commands to set up the documentation:
 
 ```bash
-git clone https://github.com/sudipta1254/testsite1
-cd testsite1
+git clone https://github.com/sudipta1254/flights
+cd flights
 npm install
 ```
 

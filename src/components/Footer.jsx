@@ -20,7 +20,7 @@ const Footer = () => {
                      <li><a className="green-text text-darken-2" rel="noreferrer" target="_blank" href="//airlabs.co">Airlabs.co</a></li>
                      <li><a className="green-text text-darken-2" rel="noreferrer" target="_blank" href="//www.weatherapi.com">Weatherapi.com</a></li>
                      <li><a className="green-text text-darken-2" rel="noreferrer" target="_blank" href="//materializecss.com">Materialize CSS</a></li>
-                     <li><a className="green-text text-darken-2" rel="noreferrer" target="_blank" href="//github.com/sudipta1254/testsite1">Project on GitHub</a></li>
+                     <li><a className="green-text text-darken-2" rel="noreferrer" target="_blank" href="//github.com/sudipta1254/flights">Project on GitHub</a></li>
                   </ul>
                </div>
                <div className="col l4">
